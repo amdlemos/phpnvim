@@ -1,3 +1,5 @@
+vim.cmd("colorscheme astromars")
+vim.cmd("set termguicolors")
 vim.g["diagnostics_active"] = true
 function Toggle_diagnostics()
   if vim.g.diagnostics_active then
@@ -31,9 +33,6 @@ vim.keymap.set(
   Toggle_diagnostics,
   { noremap = true, silent = true, desc = "Toggle vim diagnostics" }
 )
-
-vim.cmd("colorscheme astromars")
-vim.cmd("set termguicolors")
 
 -- Atualiza automaticamente arquivos alterados externamente
 vim.o.autoread = true

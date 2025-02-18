@@ -1,7 +1,3 @@
--- https://github.com/xero/dotfiles
--- if true then
---   return {}
--- end
 return {
 	{
 		"nvim-lualine/lualine.nvim",
@@ -12,9 +8,6 @@ return {
 			vim.opt.laststatus = 0
 		end,
 		opts = function()
-			-- evangelion colors
-			-- local colors = require("evangelion.unit01").get()
-			-- size display logic
 			local conditions = {
 				buffer_not_empty = function()
 					return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
@@ -58,13 +51,6 @@ return {
 					-- remove default sections and component separators
 					component_separators = "",
 					section_separators = "",
-
-					options = { theme = "astrotheme" },
-					-- theme = {
-					--   -- setting defaults to statusline
-					--   normal = { c = { fg = colors.fg, bg = colors.bg } },
-					--   inactive = { c = { fg = colors.fg, bg = colors.bg } },
-					-- },
 				},
 				sections = {
 					-- clear defaults
@@ -151,7 +137,6 @@ return {
 				--   }
 				-- end,
 				padding = { left = 1, right = 1 },
-				separator = { right = "▓▒░" },
 			})
 			active_left({
 				"filename",
@@ -174,9 +159,7 @@ return {
 			active_left({
 				"branch",
 				-- icon = "",
-				-- color = { bg = colors.unit01, fg = colors.rei },
 				padding = { left = 0, right = 1 },
-				separator = { right = "▓▒░", left = "░▒▓" },
 			})
 
 			-- inactive left section
@@ -185,15 +168,12 @@ return {
 					return ""
 				end,
 				cond = conditions.buffer_not_empty,
-				-- color = { bg = colors.core, fg = colors.fog },
 				padding = { left = 1, right = 1 },
 			})
 			inactive_left({
 				"filename",
 				cond = conditions.buffer_not_empty,
-				-- color = { bg = colors.core, fg = colors.fog },
 				padding = { left = 1, right = 1 },
-				separator = { right = "▓▒░" },
 				symbols = {
 					modified = "",
 					readonly = "",
@@ -218,37 +198,24 @@ return {
 					end
 				end,
 				icon = " ",
-				-- color = { bg = colors.kaji, fg = colors.core },
 				padding = { left = 1, right = 1 },
 				cond = conditions.hide_in_width_first,
-				separator = { right = "▓▒░", left = "░▒▓" },
 			})
 
 			active_right({
 				"diagnostics",
 				sources = { "nvim_diagnostic" },
 				symbols = { error = " ", warn = " ", info = " " },
-				-- diagnostics_color = {
-				--   error = { fg = colors.core },
-				--   info = { fg = colors.core },
-				--   warn = { fg = colors.core },
-				-- },
 				colounit01 = false,
-				-- color = { bg = colors.lcl, fg = colors.core },
 				padding = { left = 1, right = 1 },
-				separator = { right = "▓▒░", left = "░▒▓" },
 			})
 			active_right({
 				"searchcount",
-				-- color = { bg = colors.dummyplug, fg = colors.rei },
 				padding = { left = 1, right = 1 },
-				separator = { right = "▓▒░", left = "░▒▓" },
 			})
 			active_right({
 				"location",
-				-- color = { bg = colors.mari, fg = colors.rei },
 				padding = { left = 1, right = 0 },
-				separator = { left = "░▒▓" },
 			})
 			active_right({
 				function()
@@ -256,49 +223,38 @@ return {
 					local total = vim.fn.line("$")
 					return string.format("%2d%%%%", math.floor(cur / total * 100))
 				end,
-				-- color = { bg = colors.mari, fg = colors.rei },
 				padding = { left = 1, right = 1 },
 				cond = conditions.hide_in_width,
-				separator = { right = "▓▒░" },
 			})
 			active_right({
 				"o:encoding",
 				fmt = string.upper,
 				cond = conditions.hide_in_width,
 				padding = { left = 1, right = 1 },
-				-- color = { bg = colors.unit01, fg = colors.core },
 			})
 			active_right({
 				"fileformat",
 				fmt = string.lower,
 				icons_enabled = false,
 				cond = conditions.hide_in_width,
-				-- color = { bg = colors.unit01, fg = colors.core },
-				separator = { right = "▓▒░" },
 				padding = { left = 0, right = 1 },
 			})
 
 			-- inactive right section
 			inactive_right({
 				"location",
-				-- color = { bg = colors.core, fg = colors.fog },
 				padding = { left = 1, right = 0 },
-				separator = { left = "░▒▓" },
 			})
 			inactive_right({
 				"progress",
-				-- color = { bg = colors.core, fg = colors.fog },
 				cond = conditions.hide_in_width,
 				padding = { left = 1, right = 1 },
-				separator = { right = "▓▒░" },
 			})
 			inactive_right({
 				"fileformat",
 				fmt = string.lower,
 				icons_enabled = false,
 				cond = conditions.hide_in_width,
-				-- color = { bg = colors.core, fg = colors.fog },
-				separator = { right = "▓▒░" },
 				padding = { left = 0, right = 1 },
 			})
 			return config
