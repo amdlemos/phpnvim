@@ -1,7 +1,7 @@
 return {
 	"nvimtools/none-ls.nvim",
 	dependencies = { "nvim-lua/plenary.nvim" },
-	enabled = false,
+	enabled = true,
 	config = function()
 		local null_ls = require("null-ls")
 		local builtins = null_ls.builtins
@@ -23,6 +23,8 @@ return {
 				end
 			end,
 			sources = {
+
+				--phpcs
 				builtins.diagnostics.phpcs.with({
 					prefer_local = "vendor/bin",
 					method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
@@ -30,6 +32,8 @@ return {
 						return utils.root_has_file("phpcs.xml")
 					end,
 				}),
+
+				-- phpmd
 				builtins.diagnostics.phpmd.with({
 					prefer_local = "vendor/bin",
 					extra_args = { "phpmd.xml" },
@@ -38,11 +42,15 @@ return {
 						return utils.root_has_file("phpmd.xml")
 					end,
 				}),
+
+				-- phpstan
 				builtins.diagnostics.phpstan.with({
 					prefer_local = "vendor/bin",
 					extra_args = { "--memory-limit=1g" },
 					method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
 				}),
+
+				-- php-cs-fixer
 				builtins.formatting.phpcsfixer.with({
 					prefer_local = "vendor/bin",
 				}),
