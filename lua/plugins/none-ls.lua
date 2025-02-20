@@ -28,15 +28,10 @@ return {
 				require("plugins.sources.phpmd"),
 				require("plugins.sources.phpstan"),
 				require("plugins.sources.phpcsfixer"),
+				require("plugins.sources.phpcbf"),
+				require("plugins.sources.pint"),
 				require("plugins.sources.prettier"),
 
-				builtins.formatting.pint.with({
-					prefer_local = "vendor/bin",
-				}),
-
-				builtins.formatting.phpcbf.with({
-					prefer_local = "vendor/bin",
-				}),
 				builtins.formatting.stylua,
 				builtins.formatting.xmllint,
 			},
