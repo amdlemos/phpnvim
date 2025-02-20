@@ -5,7 +5,7 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		init = function()
 			-- disable until lualine loads
-			vim.opt.laststatus = 0
+			vim.opt.laststatus = 3
 		end,
 		opts = function()
 			local conditions = {
