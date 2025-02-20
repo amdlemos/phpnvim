@@ -10,8 +10,9 @@ return {
 					-- transparent = true,
 				},
 				plugins = {
-					["bufferline.nvim"] = true,
-					["nvim-tree"] = true,
+					["snacks"] = true,
+					["blink-cmp"] = true,
+					["lazy"] = true,
 				},
 				palettes = {
 					astromars = {
