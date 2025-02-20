@@ -1,4 +1,4 @@
-local border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
+-- local border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
 local winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None"
 return {
 	{
@@ -41,7 +41,7 @@ return {
 				menu = {
 					-- Don't automatically show the completion menu
 					auto_show = true,
-					border = border,
+					-- border = border,
 					winhighlight = winhighlight,
 					draw = {
 						columns = {
