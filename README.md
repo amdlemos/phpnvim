@@ -16,7 +16,7 @@ This repository contains my personalized Neovim configuration, optimized for PHP
 - Git
 - Curl
 - Plugin manager (Lazy)
-- Node.js (for language support)
+- Node.js
 - Composer
 
 ### Steps
@@ -31,20 +31,25 @@ NVIM_APPNAME=phpnvim nvim"
 
 ---
 
-## 🔧 Dependencies
+## 🔧 Tools
 
 This configuration is designed to use project-specific dependencies instead of global ones. It is recommended to install the following packages inside your project directory:
-
 
 ```sh
 # PHP dependencies
 composer require --dev squizlabs/php_codesniffer friendsofphp/php-cs-fixer phpmd/phpmd phpstan/phpstan laravel/pint vimeo/psalm phan/phan
 
+npm i intelephense -g
+
 # TypeScript/Vue dependencies
 npm install --save-dev eslint typescript volar
 ```
 
-### List of Dependencies:
+### Phpactor
+
+[Installation](https://phpactor.readthedocs.io/en/master/usage/standalone.html)
+
+### List of supported tools:
 
 #### PHP
 
@@ -68,7 +73,6 @@ npm install --save-dev eslint typescript volar
 | `volar`  | Language server for Vue.js           |
 | `ts_ls`  | TypeScript Language Server           |
 | `eslint` | Linter for TypeScript and JavaScript |
-| `ts_sl`  | TypeScript Solution LSP              |
 
 ---
 
@@ -157,34 +161,6 @@ Here are example configurations for some of the tools:
 </ruleset>
 ```
 
-### `psalm`
-
-```xml
-
-<?xml version="1.0"?>
-<psalm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://getpsalm.org/schema/config" errorLevel="6" resolveFromConfigFile="true" xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd" findUnusedBaselineEntry="true" findUnusedCode="true">
-  <projectFiles>
-    <directory name="app"/>
-    <directory name="database/factories"/>
-    <directory name="database/seeders"/>
-    <ignoreFiles>
-      <directory name="vendor"/>
-    </ignoreFiles>
-  </projectFiles>
-  <issueHandlers>
-    <UnusedVariable errorLevel="suppress"/>
-    <UndefinedConstant errorLevel="suppress"/>
-    <UndefinedMagicMethod errorLevel="suppress"/>
-  </issueHandlers>
-</psalm>
-```
-
-### `phan`
-
-```php
-'exclude_file_regex' => '@^vendor/.*/(tests?|Tests?)|/\.null-ls_@',
-```
-
 ---
 
 ## 🔍 Tool-Specific Configurations
@@ -195,27 +171,118 @@ Here are example configurations for some of the tools:
 - **Phan**: Detects issues in PHP code through static analysis.
 
   - Requires additional installation:
+
     ```sh
     pecl install ast
+    export PHAN_DISABLE_XDEBUG=1
+    # Run pecl install ast and add extension=ast.so to your php.ini.
     ```
+
     More details: [php-ast](https://github.com/nikic/php-ast)
+
   - Recommended configuration:
     ```php
+    # ./phan/config.php
     'exclude*file_regex' => '@^vendor/.*/(tests?|Tests?)|/\.null-ls\_/@'
-    ```
-  - Environment variables:
-    ```sh
-    export PHAN_DISABLE_XDEBUG=1
     ```
 
 - **Phpactor**: Provides code refactoring and autocompletion features.
+
+  ```json
+  # .phpactor.json
+  {
+    "$schema": "/phpactor.schema.json",
+    "language_server_phpstan.enabled": false,
+    "language_server_psalm.enabled": false,
+    "language_server_php_cs_fixer.enabled": false,
+    "php_code_sniffer.enabled": false,
+    "language_server.diagnostics_on_update": true
+  }
+  ```
+
 - **Psalm**: Finds potential bugs and type issues in PHP.
-- **PHPCBF**: Automatically fixes coding standard violations.
-- **PHPCS**: Enforces PHP coding standards.
-- **PHP-CS-Fixer**: Formats PHP code according to rules.
+
+  ```xml
+  <?xml version="1.0"?>
+  <psalm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://getpsalm.org/schema/config" errorLevel="6" resolveFromConfigFile="true" xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd" findUnusedBaselineEntry="true" findUnusedCode="true">
+    <projectFiles>
+      <directory name="app"/>
+      <directory name="database/factories"/>
+      <directory name="database/seeders"/>
+      <ignoreFiles>
+        <directory name="vendor"/>
+      </ignoreFiles>
+    </projectFiles>
+    <issueHandlers>
+      <UnusedVariable errorLevel="suppress"/>
+      <UndefinedConstant errorLevel="suppress"/>
+      <UndefinedMagicMethod errorLevel="suppress"/>
+    </issueHandlers>
+  </psalm>
+  ```
+
+- **PHPCBF** - **PHPCS**
+
+
 - **PHPMD**: Detects potential code issues.
 - **PHPStan**: Provides advanced static analysis for PHP.
 - **Pint**: A simple and opinionated PHP code style fixer for Laravel projects.
+
+- **PHP-CS-Fixer**: Formats PHP code according to rules.
+
+  ```xml
+      <?xml version="1.0"?>
+      <ruleset name="Whitelabel">
+        <description>Regras personalizadas.</description>
+        <!-- Show progress of the run -->
+        <arg value="p"/>
+        <!-- Show sniff codes in all reports -->
+        <arg value="s"/>
+        <rule ref="PSR12"/>
+        <rule ref="PSR12">
+          <exclude name="PSR12.Operators.OperatorSpacing.NoSpaceBefore"/>
+          <exclude name="PSR12.Operators.OperatorSpacing.NoSpaceAfter"/>
+          <exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNewLine"/>
+        </rule>
+        <!-- Squiz -->
+        <rule ref="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine">
+          <severity>0</severity>
+        </rule>
+        <rule ref="Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore">
+          <severity>0</severity>
+        </rule>
+        <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine">
+          <severity>0</severity>
+        </rule>
+        <!-- PEAR -->
+        <rule ref="PEAR.Commenting.ClassComment.MissingAuthorTag">
+          <severity>4</severity>
+        </rule>
+        <rule ref="PEAR.Commenting.ClassComment.MissingCategoryTag">
+          <severity>4</severity>
+        </rule>
+        <rule ref="PEAR.Commenting.ClassComment.MissingLicenseTag">
+          <severity>4</severity>
+        </rule>
+        <rule ref="PEAR.Commenting.ClassComment.MissingLinkTag">
+          <severity>4</severity>
+        </rule>
+        <rule ref="PEAR.Commenting.ClassComment.Missing">
+          <severity>8</severity>
+        </rule>
+        <!-- Generic -->
+        <rule ref="Generic.Commenting.DocComment.NonParamGroup">
+          <severity>4</severity>
+        </rule>
+        <rule ref="Generic.Commenting.DocComment.MissingShort">
+          <severity>9</severity>
+        </rule>
+        <rule ref="PSR12.Classes.ClassInstantiation.MissingParentheses">
+          <severity>0</severity>
+        </rule>
+      <
+      </ruleset>
+  ```
 
 ### TypeScript/Vue
 
@@ -223,8 +290,6 @@ Here are example configurations for some of the tools:
 - **TypeScript Language Server (ts_ls)**: Provides TypeScript and JavaScript IntelliSense.
 - **ESLint**: Ensures consistent code formatting and style.
 - **TypeScript Solution LSP (ts_sl)**: Improves TypeScript project-wide IntelliSense.
-
----
 
 ## 📄 License
 
