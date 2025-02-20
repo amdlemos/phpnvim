@@ -24,13 +24,14 @@ return {
 				end
 			end,
 			sources = {
-				require("plugins.sources.phpcs"),
-				require("plugins.sources.phpmd"),
-				require("plugins.sources.phpstan"),
-				require("plugins.sources.phpcsfixer"),
-				require("plugins.sources.phpcbf"),
-				require("plugins.sources.pint"),
-				require("plugins.sources.prettier"),
+
+				require("plugins.sources.phpmd").setup(builtins, null_ls.methods.DIAGNOSTICS_ON_SAVE),
+				require("plugins.sources.phpstan").setup(builtins, null_ls.methods.DIAGNOSTICS_ON_SAVE),
+				require("plugins.sources.phpcs").setup(builtins, null_ls.methods.DIAGNOSTICS_ON_SAVE),
+				require("plugins.sources.phpcsfixer").setup(builtins),
+				require("plugins.sources.phpcbf").setup(builtins),
+				require("plugins.sources.pint").setup(builtins),
+				require("plugins.sources.prettier").setup(builtins),
 
 				builtins.formatting.stylua,
 				builtins.formatting.xmllint,
