@@ -27,11 +27,18 @@ return {
 		enabled = true,
 		config = function()
 			require("plugins.lsp.intelephense")
-			require("plugins.lsp.phpactor")
+			-- require("plugins.lsp.phpactor")
 			require("plugins.lsp.psalm")
 			require("plugins.lsp.phan")
+			require("plugins.lsp.emmet_language_server")
+			-- require("plugins.lsp.biome")
+			require("plugins.lsp.html")
+			require("plugins.lsp.eslint")
+			require("plugins.lsp.astro")
+			-- require("plugins.lsp.ts_ls")
+			-- require("plugins.lsp.vtsls")
+			require("plugins.lsp.volar")
 
-			-- keymaps for help, go to definition, code actions & other
 			local keymap = vim.keymap
 			local buf = vim.lsp.buf
 			keymap.set("n", "K", buf.hover, { desc = "LSP Hover" })
