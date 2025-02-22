@@ -6,7 +6,7 @@ M.setup = function(builtins, method)
 		extra_args = { "--memory-limit=1g" },
 		method = method,
 		condition = function(utils)
-			return utils.root_has_file({ "phpstan.neon" })
+			return utils.root_has_file({ "phpstan.neon", "src/phpstan.neon" })
 		end,
 	})
 end
