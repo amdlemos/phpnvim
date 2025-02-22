@@ -223,7 +223,6 @@ Here are example configurations for some of the tools:
 
 - **PHPCBF** - **PHPCS**
 
-
 - **PHPMD**: Detects potential code issues.
 - **PHPStan**: Provides advanced static analysis for PHP.
 - **Pint**: A simple and opinionated PHP code style fixer for Laravel projects.
