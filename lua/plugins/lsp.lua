@@ -1,4 +1,3 @@
-local map = vim.keymap.set
 return {
 	{ "onsails/lspkind.nvim" },
 	{
@@ -34,21 +33,51 @@ return {
 				update_in_insert = false,
 			})
 
-			require("plugins.lsp.intelephense")
-			require("plugins.lsp.psalm")
-			require("plugins.lsp.phan")
-			require("plugins.lsp.emmet_language_server")
-			require("plugins.lsp.html")
-			require("plugins.lsp.eslint")
-			require("plugins.lsp.astro")
-			require("plugins.lsp.volar")
+			local blink_capabilities = require("blink.cmp").get_lsp_capabilities()
+			local lspconfig = require("lspconfig")
 
+			-- default
+			require("plugins.lsp.html").setup(lspconfig)
+			require("plugins.lsp.css").setup(lspconfig)
+			require("plugins.lsp.emmet_language_server").setup(lspconfig)
+
+			-- php
+			require("plugins.lsp.intelephense").setup(lspconfig, blink_capabilities)
+			require("plugins.lsp.psalm").setup(lspconfig)
+			require("plugins.lsp.phan").setup(lspconfig)
+			require("plugins.lsp.eslint").setup(lspconfig)
+
+			-- ts/js
+			require("plugins.lsp.astro").setup(lspconfig, blink_capabilities)
+			require("plugins.lsp.ts_ls").setup(lspconfig, blink_capabilities)
+			require("plugins.lsp.volar").setup(lspconfig, blink_capabilities)
+			require("plugins.lsp.ruby_lsp").setup(lspconfig, blink_capabilities)
+			require("plugins.lsp.solargraph").setup(lspconfig, blink_capabilities)
+			require("plugins.lsp.sorbet").setup(lspconfig, blink_capabilities)
+
+			lspconfig.lua_ls.setup({
+				on_attach = function(client)
+					-- client.server_capabilities.documentFormattingProvider = false
+					-- client.server_capabilities.documentRangeFormattingProvider = false
+				end,
+				capabilities = blink_capabilities,
+				settings = {
+					Lua = {
+						format = { enable = false },
+						diagnostics = {
+							globals = { "vim" },
+						},
+					},
+				},
+			})
+
+			lspconfig.tailwindcss.setup({
+				capabilities = blink_capabilities,
+			})
 			-- Disabled
-			-- require("plugins.lsp.ts_ls")
 			-- require("plugins.lsp.vtsls")
 			-- require("plugins.lsp.biome")
-			-- require("plugins.lsp.phpactor")
-
+			-- require("plugins.lsp.phpactor").setup(lspconfig, blink_capabilities)
 			local keymap = vim.keymap
 			local buf = vim.lsp.buf
 			keymap.set("n", "K", buf.hover, { desc = "LSP Hover" })
