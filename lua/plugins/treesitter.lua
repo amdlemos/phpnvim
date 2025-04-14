@@ -1,5 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	branch = "master",
 	config = function()
 		require("nvim-treesitter.configs").setup({
 			ensure_installed = {
@@ -12,6 +13,7 @@ return {
 				"json",
 				"xml",
 				"php_only",
+				"php",
 				"phpdoc",
 				"markdown_inline",
 				"jsdoc",

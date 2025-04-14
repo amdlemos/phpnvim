@@ -14,6 +14,7 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
+					"volar",
 					"lua_ls",
 					"eslint",
 					"intelephense",
@@ -21,8 +22,10 @@ return {
 					"html",
 					"cssls",
 					"emmet_language_server",
-          "astro",
-          "tailwindcss",
+					"astro",
+					"tailwindcss",
+					"biome",
+					"vtsls",
 				},
 			})
 		end,

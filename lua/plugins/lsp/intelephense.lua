@@ -8,7 +8,10 @@ M.setup = function(lspconfig, capabilities)
 		settings = {
 			intelephense = {
 				format = { enable = false },
-        folding = { enable = true },
+				folding = { enable = true },
+				environment = {
+					includePaths = { "/usr/lib64/php8/extensions" },
+				},
 			},
 		},
 	})

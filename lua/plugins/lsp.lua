@@ -21,10 +21,24 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		opts = {
+			-- make sure mason installs the server
+			servers = {
+				--- @deprecated -- tsserver renamed to ts_ls but not yet released, so keep this for now
+				--- the proper approach is to check the nvim-lspconfig release version when it's released to determine the server name dynamically
+				tsserver = {
+					enabled = false,
+				},
+				ts_ls = {
+					enabled = false,
+				},
+				vtsls = { enabled = false },
+			},
+		},
 		dependencies = { "saghen/blink.cmp" },
 		debug = true,
 		enabled = true,
-		config = function()
+		config = function(_, opts)
 			vim.diagnostic.config({
 				virtual_text = false,
 				signs = true,
@@ -40,53 +54,35 @@ return {
 			require("plugins.lsp.html").setup(lspconfig)
 			require("plugins.lsp.css").setup(lspconfig)
 			require("plugins.lsp.emmet_language_server").setup(lspconfig)
+			-- require("plugins.lsp.sqlls").setup(lspconfig)
+			-- require("plugins.lsp.sqls").setup(lspconfig)
 
 			-- php
 			require("plugins.lsp.intelephense").setup(lspconfig, blink_capabilities)
 			require("plugins.lsp.psalm").setup(lspconfig)
 			require("plugins.lsp.phan").setup(lspconfig)
-			require("plugins.lsp.eslint").setup(lspconfig)
 
 			-- ts/js
 			require("plugins.lsp.astro").setup(lspconfig, blink_capabilities)
-			require("plugins.lsp.ts_ls").setup(lspconfig, blink_capabilities)
+
+			-- require("plugins.lsp.vtsls").setup(lspconfig, blink_capabilities)
+			-- require("plugins.lsp.ts_ls").setup(lspconfig, blink_capabilities)
 			require("plugins.lsp.volar").setup(lspconfig, blink_capabilities)
+			require("plugins.lsp.eslint").setup(lspconfig)
+
+			-- ruby
 			require("plugins.lsp.ruby_lsp").setup(lspconfig, blink_capabilities)
 			require("plugins.lsp.solargraph").setup(lspconfig, blink_capabilities)
 			require("plugins.lsp.sorbet").setup(lspconfig, blink_capabilities)
 
-			lspconfig.lua_ls.setup({
-				on_attach = function(client)
-					-- client.server_capabilities.documentFormattingProvider = false
-					-- client.server_capabilities.documentRangeFormattingProvider = false
-				end,
-				capabilities = blink_capabilities,
-				settings = {
-					Lua = {
-						format = { enable = false },
-						diagnostics = {
-							globals = { "vim" },
-						},
-					},
-				},
-			})
-
-			lspconfig.tailwindcss.setup({
-				capabilities = blink_capabilities,
-			})
 			-- Disabled
-			-- require("plugins.lsp.vtsls")
-			-- require("plugins.lsp.biome")
+			require("plugins.lsp.biome").setup(lspconfig, blink_capabilities)
 			-- require("plugins.lsp.phpactor").setup(lspconfig, blink_capabilities)
+			-- local lspconfig = require("lspconfig")
+
 			local keymap = vim.keymap
 			local buf = vim.lsp.buf
-			keymap.set("n", "K", buf.hover, { desc = "LSP Hover" })
-			keymap.set("n", "gd", buf.definition, { desc = "LSP Definition" })
-			keymap.set("n", "gD", buf.declaration, { desc = "LSP Declaration" })
-			keymap.set("n", "gi", buf.implementation, { desc = "LSP implementation" })
-			keymap.set("n", "gr", buf.references, { desc = "LSP References" })
-			keymap.set("n", "rn", buf.rename, { desc = "LSP Rename" })
-			-- keymap.set("n", "D", buf.type_definition, { desc = "LSP Definition" })
+
 			keymap.set({ "n", "v" }, "<leader>ca", buf.code_action, { desc = "LSP Code Action" })
 		end,
 	},

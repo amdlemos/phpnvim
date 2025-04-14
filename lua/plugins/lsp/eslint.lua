@@ -1,4 +1,4 @@
-local bin_path = vim.fn.getcwd() .. "/node_modules/.bin/"
+-- local bin_path = vim.fn.getcwd() .. "/node_modules/.bin/"
 
 local M = {}
 
@@ -25,7 +25,7 @@ M.setup = function(lspconfig)
 			-- 	command = "EslintFixAll",
 			-- })
 		end,
-		cmd = { bin_path .. "vscode-eslint-language-server", "--stdio" },
+		-- cmd = { bin_path .. "vscode-eslint-language-server", "--stdio" },
 		filetypes = {
 			"javascript",
 			"javascriptreact",
@@ -39,7 +39,7 @@ M.setup = function(lspconfig)
 			"json",
 		},
 
-		-- capabilities = require("blink.cmp").get_lsp_capabilities(),
+		capabilities = require("blink.cmp").get_lsp_capabilities(),
 		-- init_options = {
 		-- 	eslint = {
 		-- 		{
