@@ -1,7 +1,7 @@
 local M = {}
 
 M.setup = function(builtins)
-	return builtins.formatting.prettier.with({
+	return builtins.formatting.prettierd.with({
 		prefer_local = "node_modules/.bin",
 		filetypes = {
 			"javascript",
@@ -23,6 +23,7 @@ M.setup = function(builtins)
 			"svelte",
 			"astro",
 			"htmlangular",
+			-- "twig",
 		},
 	})
 end
