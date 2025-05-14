@@ -53,8 +53,8 @@ return {
 			-- default
 			require("plugins.lsp.html").setup(lspconfig)
 			require("plugins.lsp.css").setup(lspconfig)
-			require("plugins.lsp.emmet_language_server").setup(lspconfig)
-			lspconfig.htmx.setup({})
+			-- require("plugins.lsp.emmet_language_server").setup(lspconfig)
+			-- lspconfig.htmx.setup({})
 			-- require("plugins.lsp.sqlls").setup(lspconfig)
 			-- require("plugins.lsp.sqls").setup(lspconfig)
 
@@ -62,7 +62,7 @@ return {
 			require("plugins.lsp.intelephense").setup(lspconfig, blink_capabilities)
 			require("plugins.lsp.psalm").setup(lspconfig)
 			require("plugins.lsp.phan").setup(lspconfig)
-			require("plugins.lsp.twiggy_language_server").setup(lspconfig)
+			-- require("plugins.lsp.twiggy_language_server").setup(lspconfig)
 
 			-- ts/js
 			require("plugins.lsp.astro").setup(lspconfig, blink_capabilities)

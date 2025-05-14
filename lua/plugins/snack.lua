@@ -2,11 +2,12 @@ return {
 	"folke/snacks.nvim",
 	priority = 1000,
 	lazy = false,
+	enabled = true,
 	---@type snacks.Config
 	opts = {
 		bigfile = { enabled = false },
 		dashboard = { enabled = true },
-		explorer = { enabled = true },
+		explorer = { enabled = false },
 		indent = { enabled = true },
 		input = { enabled = true },
 		notifier = {

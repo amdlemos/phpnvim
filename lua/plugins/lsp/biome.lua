@@ -15,7 +15,7 @@ M.setup = function(lspconfig, capabilities)
 			"typescript",
 			"typescript.tsx",
 			"typescriptreact",
-			'vue',
+			"vue",
 		},
 	})
 end
