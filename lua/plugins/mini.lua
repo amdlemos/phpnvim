@@ -1,4 +1,11 @@
 return {
+	{
+		"echasnovski/mini.indentscope",
+		version = "*",
+		config = function()
+			require("mini.indentscope").setup()
+		end,
+	},
 	{ "echasnovski/mini.tabline", version = "*" },
 	{ "echasnovski/mini.pick", version = "*" },
 	{
@@ -11,8 +18,7 @@ return {
 					split = "",
 					join = "",
 				},
-			}
-)
+			})
 		end,
 	},
 	{

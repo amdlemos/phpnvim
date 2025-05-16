@@ -74,6 +74,7 @@ local options = {
 	-- fixeol = true,
 }
 
+-- Para .lua
 for parameter, value in pairs(options) do
 	vim.opt[parameter] = value
 end

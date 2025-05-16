@@ -1,3 +1,6 @@
+if false then
+	return {}
+end
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
@@ -6,8 +9,8 @@ return {
 	opts = {
 		bigfile = { enabled = false },
 		dashboard = { enabled = true },
-		explorer = { enabled = true },
-		indent = { enabled = true },
+		explorer = { enabled = false },
+		indent = { enabled = false },
 		input = { enabled = true },
 		notifier = {
 			enabled = true,
@@ -76,13 +79,13 @@ return {
 			end,
 			desc = "Notification History",
 		},
-		{
-			"<leader>e",
-			function()
-				Snacks.explorer()
-			end,
-			desc = "File Explorer",
-		},
+		-- {
+		-- 	"<leader>e",
+		-- 	function()
+		-- 		Snacks.explorer()
+		-- 	end,
+		-- 	desc = "File Explorer",
+		-- },
 		-- find
 		{
 			"<leader>fb",

@@ -1,0 +1,179 @@
+-- return {
+-- 	"rcarriga/nvim-dap-ui",
+-- 	dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+-- 	config = function()
+-- 		local dap = require("dap")
+-- 		local dapui = require("dapui")
+--
+-- 		-- Configuração do dapui com elementos específicos e posicionamento otimizado
+-- 		dapui.setup({
+-- 			icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
+-- 			mappings = {
+-- 				-- Use a key binding just like `:lua require("dapui").toggle()`
+-- 				expand = { "<CR>", "<2-LeftMouse>" },
+-- 				open = "o",
+-- 				remove = "d",
+-- 				edit = "e",
+-- 				repl = "r",
+-- 				toggle = "t",
+-- 			},
+-- 			layouts = {
+-- 				{
+-- 					elements = {
+-- 						"breakpoints",
+-- 						"stacks",
+-- 						"watches",
+-- 					},
+-- 					size = 0.25, -- Tamanho proporcional (25% da tela)
+-- 					position = "left",
+-- 				},
+-- 				{
+-- 					elements = {
+-- 						{
+-- 							id = "scopes",
+-- 							size = 0.70,
+-- 						},
+-- 					},
+-- 					size = 0.25, -- Tamanho proporcional (25% da tela)
+-- 					position = "right",
+-- 				},
+-- 			},
+-- 			floating = {
+-- 				max_height = nil,
+-- 				max_width = nil,
+-- 				border = "single",
+-- 				mappings = {
+-- 					close = { "q", "<Esc>" },
+-- 				},
+-- 			},
+-- 			controls = {
+-- 				enabled = true,
+-- 				element = "repl",
+-- 				icons = {
+-- 					pause = "",
+-- 					play = "",
+-- 					step_into = "",
+-- 					step_over = "",
+-- 					step_out = "",
+-- 					step_back = "",
+-- 					run_last = "",
+-- 					terminate = "",
+-- 				},
+-- 			},
+-- 			render = {
+-- 				max_type_length = nil, -- Pode ser útil para prevenir problemas de largura
+-- 				max_value_lines = 100,
+-- 			},
+-- 		})
+--
+-- 		-- Variável para controlar o estado da UI
+-- 		local dapui_was_open = false
+--
+-- 		-- Gerencia o redimensionamento e restauração das janelas
+-- 		local function ensure_clean_window_state()
+-- 			vim.cmd("wincmd =") -- Equilibrar janelas
+-- 			vim.cmd("redraw") -- Redesenhar tela
+-- 		end
+--
+-- 		-- Função para abrir dapui com redimensionamento correto
+-- 		local function dapui_open_with_resize()
+-- 			dapui.open()
+-- 			vim.defer_fn(ensure_clean_window_state, 50)
+-- 			dapui_was_open = true
+-- 		end
+--
+-- 		-- Função para fechar dapui com redimensionamento correto
+-- 		local function dapui_close_with_resize()
+-- 			dapui.close()
+-- 			vim.defer_fn(ensure_clean_window_state, 50)
+-- 			dapui_was_open = false
+-- 		end
+--
+-- 		-- Função de toggle personalizada
+-- 		local function dapui_toggle_with_resize(opts)
+-- 			dapui.toggle(opts)
+-- 			vim.defer_fn(ensure_clean_window_state, 50)
+-- 			dapui_was_open = not dapui_was_open
+-- 		end
+--
+-- 		-- Listeners para eventos de depuração
+-- 		dap.listeners.after.event_initialized["dapui_config"] = function()
+-- 			dapui_open_with_resize()
+-- 		end
+--
+-- 		dap.listeners.before.event_terminated["dapui_config"] = function()
+-- 			dapui_close_with_resize()
+-- 		end
+--
+-- 		dap.listeners.before.event_exited["dapui_config"] = function()
+-- 			dapui_close_with_resize()
+-- 		end
+--
+-- 		-- Detectar mudança de buffer para redimensionar corretamente
+-- 		vim.api.nvim_create_autocmd("BufEnter", {
+-- 			callback = function()
+-- 				if dapui_was_open then
+-- 					vim.defer_fn(ensure_clean_window_state, 20)
+-- 				end
+-- 			end,
+-- 			group = vim.api.nvim_create_augroup("DapUiResizeGroup", { clear = true }),
+-- 		})
+--
+-- 		-- Atalhos para o dapui
+-- 		vim.keymap.set("n", "<leader>du", function()
+-- 			dapui_toggle_with_resize()
+-- 		end, { desc = "Toggle DAP UI" })
+--
+-- 		vim.keymap.set("n", "<leader>ds", function()
+-- 			dapui_toggle_with_resize({ layout = 2 }) -- Alterna apenas o painel de scopes (lado direito)
+-- 		end, { desc = "Toggle DAP Scopes" })
+--
+-- 		-- Após fechar o NvimTree ou outro explorador, redimensionar as janelas
+-- 		vim.api.nvim_create_autocmd("User", {
+-- 			pattern = "NvimTreeClose",
+-- 			callback = function()
+-- 				if dapui_was_open then
+-- 					vim.defer_fn(ensure_clean_window_state, 20)
+-- 				end
+-- 			end,
+-- 			group = vim.api.nvim_create_augroup("NvimTreeResizeGroup", { clear = true }),
+-- 		})
+-- 	end,
+-- 	keys = {
+-- 		{
+-- 			"<leader>du",
+-- 			function()
+-- 				require("dapui").toggle()
+-- 				vim.cmd("wincmd =") -- Equilibrar janelas após o toggle
+-- 			end,
+-- 			desc = "Toggle DAP UI",
+-- 		},
+-- 		{
+-- 			"<leader>ds",
+-- 			function()
+-- 				require("dapui").toggle({ layout = 2 })
+-- 				vim.cmd("wincmd =") -- Equilibrar janelas após o toggle
+-- 			end,
+-- 			desc = "Toggle DAP Scopes",
+-- 		},
+-- 	},
+-- }
+-- Arquivo de configuração para dap-ui utilizando o novo gerenciador de janelas
+-- Coloque em: ~/.config/nvim/lua/plugins/dap-ui.lua
+
+return {
+	"rcarriga/nvim-dap-ui",
+	dependencies = {
+		"mfussenegger/nvim-dap",
+		"nvim-neotest/nvim-nio",
+		-- Podemos adicionar nvim-tree como dependência para garantir carregamento correto
+		"nvim-tree/nvim-tree.lua",
+	},
+	config = function()
+		-- Carrega o gerenciador de janelas
+		local window_manager = require("config.window_manager")
+
+		-- Configura o dap-ui através do gerenciador
+		window_manager.setup_dapui()
+	end,
+}
