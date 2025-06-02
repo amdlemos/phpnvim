@@ -20,7 +20,7 @@ return {
 		},
 		{
 			"<leader>ls",
-			"<cmd>Trouble symbols toggle focus=false<cr>",
+			"<cmd>Trouble symbols toggle win.relative=win win.position=bottom focus=true<cr>",
 			desc = "Symbols (Trouble)",
 		},
 		{

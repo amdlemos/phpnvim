@@ -27,8 +27,8 @@ local options = {
 	showmode = false, -- mode will be shown by statusline
 
 	-- kickstart config
-	list = true,
-	listchars = { tab = "» ", trail = "·", nbsp = "␣" },
+	-- list = true,
+	-- listchars = { tab = "» ", trail = "·", nbsp = "␣" },
 
 	-- tabs and indentations
 

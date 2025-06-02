@@ -99,5 +99,12 @@ return {
 
 		-- Configura o nvim-tree através do gerenciador
 		window_manager.setup_nvim_tree()
+		require("nvim-tree").setup({
+			update_focused_file = {
+				enable = true,
+				update_cwd = true, -- opcional, se quiser atualizar o diretório atual do Neovim
+				ignore_list = {}, -- opcional, lista de buffers a ignorar
+			},
+		})
 	end,
 }
