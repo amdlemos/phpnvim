@@ -25,6 +25,7 @@ opt.undofile = true
 opt.completeopt = { "menuone", "popup", "noinsert" }
 opt.winborder = "rounded"
 opt.hlsearch = false
+opt.cmdheight = 0
 
 vim.cmd.filetype("plugin indent on")
 -- vim.cmd.colorscheme("techbase")
@@ -32,3 +33,4 @@ vim.cmd.filetype("plugin indent on")
 vim.g.copilot_no_tab_map = true
 vim.g.netrw_liststyle = 1
 vim.g.netrw_sort_by = "size"
+vim.g.loaded_perl_provider = 0
