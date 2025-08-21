@@ -23,7 +23,7 @@ M.setup = function(builtins)
 			"svelte",
 			"astro",
 			"htmlangular",
-			-- "twig",
+			"twig",
 		},
 	})
 end

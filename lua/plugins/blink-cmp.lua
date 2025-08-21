@@ -9,6 +9,7 @@ return {
 			{ "rafamadriz/friendly-snippets" },
 			{ "onsails/lspkind.nvim" },
 			{ "echasnovski/mini.icons", version = false },
+			{ "giuxtaposition/blink-cmp-copilot" },
 		},
 
 		-- use a release tag to download pre-built binaries

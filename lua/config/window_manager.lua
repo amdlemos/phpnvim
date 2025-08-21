@@ -239,18 +239,19 @@ function M.setup_dapui()
 			toggle = "t",
 		},
 		layouts = {
-			{
-				elements = {
-					{ id = "breakpoints", size = 0.25 },
-					{ id = "watches", size = 0.25 },
-					{ id = "stacks", size = 0.25 },
-				},
-				size = M.state.saved_widths.dapui_left / 100,
-				position = "left",
-			},
+			-- {
+			-- 	elements = {
+			-- 		{ id = "watches", size = 0.25 },
+			-- 		{ id = "stacks", size = 0.25 },
+			-- 	},
+			-- 	size = M.state.saved_widths.dapui_left / 100,
+			-- 	position = "left",
+			-- },
 			{
 				elements = {
 					{ id = "scopes", size = 1.0 },
+					{ id = "repl", size = 0.25 },
+					{ id = "breakpoints", size = 0.25 },
 				},
 				size = M.state.saved_widths.dapui_right / 100,
 				position = "right",

@@ -1,4 +1,6 @@
 return {
+
+	-- { "projekt0n/github-nvim-theme", name = "github-theme" },
 	{
 		"AstroNvim/astrotheme",
 		lazy = false,
@@ -32,11 +34,11 @@ return {
 			})
 		end,
 	},
-	{ "bluz71/vim-moonfly-colors", name = "moonfly" },
-	{ "bluz71/vim-nightfly-colors", name = "nightfly" },
-	{
-		"folke/tokyonight.nvim",
-		opts = {},
-	},
-	{ "L-Colombo/oldschool.nvim" },
+	-- { "bluz71/vim-moonfly-colors", name = "moonfly" },
+	-- { "bluz71/vim-nightfly-colors", name = "nightfly" },
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	opts = {},
+	-- },
+	-- { "L-Colombo/oldschool.nvim" },
 }

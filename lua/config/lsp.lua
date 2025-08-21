@@ -3,8 +3,11 @@ vim.lsp.enable({
 	-- "gopls",
 	-- "zls",
 	"ts-ls",
+	"twiggy-language-server",
 	-- "rust-analyzer",
 	"intelephense",
+	-- "phpactor",
+	"tailwindcss-language-server",
 })
 
 vim.diagnostic.config({
