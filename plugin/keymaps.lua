@@ -42,7 +42,7 @@ keymap("n", "<leader>cd", '<cmd>lua vim.fn.chdir(vim.fn.expand("%:p:h"))<CR>')
 local opts = { noremap = true, silent = true }
 keymap("n", "grd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 
-keymap("n", "<leader>ex", "<cmd>Ex %:p:h<CR>")
+-- keymap("n", "<leader>ex", "<cmd>Ex %:p:h<CR>")
 keymap("n", "<leader>ps", "<cmd>lua vim.pack.update()<CR>")
 keymap("n", "<leader>gs", "<cmd>Git<CR>", opts)
 keymap("n", "<leader>gp", "<cmd>Git push<CR>", opts)

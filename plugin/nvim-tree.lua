@@ -33,3 +33,8 @@ require("nvim-tree").setup({
 	},
 })
 vim.keymap.set("n", "<leader>A", toggle_width_adaptive, { desc = "Adjust Nvim-Tree" })
+local keymap = vim.keymap.set
+local s = { silent = true }
+
+-- Nvim Tree
+keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", s)
