@@ -16,6 +16,9 @@ vim.pack.add({
 	{ src = "https://github.com/folke/which-key.nvim" },
 	{ src = "https://github.com/tpope/vim-fugitive" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
+	{ src = "https://github.com/kdheepak/lazygit.nvim" },
+	{ src = "https://github.com/stevearc/conform.nvim" },
+
 	-- { src = "https://github.com/mcauley-penney/techbase.nvim" },
 	-- { src = "https://github.com/vieitesss/miniharp.nvim" },
 	-- { src = "https://github.com/ibhagwan/fzf-lua" },
@@ -31,7 +34,7 @@ vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin:" .. vim.env.PATH
 -- require('command').setup({})
 -- require('miniharp').setup({})
 -- require('techbase').setup({})
-require('mason').setup({})
+require("mason").setup({})
 require("astrotheme").setup({})
 require("gitsigns").setup({ signcolumn = false })
 require("blink.cmp").setup({
