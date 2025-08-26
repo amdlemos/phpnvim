@@ -37,10 +37,11 @@ keymap("x", "y", [["+y]], s)
 keymap("t", "<Esc>", "<C-\\><C-N>")
 
 -- cd current dir
-keymap("n", "<leader>cd", '<cmd>lua vim.fn.chdir(vim.fn.expand("%:p:h"))<CR>')
+-- keymap("n", "<leader>cd", '<cmd>lua vim.fn.chdir(vim.fn.expand("%:p:h"))<CR>')
 
 local opts = { noremap = true, silent = true }
-keymap("n", "grd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 
 -- keymap("n", "<leader>ex", "<cmd>Ex %:p:h<CR>")
 keymap("n", "<leader>ps", "<cmd>lua vim.pack.update()<CR>")
@@ -48,8 +49,8 @@ keymap("n", "<leader>gs", "<cmd>Git<CR>", opts)
 keymap("n", "<leader>gp", "<cmd>Git push<CR>", opts)
 keymap("n", "<leader>ff", "<cmd>FzfLua files<CR>")
 keymap("n", "<leader>fg", "<cmd>FzfLua live_grep<CR>")
-keymap("n", "<leader>co", "<cmd>CommandExecute<CR>")
-keymap("n", "<leader>cr", "<cmd>CommandExecuteLast<CR>")
+-- keymap("n", "<leader>co", "<cmd>CommandExecute<CR>")
+-- keymap("n", "<leader>cr", "<cmd>CommandExecuteLast<CR>")
 keymap("i", "<S-Tab>", 'copilot#Accept("\\<Tab>")', { expr = true, replace_keycodes = false })
 -- keymap("n", "<leader>m", '<cmd>lua require("miniharp").toggle_file()<CR>')
 -- keymap("n", "<C-n>", require("miniharp").next)
