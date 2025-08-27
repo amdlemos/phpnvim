@@ -18,5 +18,10 @@
 
 ### origin  
 - https://github.com/vieitesss/nvim.git (push)
-### inspiration
-- https://github.com/SvenBroeckling/nvim-0.12-config
+
+## Inspiration
+
+This configuration was inspired by [SvenBroeckling/nvim-0.12-config](https://github.com/SvenBroeckling/nvim-0.12-config) (licensed under GPL-3.0).  
+
+My configuration is licensed under MIT, as it was adapted and reimplemented rather than copied directly.
+
