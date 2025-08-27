@@ -1,6 +1,6 @@
 # PHP + Vue Configuration
 
-# ⚠️ Repository Notice
+### Repository Notice
 
 This project is being migrated from the **main** branch to the **nightly** branch.  
 Please switch to `nightly` for the latest updates and active development.
