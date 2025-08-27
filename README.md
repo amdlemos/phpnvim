@@ -16,4 +16,7 @@
 - [mcphub.nvim](https://github.com/ravitemer/mcphub.nvim)
 
 
-### origin  https://github.com/vieitesss/nvim.git (push)
+### origin  
+- https://github.com/vieitesss/nvim.git (push)
+### inspiration
+- https://github.com/SvenBroeckling/nvim-0.12-config
