@@ -1,3 +1,6 @@
+-- if true then
+-- 	return
+-- end
 local lualine = require("lualine")
 local icons = require("lib.icons")
 

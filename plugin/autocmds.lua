@@ -27,5 +27,23 @@ vim.api.nvim_create_autocmd("FileType", {
 				end
 			end)
 		end, { buffer = true, silent = true })
-    	end,
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		vim.opt_local.textwidth = 120
+		vim.opt_local.formatoptions:append("t")
+		vim.opt_local.colorcolumn = "120"
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "php",
+	callback = function()
+		vim.opt_local.textwidth = 80
+		vim.opt_local.formatoptions:append("t")
+		vim.opt_local.colorcolumn = "80"
+	end,
 })

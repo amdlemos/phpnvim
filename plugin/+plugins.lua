@@ -5,6 +5,12 @@ vim.pack.add({
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 
+	-- DAP
+	{ src = "https://github.com/mfussenegger/nvim-dap" },
+	{ src = "https://github.com/nvim-neotest/nvim-nio" },
+	{ src = "https://github.com/rcarriga/nvim-dap-ui" },
+	{ src = "https://github.com/folke/lazydev.nvim" },
+
 	-- Formater
 	{ src = "https://github.com/stevearc/conform.nvim" },
 
@@ -30,14 +36,15 @@ vim.pack.add({
 vim.lsp.enable({
 	"bashls",
 	"lua_ls",
-	"ts_ls",
 	"intelephense",
+	"ts_ls",
 	"ruff",
-	"phan",
-	"phpactor",
-	-- "psalm",
 	"turbo_ls",
-	"twiggy_language_server",
+	"tailwindcss",
+	-- "phan",
+	-- "phpactor",
+	-- "psalm",
+	-- "twiggy_language_server",
 	-- "gopls",
 	-- "texlab",
 	-- "rust-analyzer",
@@ -46,6 +53,10 @@ vim.lsp.enable({
 vim.diagnostic.config({ virtual_text = true })
 
 -- require("mason").setup({})
+require("lazydev").setup({
+	library = { "nvim-dap-ui" },
+})
+
 require("astrotheme").setup({})
 require("blink.cmp").setup({
 	fuzzy = { implementation = "prefer_rust_with_warning" },
@@ -67,5 +78,15 @@ require("blink.cmp").setup({
 	-- 		["<CR>"] = { "accept_and_enter", "fallback" },
 	-- 	},
 	-- },
-	sources = { default = { "lsp" } },
+	sources = {
+		default = { "lazydev", "lsp" },
+		providers = {
+			lazydev = {
+				name = "LazyDev",
+				module = "lazydev.integrations.blink",
+				-- make lazydev completions top priority (see `:h blink.cmp`)
+				score_offset = 100,
+			},
+		},
+	},
 })

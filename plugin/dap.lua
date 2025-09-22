@@ -1,7 +1,8 @@
+local dapuiok, dapui = pcall(require, "dapui")
 local ok, dap = pcall(require, "dap")
-if not ok then
-	return
-end
+-- if not ok then
+-- 	return
+-- end
 
 -- Configuração do adaptador PHP
 dap.adapters.php = {
@@ -13,45 +14,37 @@ dap.adapters.php = {
 	},
 }
 
--- Opcional: agrupar atalhos no which-key, se disponível
-pcall(function()
-	require("which-key").add({ { "<leader>d", group = "Debug" } })
-end)
+dapui.setup()
 
-local map = function(lhs, rhs, desc)
-	vim.keymap.set("n", lhs, rhs, { desc = desc, silent = true })
+dap.listeners.before.attach.dapui_config = function()
+	dapui.open()
+end
+dap.listeners.before.launch.dapui_config = function()
+	dapui.open()
+end
+dap.listeners.before.event_terminated.dapui_config = function()
+	dapui.close()
+end
+dap.listeners.before.event_exited.dapui_config = function()
+	dapui.close()
 end
 
-map("<leader>db", function()
+local keymap = vim.keymap.set
+local s = { silent = true }
+
+-- DAP breakpoints e debug
+keymap("n", "<leader>db", function()
 	dap.toggle_breakpoint()
-end, "Toggle breakpoint")
-
-map("<leader>dc", function()
+end, s)
+keymap("n", "<leader>dc", function()
 	dap.continue()
-end, "Continue")
-
-map("<leader>do", function()
+end, s)
+keymap("n", "<leader>do", function()
 	dap.step_over()
-end, "Over")
-
-map("<leader>di", function()
+end, s)
+keymap("n", "<leader>di", function()
 	dap.step_into()
-end, "Into")
-
-map("<leader>dk", function()
+end, s)
+keymap("n", "<leader>dk", function()
 	require("dap.ui.widgets").hover()
-end, "Open expression value")
-
-map("<leader>ds", function()
-	local widgets = require("dap.ui.widgets")
-	local my_sidebar = widgets.sidebar(widgets.scopes)
-	local winopts = { width = 300 }
-	my_sidebar.open(winopts)
-end, "View current scopes in a sidebar")
-
-map("<leader>df", function()
-	local widgets = require("dap.ui.widgets")
-	local my_sidebar = widgets.sidebar(widgets.frames)
-	local winopts = { width = 300 }
-	my_sidebar.open(winopts)
-end, "View current frames in a sidebar")
+end, s)
