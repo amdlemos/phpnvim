@@ -1,8 +1,8 @@
-local dapuiok, dapui = pcall(require, "dapui")
-local ok, dap = pcall(require, "dap")
--- if not ok then
--- 	return
--- end
+local dapui_ok, dapui = pcall(require, "dapui")
+local dap_ok, dap = pcall(require, "dap")
+if not dap_ok then
+	return
+end
 
 -- Configuração do adaptador PHP
 dap.adapters.php = {
@@ -14,19 +14,21 @@ dap.adapters.php = {
 	},
 }
 
-dapui.setup()
+if dapui_ok then
+	dapui.setup()
 
-dap.listeners.before.attach.dapui_config = function()
-	dapui.open()
-end
-dap.listeners.before.launch.dapui_config = function()
-	dapui.open()
-end
-dap.listeners.before.event_terminated.dapui_config = function()
-	dapui.close()
-end
-dap.listeners.before.event_exited.dapui_config = function()
-	dapui.close()
+	dap.listeners.before.attach.dapui_config = function()
+		dapui.open()
+	end
+	dap.listeners.before.launch.dapui_config = function()
+		dapui.open()
+	end
+	dap.listeners.before.event_terminated.dapui_config = function()
+		dapui.close()
+	end
+	dap.listeners.before.event_exited.dapui_config = function()
+		dapui.close()
+	end
 end
 
 local keymap = vim.keymap.set
@@ -36,27 +38,17 @@ local s = { silent = true }
 do
 	local wk_ok, wk = pcall(require, "which-key")
 	if wk_ok then
-		if wk.add then
-			wk.add({
-				{ "<leader>d", group = "DAP/Debug" },
-				{ "<leader>db", desc = "DAP Toggle Breakpoint" },
-				{ "<leader>dc", desc = "DAP Continue" },
-				{ "<leader>do", desc = "DAP Step Over" },
-				{ "<leader>di", desc = "DAP Step Into" },
-				{ "<leader>dk", desc = "DAP Hover" },
-			})
-		else
-			wk.register({
-				d = {
-					name = "DAP/Debug",
-					b = "DAP Toggle Breakpoint",
-					c = "DAP Continue",
-					o = "DAP Step Over",
-					i = "DAP Step Into",
-					k = "DAP Hover",
-				},
-			}, { prefix = "<leader>" })
+		if not wk.add then
+			return
 		end
+		wk.add({
+			{ "<leader>d", group = "DAP/Debug" },
+			{ "<leader>db", desc = "DAP Toggle Breakpoint" },
+			{ "<leader>dc", desc = "DAP Continue" },
+			{ "<leader>do", desc = "DAP Step Over" },
+			{ "<leader>di", desc = "DAP Step Into" },
+			{ "<leader>dk", desc = "DAP Hover" },
+		})
 	end
 end
 
