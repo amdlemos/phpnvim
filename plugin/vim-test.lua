@@ -2,4 +2,4 @@
 vim.g["test#php#pest#executable"] = "docker compose -f docker-compose.dev.yml exec -T app vendor/bin/pest"
 vim.g["test#strategy"] = "neovim"
 vim.g["test#neovim#term_position"] = "botright"
-vim.g["test#neovim#start_insert"] = 1
+vim.g["test#neovim#start_insert"] = 0

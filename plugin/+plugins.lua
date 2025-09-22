@@ -11,6 +11,9 @@ vim.pack.add({
 	{ src = "https://github.com/rcarriga/nvim-dap-ui" },
 	{ src = "https://github.com/folke/lazydev.nvim" },
 
+	-- Testing
+	{ src = "https://github.com/vim-test/vim-test" },
+
 	-- Formater
 	{ src = "https://github.com/stevearc/conform.nvim" },
 
