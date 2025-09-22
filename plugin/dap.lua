@@ -32,19 +32,47 @@ end
 local keymap = vim.keymap.set
 local s = { silent = true }
 
+-- which-key: registrar grupo e descrições (se disponível)
+do
+	local wk_ok, wk = pcall(require, "which-key")
+	if wk_ok then
+		if wk.add then
+			wk.add({
+				{ "<leader>d", group = "DAP/Debug" },
+				{ "<leader>db", desc = "DAP Toggle Breakpoint" },
+				{ "<leader>dc", desc = "DAP Continue" },
+				{ "<leader>do", desc = "DAP Step Over" },
+				{ "<leader>di", desc = "DAP Step Into" },
+				{ "<leader>dk", desc = "DAP Hover" },
+			})
+		else
+			wk.register({
+				d = {
+					name = "DAP/Debug",
+					b = "DAP Toggle Breakpoint",
+					c = "DAP Continue",
+					o = "DAP Step Over",
+					i = "DAP Step Into",
+					k = "DAP Hover",
+				},
+			}, { prefix = "<leader>" })
+		end
+	end
+end
+
 -- DAP breakpoints e debug
 keymap("n", "<leader>db", function()
 	dap.toggle_breakpoint()
-end, s)
+end, vim.tbl_extend("force", s, { desc = "DAP Toggle Breakpoint" }))
 keymap("n", "<leader>dc", function()
 	dap.continue()
-end, s)
+end, vim.tbl_extend("force", s, { desc = "DAP Continue" }))
 keymap("n", "<leader>do", function()
 	dap.step_over()
-end, s)
+end, vim.tbl_extend("force", s, { desc = "DAP Step Over" }))
 keymap("n", "<leader>di", function()
 	dap.step_into()
-end, s)
+end, vim.tbl_extend("force", s, { desc = "DAP Step Into" }))
 keymap("n", "<leader>dk", function()
 	require("dap.ui.widgets").hover()
-end, s)
+end, vim.tbl_extend("force", s, { desc = "DAP Hover" }))
