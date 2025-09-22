@@ -76,3 +76,11 @@ end, vim.tbl_extend("force", s, { desc = "DAP Step Into" }))
 keymap("n", "<leader>dk", function()
 	require("dap.ui.widgets").hover()
 end, vim.tbl_extend("force", s, { desc = "DAP Hover" }))
+
+-- Fechar floats do DAP com 'q'
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "dap-float", "dapui_watches", "dapui_scopes", "dapui_hover" },
+	callback = function()
+		vim.keymap.set("n", "q", "<cmd>close!<CR>", { buffer = true, silent = true })
+	end,
+})
