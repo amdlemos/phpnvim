@@ -26,6 +26,7 @@ vim.pack.add({
 
 	-- Others
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
+	{ src = "https://github.com/nvim-telescope/telescope-frecency.nvim" },
 	{ src = "https://github.com/folke/which-key.nvim" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/tpope/vim-fugitive" },
@@ -34,6 +35,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-tree/nvim-tree.lua" },
 	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
 	{ src = "https://github.com/famiu/bufdelete.nvim" },
+	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
 }, { load = true })
 
 -- LSP
