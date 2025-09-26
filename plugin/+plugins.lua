@@ -36,7 +36,18 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
 	{ src = "https://github.com/famiu/bufdelete.nvim" },
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
+	{ src = "https://github.com/github/copilot.vim" },
+	{ src = "https://github.com/nvim-mini/mini.icons", branch = "stable" },
+	{ src = "https://github.com/nvim-mini/mini.pairs", branch = "stable" },
+	{ src = "https://github.com/onsails/lspkind.nvim" },
+	{ src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim" },
+	{ src = "https://github.com/rafamadriz/friendly-snippets" },
+	{ src = "https://github.com/github/copilot.vim" },
+	{ src = "https://github.com/supermaven-inc/supermaven-nvim" },
+	-- { src = "https://github.com/olimorris/codecompanion.nvim" },
 }, { load = true })
+
+vim.lsp.config("tailwindcss", { filetypes = { "twig" } })
 
 -- LSP
 vim.lsp.enable({
@@ -45,7 +56,7 @@ vim.lsp.enable({
 	"intelephense",
 	"ts_ls",
 	"ruff",
-	"turbo_ls",
+	-- "turbo_ls",
 	"tailwindcss",
 	-- "phan",
 	-- "phpactor",
@@ -64,35 +75,13 @@ require("lazydev").setup({
 })
 
 require("astrotheme").setup({})
-require("blink.cmp").setup({
-	fuzzy = { implementation = "prefer_rust_with_warning" },
-	signature = { enabled = true },
-	keymap = { preset = "default" },
-	appearance = {
-		use_nvim_cmp_as_default = true,
-		nerd_font_variant = "normal",
-	},
-	completion = {
-		documentation = {
-			auto_show = true,
-			-- auto_show_delay_ms = 200,
-		},
-	},
-	-- cmdline = {
-	-- 	keymap = {
-	-- 		preset = "inherit",
-	-- 		["<CR>"] = { "accept_and_enter", "fallback" },
-	-- 	},
-	-- },
-	sources = {
-		default = { "lazydev", "lsp" },
-		providers = {
-			lazydev = {
-				name = "LazyDev",
-				module = "lazydev.integrations.blink",
-				-- make lazydev completions top priority (see `:h blink.cmp`)
-				score_offset = 100,
-			},
-		},
-	},
-})
+require("tiny-inline-diagnostic").setup()
+require("mini.pairs").setup()
+require("mini.icons").setup()
+require("supermaven-nvim").setup({})
+-- Other package managers
+-- require("codecompanion").setup({
+-- 	opts = {
+-- 		log_level = "DEBUG", -- or "TRACE"
+-- 	},
+-- })
