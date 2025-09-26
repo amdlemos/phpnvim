@@ -15,7 +15,40 @@ dap.adapters.php = {
 }
 
 if dapui_ok then
-	dapui.setup()
+	dapui.setup({
+		layouts = {
+			{
+				elements = {
+					-- Painéis úteis na barra lateral esquerda
+					{ id = "scopes", size = 0.4 },
+					{ id = "breakpoints", size = 0.3 },
+					{ id = "stacks", size = 0.3 },
+				},
+				size = 40,
+				position = "left",
+			},
+			-- {
+			-- 	elements = {
+			-- 		-- Apenas watches na parte inferior (sem repl e console)
+			-- 		{ id = "watches", size = 1.0 },
+			-- 	},
+			-- 	size = 10,
+			-- 	position = "bottom",
+			-- },
+		},
+		controls = {
+			enabled = true,
+			element = "scopes",
+		},
+		floating = {
+			max_height = nil,
+			max_width = nil,
+			border = "rounded",
+			mappings = {
+				close = { "q", "<Esc>" },
+			},
+		},
+	})
 
 	-- Abrir UI ao iniciar a sessão
 	dap.listeners.after.event_initialized["dapui_config"] = function()
