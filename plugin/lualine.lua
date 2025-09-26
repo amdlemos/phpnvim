@@ -175,16 +175,20 @@ local function mode(icon)
 	}
 end
 
+-- Configurar statusline global do Neovim
+vim.opt.laststatus = 3 -- Statusline global (3 = global, 2 = por janela, 0 = nunca)
+
 lualine.setup({
 	options = {
 		component_separators = "",
 		-- section_separators = '',
 		theme = "onedark",
+		globalstatus = true, -- Lualine global em todas as janelas
 		disabled_filetypes = {
 			"dashboard",
 		},
 	},
-	-- extensions = { 'quickfix', 'man', 'mason', 'lazy', 'toggleterm', 'nvim-tree' },
+	extensions = { "quickfix", "man", "mason", "lazy", "toggleterm", "nvim-tree" },
 	tabline = {
 		lualine_a = {},
 		lualine_b = { mode(), buffers },
