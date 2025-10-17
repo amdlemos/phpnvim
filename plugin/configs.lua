@@ -26,6 +26,7 @@ opt.completeopt = { "menuone", "popup", "noinsert" }
 opt.winborder = "rounded"
 opt.hlsearch = false
 opt.cmdheight = 0
+opt.clipboard = "unnamedplus" -- neovim uses the system clipboard by default
 
 vim.cmd.filetype("plugin indent on")
 -- vim.cmd.colorscheme("techbase")
