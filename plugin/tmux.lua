@@ -1,3 +1,9 @@
+-- if true then
+-- 	return
+-- end
+vim.pack.add({
+    { src = "https://github.com/christoomey/vim-tmux-navigator" },
+}, { load = true})
 local keymap = vim.keymap.set
 local s = { silent = true }
 
