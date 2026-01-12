@@ -5,7 +5,7 @@ vim.pack.add({
 vim.lsp.config("intelephense", {
 	settings = {
 		intelephense = {
-			format = { enable = false },
+			format = { enable = true },
 		},
 	},
 })

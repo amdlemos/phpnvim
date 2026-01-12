@@ -1,6 +1,9 @@
 -- if true then
 -- 	return
 -- end
+vim.pack.add({
+	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
+}, { load = true })
 local lualine = require("lualine")
 local icons = require("lib.icons")
 
@@ -182,21 +185,21 @@ lualine.setup({
 	options = {
 		component_separators = "",
 		-- section_separators = '',
-		theme = "onedark",
-		globalstatus = true, -- Lualine global em todas as janelas
+		-- theme = "onedark",
+		globalstatus = false, -- Lualine global em todas as janelas
 		disabled_filetypes = {
-			"dashboard",
+			-- "dashboard",
 		},
 	},
-	extensions = { "quickfix", "man", "mason", "lazy", "toggleterm", "nvim-tree" },
-	tabline = {
-		lualine_a = {},
-		lualine_b = { mode(), buffers },
-		lualine_c = {},
-		lualine_x = { diff_icons, branch },
-		lualine_y = { searchcount, selectioncount },
-		lualine_z = {},
-	},
+	extensions = { "quickfix", "man", "mason", "lazy", "toggleterm", "nvim-tree", "neo-tree", "trouble", "avante" },
+	-- tabline = {
+	-- 	lualine_a = {},
+	-- 	lualine_b = { mode(), buffers },
+	-- 	lualine_c = {},
+	-- 	lualine_x = { diff_icons, branch },
+	-- 	lualine_y = { searchcount, selectioncount },
+	-- 	lualine_z = {},
+	-- },
 	sections = {
 		lualine_a = {},
 		lualine_b = {},

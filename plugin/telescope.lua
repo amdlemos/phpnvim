@@ -1,3 +1,11 @@
+if true then
+	return
+end
+vim.pack.add({
+	{ src = "https://github.com/nvim-lua/plenary.nvim" },
+	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
+	{ src = "https://github.com/nvim-telescope/telescope-frecency.nvim" },
+})
 require("telescope").setup({
 	defaults = {
 		-- Default configuration for telescope goes here:

@@ -1,3 +1,10 @@
+if true then
+	return
+end
+vim.pack.add({
+	{ src = "https://github.com/nvim-tree/nvim-tree.lua" },
+}, { load = true })
+
 local VIEW_WIDTH_FIXED = 30
 local view_width_max = VIEW_WIDTH_FIXED -- fixed to start
 

@@ -23,6 +23,9 @@ null_ls.setup({
 	sources = {
 		null_ls.builtins.diagnostics.phpcs.with({
 			prefer_local = "vendor/bin",
+			condition = function(utils)
+				return utils.root_has_file({ "phpcs.xml" })
+			end,
 		}),
 		null_ls.builtins.diagnostics.phpmd.with({
 			prefer_local = "vendor/bin",

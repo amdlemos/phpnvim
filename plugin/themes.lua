@@ -1,4 +1,4 @@
-vim.pack.add({ 
+vim.pack.add({
 	{ src = "https://github.com/navarasu/onedark.nvim" },
 	{ src = "https://github.com/AstroNvim/astrotheme" },
 })
@@ -26,5 +26,6 @@ require("onedark").setup({
 	lualine = { transparent = true },
 	diagnostics = { darker = true, undercurl = true, background = false },
 })
-require("onedark").load()
-vim.keymap.set('n', '<leader>tc', '<CMD>lua require("onedark").toggle()<CR>')
+-- require("onedark").load()
+vim.keymap.set("n", "<leader>tc", '<CMD>lua require("onedark").toggle()<CR>')
+vim.cmd([[colorscheme astrodark]])

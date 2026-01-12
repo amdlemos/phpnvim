@@ -35,3 +35,5 @@ vim.g.copilot_no_tab_map = true
 vim.g.netrw_liststyle = 1
 vim.g.netrw_sort_by = "size"
 vim.g.loaded_perl_provider = 0
+-- vim.g.blade_php_highlight = 1
+-- vim.g.php_parent_error = 0

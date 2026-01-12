@@ -4,6 +4,10 @@
       "rev": "4a2af93",
       "src": "https://github.com/AstroNvim/astrotheme"
     },
+    "avante.nvim": {
+      "rev": "e89eb79abf5754645e20aa6074da10ed20bba33c",
+      "src": "https://github.com/yetone/avante.nvim"
+    },
     "blade-nav.nvim": {
       "rev": "6d8e34f",
       "src": "https://github.com/RicardoRamirezR/blade-nav.nvim"
@@ -17,13 +21,46 @@
       "rev": "f6bcea7",
       "src": "https://github.com/famiu/bufdelete.nvim"
     },
+    "bufferline.nvim": {
+      "rev": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3",
+      "src": "https://github.com/akinsho/bufferline.nvim"
+    },
+    "codecompanion.nvim": {
+      "rev": "6385e2c94e3c9f5d7e8f22c118ab700cafb573ef",
+      "src": "https://github.com/olimorris/codecompanion.nvim",
+      "version": "18.0.0 - 19.0.0"
+    },
     "conform.nvim": {
       "rev": "ffe26e8",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "copilot.vim": {
+      "rev": "a12fd5672110c8aa7e3c8419e28c96943ca179be",
+      "src": "https://github.com/github/copilot.vim"
+    },
+    "dressing.nvim": {
+      "rev": "2d7c2db2507fa3c4956142ee607431ddb2828639",
+      "src": "https://github.com/stevearc/dressing.nvim"
+    },
     "friendly-snippets": {
       "rev": "572f566",
       "src": "https://github.com/rafamadriz/friendly-snippets"
+    },
+    "fzf-lua": {
+      "rev": "e7773d0c863a31bfc8ab72dd1adbec4611a35409",
+      "src": "https://github.com/ibhagwan/fzf-lua"
+    },
+    "fzf.vim": {
+      "rev": "ddc14a6a5471147e2a38e6b32a7268282f669b0a",
+      "src": "https://github.com/junegunn/fzf.vim"
+    },
+    "heirline.nvim": {
+      "rev": "fae936abb5e0345b85c3a03ecf38525b0828b992",
+      "src": "https://github.com/rebelot/heirline.nvim"
+    },
+    "img-clip.nvim": {
+      "rev": "b6ddfb97b5600d99afe3452d707444afda658aca",
+      "src": "https://github.com/hakonharnes/img-clip.nvim"
     },
     "laravel.nvim": {
       "rev": "623a22d",
@@ -41,6 +78,10 @@
       "rev": "47f91c4",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
+    "mini.diff": {
+      "rev": "6010e588e9ed14724880f244d7fa3df8f0be3f46",
+      "src": "https://github.com/nvim-mini/mini.diff"
+    },
     "mini.icons": {
       "rev": "ff2e4f1",
       "src": "https://github.com/nvim-mini/mini.icons"
@@ -49,9 +90,25 @@
       "rev": "472ec50",
       "src": "https://github.com/nvim-mini/mini.pairs"
     },
+    "mini.pick": {
+      "rev": "aa242acc17683515d8f749552aebe061bced9132",
+      "src": "https://github.com/nvim-mini/mini.pick"
+    },
+    "neo-tree.nvim": {
+      "rev": "8967c38933b8db71e8210185fc08fdab92fa5e6e",
+      "src": "https://github.com/nvim-neo-tree/neo-tree.nvim"
+    },
     "none-ls.nvim": {
       "rev": "9a5d95c",
       "src": "https://github.com/nvimtools/none-ls.nvim"
+    },
+    "nui.nvim": {
+      "rev": "de740991c12411b663994b2860f1a4fd0937c130",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
+    },
+    "nvim-cmp": {
+      "rev": "85bbfad83f804f11688d1ab9486b459e699292d6",
+      "src": "https://github.com/hrsh7th/nvim-cmp"
     },
     "nvim-dap": {
       "rev": "5860c7c",
@@ -93,6 +150,14 @@
       "rev": "b9fd522",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
+    "render-markdown.nvim": {
+      "rev": "73a6ebc842cf81926eb1d424820b800f6f6a1227",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
+    "snacks.nvim": {
+      "rev": "fe7cfe9800a182274d0f868a74b7263b8c0c020b",
+      "src": "https://github.com/folke/snacks.nvim"
+    },
     "telescope-frecency.nvim": {
       "rev": "fc6418b",
       "src": "https://github.com/nvim-telescope/telescope-frecency.nvim"
@@ -109,9 +174,17 @@
       "rev": "bd67efe",
       "src": "https://github.com/folke/trouble.nvim"
     },
+    "vim-test": {
+      "rev": "1eeb12774a0f251571700ccf68da27789b2f0852",
+      "src": "https://github.com/vim-test/vim-test"
+    },
     "vim-tmux-navigator": {
       "rev": "c45243d",
       "src": "https://github.com/christoomey/vim-tmux-navigator"
+    },
+    "which-key.nvim": {
+      "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
+      "src": "https://github.com/folke/which-key.nvim"
     }
   }
 }

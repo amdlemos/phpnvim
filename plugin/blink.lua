@@ -1,3 +1,12 @@
+-- if true then
+-- 	return
+-- end
+vim.pack.add({
+	{ src = "https://github.com/rafamadriz/friendly-snippets" },
+	{ src = "https://github.com/onsails/lspkind.nvim" },
+	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
+})
+
 local border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
 local winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None"
 
@@ -91,13 +100,17 @@ require("blink.cmp").setup({
 	-- },
 
 	sources = {
-		default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+		default = { "lazydev", "lsp", "path", "snippets", "buffer", "laravel" },
 		providers = {
 			lazydev = {
 				name = "LazyDev",
 				module = "lazydev.integrations.blink",
 				-- make lazydev completions top priority (see `:h blink.cmp`)
 				score_offset = 100,
+			},
+			laravel = {
+				name = "laravel",
+				module = "laravel.blink_source",
 			},
 		},
 	},

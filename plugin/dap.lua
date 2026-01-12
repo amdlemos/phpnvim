@@ -1,3 +1,11 @@
+vim.pack.add({
+	-- DAP
+	{ src = "https://github.com/folke/lazydev.nvim" },
+	{ src = "https://github.com/mfussenegger/nvim-dap" },
+	{ src = "https://github.com/nvim-neotest/nvim-nio" },
+	{ src = "https://github.com/rcarriga/nvim-dap-ui" },
+})
+
 local dapui_ok, dapui = pcall(require, "dapui")
 local dap_ok, dap = pcall(require, "dap")
 if not dap_ok then
@@ -14,6 +22,38 @@ dap.adapters.php = {
 	},
 }
 
+-- dap.configurations.php = {
+-- 	{
+-- 		type = "php",
+-- 		request = "launch",
+-- 		name = "Listen for Xdebug",
+-- 		port = 9003,
+-- 		pathMappings = {
+-- 			["/var/www/html"] = "/home/amdlemos/github/runy.me",
+-- 			-- ["/home/amdlemos/github/runy.me"] = "/var/www/html",
+-- 		},
+-- 	},
+-- }
+
+dap.adapters.dart = {
+	type = "executable",
+	-- As of this writing, this functionality is open for review in https://github.com/flutter/flutter/pull/91802
+	command = "flutter",
+	args = { "debug_adapter" },
+}
+dap.configurations.dart = {
+	{
+		type = "dart",
+		request = "launch",
+		name = "Launch Flutter Program",
+		-- The nvim-dap plugin populates this variable with the filename of the current buffer
+		program = "${file}",
+		-- The nvim-dap plugin populates this variable with the editor's current working directory
+		cwd = "${workspaceFolder}",
+		-- This gets forwarded to the Flutter CLI tool, substitute `linux` for whatever device you wish to launch
+		toolArgs = { "-d", "linux" },
+	},
+}
 if dapui_ok then
 	dapui.setup({
 		layouts = {
