@@ -1,3 +1,6 @@
+if true then
+	return
+end
 vim.pack.add({
 	-- { src = "https://github.com/mfussenegger/nvim-lint" },
 	{ src = "https://github.com/nvimtools/none-ls.nvim" },

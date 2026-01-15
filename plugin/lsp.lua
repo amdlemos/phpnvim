@@ -5,18 +5,28 @@ vim.pack.add({
 vim.lsp.config("intelephense", {
 	settings = {
 		intelephense = {
-			format = { enable = true },
+			environment = {
+				includePaths = {
+					"vendor/laravel/framework/src",
+					"vendor/laravel/ide-helper",
+				},
+			},
+			stubs = {
+				"laravel",
+				"laravel-ide-helper",
+			},
+			format = { enable = false },
 		},
 	},
 })
 
--- vim.lsp.config("phpactor", {
--- 	settings = {
--- 		dart = {
--- 			analysisExcludedFolders = { "/home/amdlemos/develop/" },
--- 		},
--- 	},
--- })
+vim.lsp.config("phpactor", {
+	-- settings = {
+	-- 	phpactor = {
+	-- 		analysisExcludedFolders = { "/home/amdlemos/develop/" },
+	-- 	},
+	-- },
+})
 
 vim.lsp.config("dartls", {
 	settings = {
@@ -28,7 +38,7 @@ vim.lsp.config("dartls", {
 
 vim.lsp.enable({
 	"intelephense",
-	-- "phpactor",
+	"phpactor",
 	"html",
 	"cssls",
 	"jsonls",
