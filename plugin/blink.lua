@@ -101,11 +101,11 @@ require("blink.cmp").setup({
 
 	sources = {
 		default = {
-			-- "lazydev",
+			"lazydev",
 			"lsp",
 			"path",
-			-- "snippets",
-			-- "buffer",
+			"snippets",
+			"buffer",
 			-- "laravel",
 		},
 		providers = {
