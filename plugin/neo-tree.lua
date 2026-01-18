@@ -18,6 +18,7 @@ require("neo-tree").setup({
 			["[b"] = "prev_source",
 			["]b"] = "next_source",
 		},
+		position = "right",
 	},
 })
 

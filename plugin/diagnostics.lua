@@ -5,17 +5,17 @@ vim.pack.add({
 	{ src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim" },
 	{ src = "https://github.com/folke/trouble.nvim" },
 })
-
+vim.diagnostic.config({ virtual_text = false }) -- Disable Neovim's default virtual text diagnostics
 require("tiny-inline-diagnostic").setup()
+vim.keymap.set("n", "<leader>de", "<cmd>TinyInlineDiag enable<cr>", { desc = "Enable diagnostics" })
+vim.keymap.set("n", "<leader>dd", "<cmd>TinyInlineDiag disable<cr>", { desc = "Disable diagnostics" })
+vim.keymap.set("n", "<leader>dt", "<cmd>TinyInlineDiag toggle<cr>", { desc = "Toggle diagnostics" })
 
 require("trouble").setup({
-	-- aqui você pode colocar configs, se quiser
-	-- exemplo:
-	-- auto_open = false,
-	-- auto_close = true,
+	auto_open = false,
+	auto_close = true,
 })
 
--- Keymaps (se não estiver usando lazy.nvim ou que gere automaticamente)
 vim.keymap.set("n", "<leader>xX", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Diagnostics (Trouble)" })
 vim.keymap.set(
 	"n",
