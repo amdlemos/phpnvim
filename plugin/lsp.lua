@@ -20,13 +20,13 @@ vim.lsp.config("intelephense", {
 	},
 })
 
-vim.lsp.config("phpactor", {
-	-- settings = {
-	-- 	phpactor = {
-	-- 		analysisExcludedFolders = { "/home/amdlemos/develop/" },
-	-- 	},
-	-- },
-})
+-- vim.lsp.config("phpactor", {
+-- 	settings = {
+-- 		phpactor = {
+-- 			analysisExcludedFolders = { "/home/amdlemos/develop/" },
+-- 		},
+-- 	},
+-- })
 
 vim.lsp.config("dartls", {
 	settings = {

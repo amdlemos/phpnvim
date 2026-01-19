@@ -22,18 +22,18 @@ dap.adapters.php = {
 	},
 }
 
--- dap.configurations.php = {
--- 	{
--- 		type = "php",
--- 		request = "launch",
--- 		name = "Listen for Xdebug",
--- 		port = 9003,
--- 		pathMappings = {
--- 			["/var/www/html"] = "/home/amdlemos/github/runy.me",
--- 			-- ["/home/amdlemos/github/runy.me"] = "/var/www/html",
--- 		},
--- 	},
--- }
+dap.configurations.php = {
+	{
+		type = "php",
+		request = "launch",
+		name = "Listen for Xdebug",
+		port = 9003,
+		pathMappings = {
+			["/var/www/html/web"] = "/home/amdlemos/github/sistema-vexor"
+			-- ["/home/amdlemos/github/runy.me"] = "/var/www/html",
+		},
+	},
+}
 
 dap.adapters.dart = {
 	type = "executable",
