@@ -29,7 +29,7 @@ dap.configurations.php = {
 		name = "Listen for Xdebug",
 		port = 9003,
 		pathMappings = {
-			["/var/www/html/web"] = "/home/amdlemos/github/sistema-vexor"
+			["/var/www/html/web"] = "/home/amdlemos/github/sistema-vexor",
 			-- ["/home/amdlemos/github/runy.me"] = "/var/www/html",
 		},
 	},
@@ -62,10 +62,11 @@ if dapui_ok then
 					-- Painéis úteis na barra lateral esquerda
 					{ id = "scopes", size = 0.4 },
 					{ id = "breakpoints", size = 0.3 },
-					{ id = "stacks", size = 0.3 },
+					{ id = "watches", size = 0.3 },
+					-- { id = "stacks", size = 0.3 },
 				},
 				size = 40,
-				position = "left",
+				position = "right",
 			},
 			-- {
 			-- 	elements = {
@@ -134,7 +135,7 @@ end, vim.tbl_extend("force", s, { desc = "DAP Toggle Breakpoint" }))
 keymap("n", "<leader>dc", function()
 	dap.continue()
 end, vim.tbl_extend("force", s, { desc = "DAP Continue" }))
-keymap("n", "<leader>do", function()
+keymap("n", "<F10>", function()
 	dap.step_over()
 end, vim.tbl_extend("force", s, { desc = "DAP Step Over" }))
 keymap("n", "<leader>di", function()

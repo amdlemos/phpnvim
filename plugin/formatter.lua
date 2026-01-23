@@ -13,14 +13,15 @@ require("conform").setup({
 	},
 	formatters_by_ft = {
 		-- twig = { "ludtwig" },
-		lua = { "stylua" },
-		blade = { "blade_formatter" },
+		 lua = { "stylua" },
+		-- blade = { "blade_formatter" },
 		json = { "prettier" },
 		-- xml = { "prettier" },
 		html = { "prettier" },
 		javascript = { "prettier" },
 		typescript = { "biome" },
 		yml = { "prettier" },
+        -- php = { "php_cs_fixer" }
 	},
 	formatters = {
 		-- ludtwig = {

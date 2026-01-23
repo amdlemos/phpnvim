@@ -6,6 +6,8 @@ opt.termguicolors = true
 opt.ignorecase = true
 opt.swapfile = false
 opt.autoindent = true
+opt.smartindent = true
+opt.cindent = true
 opt.expandtab = true
 opt.tabstop = 4
 opt.softtabstop = 4
@@ -27,8 +29,13 @@ opt.winborder = "rounded"
 opt.hlsearch = false
 opt.cmdheight = 0
 opt.clipboard = "unnamedplus" -- neovim uses the system clipboard by default
+opt.autoread = true
 
-vim.cmd.filetype("plugin indent on")
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+	command = "checktime",
+})
+
+-- vim.cmd.filetype("plugin indent on")
 -- vim.cmd.colorscheme("techbase")
 
 vim.g.copilot_no_tab_map = true
@@ -36,4 +43,4 @@ vim.g.netrw_liststyle = 1
 vim.g.netrw_sort_by = "size"
 vim.g.loaded_perl_provider = 0
 -- vim.g.blade_php_highlight = 1
--- vim.g.php_parent_error = 0
+vim.g.php_parent_error = 0
