@@ -59,48 +59,18 @@ if dapui_ok then
 		layouts = {
 			{
 				elements = {
-					-- Painéis úteis na barra lateral esquerda
-					{ id = "scopes", size = 0.4 },
-					{ id = "breakpoints", size = 0.3 },
-					{ id = "watches", size = 0.3 },
-					-- { id = "stacks", size = 0.3 },
+					{ id = "watches", size = 0.5 },
+					{ id = "repl", size = 0.5 },
+					{ id = "breakpoints", size = 0.5 },
 				},
+				position = "right", -- O Edgy vai interceptar isso e gerenciar a posição final
 				size = 40,
-				position = "right",
-			},
-			-- {
-			-- 	elements = {
-			-- 		-- Apenas watches na parte inferior (sem repl e console)
-			-- 		{ id = "watches", size = 1.0 },
-			-- 	},
-			-- 	size = 10,
-			-- 	position = "bottom",
-			-- },
-		},
-		controls = {
-			enabled = true,
-			element = "scopes",
-		},
-		floating = {
-			max_height = nil,
-			max_width = nil,
-			border = "rounded",
-			mappings = {
-				close = { "q", "<Esc>" },
 			},
 		},
 	})
-
-	-- Abrir UI ao iniciar a sessão
+	-- Open/close dapui automatically when DAP starts/closes
 	dap.listeners.after.event_initialized["dapui_config"] = function()
 		dapui.open()
-	end
-	-- Fechar UI ao terminar/sair/desconectar
-	dap.listeners.before.event_terminated["dapui_config"] = function()
-		dapui.close()
-	end
-	dap.listeners.before.event_exited["dapui_config"] = function()
-		dapui.close()
 	end
 	dap.listeners.before.disconnect["dapui_config"] = function()
 		dapui.close()
