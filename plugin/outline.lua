@@ -78,6 +78,16 @@ require("edgy").setup({
 			size = { width = 0.2, height = 0.27 },
 		},
 	},
+	top = {
+		{
+			ft = "help",
+			size = { height = 20 },
+			-- only show help buffers
+			filter = function(buf)
+				return vim.bo[buf].buftype == "help"
+			end,
+		},
+	},
 })
 -- Toggle de todo o lado ESQUERDO
 vim.keymap.set("n", "<leader>tl", function()
