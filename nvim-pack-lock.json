@@ -110,6 +110,10 @@
       "rev": "deadfb1af5ce458742671ad3a013acb9a6b41178",
       "src": "https://github.com/nvim-neotest/neotest"
     },
+    "neotest-docker-phpunit.nvim": {
+      "rev": "1da5ab0eac5684bdfdc8dc248e4bc357a58d7d91",
+      "src": "https://github.com/praem90/neotest-docker-phpunit.nvim"
+    },
     "neotest-phpunit": {
       "rev": "2761ae9e9a385e491a9731f8c52824e1be64a68f",
       "src": "https://github.com/olimorris/neotest-phpunit"
