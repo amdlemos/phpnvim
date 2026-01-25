@@ -12,8 +12,7 @@ vim.keymap.set("n", "<leader>dd", "<cmd>TinyInlineDiag disable<cr>", { desc = "D
 vim.keymap.set("n", "<leader>dt", "<cmd>TinyInlineDiag toggle<cr>", { desc = "Toggle diagnostics" })
 
 require("trouble").setup({
-	-- auto_open = false,
-	-- auto_close = true,
+	auto_preview = false,
 })
 
 vim.keymap.set("n", "<leader>xX", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Diagnostics (Trouble)" })
