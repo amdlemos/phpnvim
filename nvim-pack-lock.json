@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "FixCursorHold.nvim": {
+      "rev": "1900f89dc17c603eec29960f57c00bd9ae696495",
+      "src": "https://github.com/antoinemadec/FixCursorHold.nvim"
+    },
     "astrotheme": {
       "rev": "4a2af93",
       "src": "https://github.com/AstroNvim/astrotheme"
@@ -41,6 +45,10 @@
     "dressing.nvim": {
       "rev": "2d7c2db2507fa3c4956142ee607431ddb2828639",
       "src": "https://github.com/stevearc/dressing.nvim"
+    },
+    "edgy.nvim": {
+      "rev": "8bfd2808994a988c975694122f68624b8a219f5f",
+      "src": "https://github.com/folke/edgy.nvim"
     },
     "friendly-snippets": {
       "rev": "572f566",
@@ -98,6 +106,14 @@
       "rev": "8967c38933b8db71e8210185fc08fdab92fa5e6e",
       "src": "https://github.com/nvim-neo-tree/neo-tree.nvim"
     },
+    "neotest": {
+      "rev": "deadfb1af5ce458742671ad3a013acb9a6b41178",
+      "src": "https://github.com/nvim-neotest/neotest"
+    },
+    "neotest-phpunit": {
+      "rev": "2761ae9e9a385e491a9731f8c52824e1be64a68f",
+      "src": "https://github.com/olimorris/neotest-phpunit"
+    },
     "none-ls.nvim": {
       "rev": "9a5d95c",
       "src": "https://github.com/nvimtools/none-ls.nvim"
@@ -146,6 +162,10 @@
       "rev": "213c23a",
       "src": "https://github.com/navarasu/onedark.nvim"
     },
+    "outline.nvim": {
+      "rev": "1967ef50036b0b1eac4977aeede55915a741afe0",
+      "src": "https://github.com/hedyhli/outline.nvim"
+    },
     "plenary.nvim": {
       "rev": "b9fd522",
       "src": "https://github.com/nvim-lua/plenary.nvim"
@@ -169,6 +189,10 @@
     "tiny-inline-diagnostic.nvim": {
       "rev": "38b0643",
       "src": "https://github.com/rachartier/tiny-inline-diagnostic.nvim"
+    },
+    "toggleterm.nvim": {
+      "rev": "9a88eae817ef395952e08650b3283726786fb5fb",
+      "src": "https://github.com/akinsho/toggleterm.nvim"
     },
     "trouble.nvim": {
       "rev": "bd67efe",
