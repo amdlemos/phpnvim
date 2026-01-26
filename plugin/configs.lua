@@ -30,6 +30,7 @@ opt.hlsearch = false
 opt.cmdheight = 0
 opt.clipboard = "unnamedplus" -- neovim uses the system clipboard by default
 opt.autoread = true
+opt.laststatus = 3
 
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
 	command = "checktime",

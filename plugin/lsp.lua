@@ -64,7 +64,7 @@ vim.lsp.config("dartls", {
 vim.lsp.enable({
 	"intelephense",
 	"phpactor",
-	-- "vtsls",
+	"vtsls",
 	"html",
 	"cssls",
 	"jsonls",

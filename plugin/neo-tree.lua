@@ -14,7 +14,7 @@ require("neo-tree").setup({
 		statusline = false,
 	},
 	window = {
-        position = "right",
+		position = "right",
 		mappings = {
 			["[b"] = "prev_source",
 			["]b"] = "next_source",

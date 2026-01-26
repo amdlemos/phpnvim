@@ -1,6 +1,6 @@
-if true then
-	return
-end
+-- if true then
+-- 	return
+-- end
 vim.pack.add({
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 	{ src = "https://github.com/MunifTanjim/nui.nvim" },

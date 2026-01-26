@@ -178,9 +178,6 @@ local function mode(icon)
 	}
 end
 
--- Configurar statusline global do Neovim
-vim.opt.laststatus = 3 -- Statusline global (3 = global, 2 = por janela, 0 = nunca)
-
 lualine.setup({
 	options = {
 		component_separators = "",

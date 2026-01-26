@@ -62,6 +62,10 @@
       "rev": "ddc14a6a5471147e2a38e6b32a7268282f669b0a",
       "src": "https://github.com/junegunn/fzf.vim"
     },
+    "gitsigns.nvim": {
+      "rev": "abf82a65f185bd54adc0679f74b7d6e1ada690c9",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
     "heirline.nvim": {
       "rev": "fae936abb5e0345b85c3a03ecf38525b0828b992",
       "src": "https://github.com/rebelot/heirline.nvim"
@@ -201,6 +205,10 @@
     "trouble.nvim": {
       "rev": "bd67efe",
       "src": "https://github.com/folke/trouble.nvim"
+    },
+    "vim-fugitive": {
+      "rev": "61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4",
+      "src": "https://github.com/tpope/vim-fugitive"
     },
     "vim-test": {
       "rev": "1eeb12774a0f251571700ccf68da27789b2f0852",
