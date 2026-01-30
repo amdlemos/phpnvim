@@ -5,11 +5,19 @@ require("neo-tree").setup({
 		winbar = true,
 		statusline = false,
 	},
+	filesystem = {
+		follow_current_file = {
+			enabled = true, -- 🔥 faz o reveal automático
+			leave_dirs_open = true, -- mantém pastas abertas
+		},
+	},
 	window = {
 		position = "right",
 		mappings = {
 			["[b"] = "prev_source",
 			["]b"] = "next_source",
+			["h"] = "close_node",
+			["l"] = "open",
 		},
 		position = "left",
 	},

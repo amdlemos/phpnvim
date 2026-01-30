@@ -34,13 +34,9 @@ vim.pack.add({
 	{ src = "https://github.com/hedyhli/outline.nvim" },
 	{ src = "https://github.com/folke/edgy.nvim" },
 
-	-- Telescope
-	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
-	{ src = "https://github.com/nvim-telescope/telescope-frecency.nvim" },
-
-	-- FZF
-	{ src = "https://github.com/junegunn/fzf.vim" },
+	-- FZF (busca rápida e performática)
 	{ src = "https://github.com/ibhagwan/fzf-lua" },
+	-- { src = "https://github.com/junegunn/fzf.vim" },
 
 	-- Git
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
@@ -80,7 +76,7 @@ vim.pack.add({
 	{ src = "https://github.com/olimorris/neotest-phpunit" },
 
 	-- Laravel
-	{ src = "https://github.com/adibhanna/laravel.nvim" },
+	-- { src = "https://github.com/adibhanna/laravel.nvim" },
 
 	-- Markdown
 	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },

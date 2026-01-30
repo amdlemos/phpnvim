@@ -1,3 +1,3 @@
 -- Gitsigns Configuration
 
-require("gitsigns").setup({})
+-- require("gitsigns").setup({})

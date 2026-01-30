@@ -178,7 +178,7 @@ end
 lualine.setup({
 	options = {
 		component_separators = "",
-		globalstatus = false,
+		globalstatus = true,
 		disabled_filetypes = {},
 	},
 	extensions = {

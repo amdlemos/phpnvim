@@ -10,6 +10,7 @@ keymap("n", "<leader>da", vim.diagnostic.setqflist, { desc = "Todos os diagnóst
 keymap("n", "<leader>dn", vim.diagnostic.goto_next, { desc = "Próximo diagnóstico", silent = true })
 keymap("n", "<leader>dp", vim.diagnostic.goto_prev, { desc = "Diagnóstico anterior", silent = true })
 
+vim.keymap.set("i", "<space>", "<space>", { noremap = true })
 -- Configurar aparência dos diagnósticos
 -- vim.diagnostic.config({
 -- 	virtual_text = {
