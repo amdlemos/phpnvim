@@ -1,0 +1,3 @@
+-- YAML Language Server
+
+return {}

@@ -1,0 +1,3 @@
+-- ESLint Language Server
+
+return {}

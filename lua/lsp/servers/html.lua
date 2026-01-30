@@ -1,0 +1,3 @@
+-- HTML Language Server
+
+return {}

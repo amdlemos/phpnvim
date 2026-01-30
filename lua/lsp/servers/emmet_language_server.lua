@@ -1,0 +1,3 @@
+-- Emmet Language Server
+
+return {}

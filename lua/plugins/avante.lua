@@ -1,0 +1,28 @@
+-- -- Avante Configuration
+--
+-- require("cmp").setup({})
+-- require("img-clip").setup({})
+-- require("render-markdown").setup({
+-- 	ft = { "markdown", "codecompanion" },
+-- })
+--
+-- require("avante").setup({
+-- 	build = function()
+-- 		if vim.fn.has("win32") == 1 then
+-- 			return "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+-- 		else
+-- 			return "make"
+-- 		end
+-- 	end,
+-- 	opts = {
+-- 		provider = "copilot",
+-- 	},
+-- 	input = {
+-- 		provider = "snacks",
+-- 		provider_opts = {
+-- 			title = "Avante Input",
+-- 			icon = " ",
+-- 			placeholder = "Enter your API key...",
+-- 		},
+-- 	},
+-- })

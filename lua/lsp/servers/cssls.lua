@@ -1,0 +1,3 @@
+-- CSS Language Server
+
+return {}
