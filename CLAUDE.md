@@ -46,7 +46,7 @@ Uses `vim.lsp.config()` + `vim.lsp.enable()` (native Neovim 0.11+ API), not lspc
 - Comments and keymap descriptions are in **Brazilian Portuguese**
 - Leader key is `<Space>`
 - Formatting on save via conform.nvim (stylua for Lua, prettier for HTML/JSON/YAML, biome for TS, php_cs_fixer for PHP, blade_formatter for Blade)
-- FZF-lua is the primary fuzzy finder (replaces Telescope); it overrides `gd`, `gr`, `gi` to route through FZF
+- FZF-lua is the primary fuzzy finder (replaces Telescope); `<leader>l` group routes LSP queries through FZF
 - Testing uses neotest + neotest-phpunit running through **Laravel Sail** (`vendor/bin/sail test`), with container-to-host path mapping for JUnit XML results
 - DAP configured for PHP (Xdebug) and Dart/Flutter
 - There is also a top-level `lsp/tailwindcss.lua` (Neovim's native `lsp/` directory for vim.lsp.config) separate from `lua/lsp/servers/tailwindcss.lua`
@@ -54,8 +54,11 @@ Uses `vim.lsp.config()` + `vim.lsp.enable()` (native Neovim 0.11+ API), not lspc
 ## Useful commands
 
 ```bash
+# Neovim nightly is launched via alias
+nn
+
 # Check config for errors
-nvim --headless +"lua print('ok')" +qa
+nn --headless +"lua print('ok')" +qa
 
 # Sync plugins (vim.pack downloads on first use)
 # Just restart Neovim - vim.pack.add with load=true handles it

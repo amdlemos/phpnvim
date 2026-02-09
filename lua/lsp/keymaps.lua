@@ -10,23 +10,6 @@ keymap("n", "<leader>da", vim.diagnostic.setqflist, { desc = "Todos os diagnóst
 keymap("n", "<leader>dn", vim.diagnostic.goto_next, { desc = "Próximo diagnóstico", silent = true })
 keymap("n", "<leader>dp", vim.diagnostic.goto_prev, { desc = "Diagnóstico anterior", silent = true })
 
--- vim.keymap.set("i", "<space>", "<space>", { noremap = true }) -- Removido: desnecessário
--- Configurar aparência dos diagnósticos
--- vim.diagnostic.config({
--- 	virtual_text = {
--- 		prefix = "●",
--- 		source = "if_many",
--- 	},
--- 	float = {
--- 		source = "always",
--- 		border = "rounded",
--- 	},
--- 	signs = true,
--- 	underline = true,
--- 	update_in_insert = false,
--- 	severity_sort = true,
--- })
-
 -- Ícones para diagnósticos
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do

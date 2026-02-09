@@ -13,7 +13,7 @@ require("snacks").setup({
 		-- git = {
 		-- 	patterns = { "GitSign", "MiniDiffSign" },
 		-- },
-		refresh = 50,
+		refresh = 200,
 	},
 	indent = { enabled = true },
 })
