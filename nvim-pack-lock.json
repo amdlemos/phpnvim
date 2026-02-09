@@ -4,6 +4,10 @@
       "rev": "1900f89dc17c603eec29960f57c00bd9ae696495",
       "src": "https://github.com/antoinemadec/FixCursorHold.nvim"
     },
+    "alpha-nvim": {
+      "rev": "3979b01cb05734331c7873049001d3f2bb8477f4",
+      "src": "https://github.com/goolord/alpha-nvim"
+    },
     "astrotheme": {
       "rev": "4a2af93",
       "src": "https://github.com/AstroNvim/astrotheme"
@@ -50,6 +54,10 @@
       "rev": "8bfd2808994a988c975694122f68624b8a219f5f",
       "src": "https://github.com/folke/edgy.nvim"
     },
+    "fidget.nvim": {
+      "rev": "7fa433a83118a70fe24c1ce88d5f0bd3453c0970",
+      "src": "https://github.com/j-hui/fidget.nvim"
+    },
     "friendly-snippets": {
       "rev": "572f566",
       "src": "https://github.com/rafamadriz/friendly-snippets"
@@ -82,6 +90,10 @@
       "rev": "5231c62",
       "src": "https://github.com/folke/lazydev.nvim"
     },
+    "lensline.nvim": {
+      "rev": "bc14529d2d04804d65a73d0fb3bca50132902d3b",
+      "src": "https://github.com/oribarilan/lensline.nvim"
+    },
     "lspkind.nvim": {
       "rev": "3ddd1b4",
       "src": "https://github.com/onsails/lspkind.nvim"
@@ -98,6 +110,10 @@
       "rev": "ff2e4f1",
       "src": "https://github.com/nvim-mini/mini.icons"
     },
+    "mini.indentscope": {
+      "rev": "0308f949f31769e509696af5d5f91cebb2159c69",
+      "src": "https://github.com/nvim-mini/mini.indentscope"
+    },
     "mini.pairs": {
       "rev": "472ec50",
       "src": "https://github.com/nvim-mini/mini.pairs"
@@ -105,6 +121,10 @@
     "mini.pick": {
       "rev": "aa242acc17683515d8f749552aebe061bced9132",
       "src": "https://github.com/nvim-mini/mini.pick"
+    },
+    "mini.tabline": {
+      "rev": "caf23615b9b99bacc79ecd60f61c4e6a8ec18c84",
+      "src": "https://github.com/nvim-mini/mini.tabline"
     },
     "neo-tree.nvim": {
       "rev": "8967c38933b8db71e8210185fc08fdab92fa5e6e",

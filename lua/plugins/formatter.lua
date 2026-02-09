@@ -2,7 +2,7 @@
 
 require("conform").setup({
 	format_on_save = {
-		timeout_ms = 2000,
+		timeout_ms = 500,
 		lsp_format = "fallback",
 	},
 	formatters_by_ft = {
@@ -11,7 +11,10 @@ require("conform").setup({
 		html = { "prettier" },
 		javascript = { "prettier" },
 		typescript = { "biome" },
-		yml = { "prettier" },
+		vue = { "prettier" },
+		yaml = { "prettier" },
+		blade = { "blade_formatter" },
+		php = { "php_cs_fixer" },
 	},
 	formatters = {
 		blade_formatter = {

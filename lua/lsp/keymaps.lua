@@ -5,12 +5,12 @@ local keymap = vim.keymap.set
 
 -- Grupo de keymaps para diagnósticos
 keymap("n", "<leader>d", "", { desc = "Diagnósticos" })
-keymap("n", "<leader>dd", vim.diagnostic.open_float, { desc = "Mostrar diagnóstico", silent = true })
+keymap("n", "<leader>df", vim.diagnostic.open_float, { desc = "Mostrar diagnóstico (float)", silent = true })
 keymap("n", "<leader>da", vim.diagnostic.setqflist, { desc = "Todos os diagnósticos", silent = true })
 keymap("n", "<leader>dn", vim.diagnostic.goto_next, { desc = "Próximo diagnóstico", silent = true })
 keymap("n", "<leader>dp", vim.diagnostic.goto_prev, { desc = "Diagnóstico anterior", silent = true })
 
-vim.keymap.set("i", "<space>", "<space>", { noremap = true })
+-- vim.keymap.set("i", "<space>", "<space>", { noremap = true }) -- Removido: desnecessário
 -- Configurar aparência dos diagnósticos
 -- vim.diagnostic.config({
 -- 	virtual_text = {

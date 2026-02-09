@@ -37,11 +37,14 @@ opt.list = false
 
 -- Busca
 opt.ignorecase = true
+opt.smartcase = true -- Busca case-sensitive se houver maiúsculas
 
 -- Arquivos
 opt.swapfile = false
 opt.undofile = true
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+local undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.fn.mkdir(undodir, "p") -- Criar diretório se não existir
+opt.undodir = undodir
 opt.autoread = true
 opt.fileformats = { "unix", "dos" }
 

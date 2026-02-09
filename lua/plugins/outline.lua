@@ -73,6 +73,6 @@ require("edgy").setup({
 })
 
 -- Toggle de todo o lado ESQUERDO
-vim.keymap.set("n", "<leader>tl", function()
+vim.keymap.set("n", "<leader>el", function()
 	require("edgy").toggle("left")
 end, { desc = "Toggle Edgy Left" })

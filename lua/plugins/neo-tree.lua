@@ -12,14 +12,13 @@ require("neo-tree").setup({
 		},
 	},
 	window = {
-		position = "right",
+		position = "left",
 		mappings = {
 			["[b"] = "prev_source",
 			["]b"] = "next_source",
 			["h"] = "close_node",
 			["l"] = "open",
 		},
-		position = "left",
 	},
 })
 

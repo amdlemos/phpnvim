@@ -24,6 +24,7 @@ local enabled_servers = {
 	"yamlls",
 	"dartls",
 	"tailwindcss",
+	"vue_ls",
 }
 
 -- Carregar e configurar cada servidor

@@ -19,10 +19,10 @@ vim.keymap.set(
 	"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
 	{ desc = "Buffer Diagnostics (Trouble)" }
 )
-vim.keymap.set("n", "<leader>ls", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
+vim.keymap.set("n", "<leader>xs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
 vim.keymap.set(
 	"n",
-	"<leader>lD",
+	"<leader>xl",
 	"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
 	{ desc = "LSP Definitions/Refs (Trouble)" }
 )

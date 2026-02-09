@@ -5,7 +5,11 @@ require("neotest").setup({
 		(function()
 			local adapter = require("neotest-phpunit")({
 				phpunit_cmd = function()
-					return { "ddev", "exec", "vendor/bin/phpunit" }
+					return {
+						"vendor/bin/sail",
+						"test",
+						-- "vendor/bin/phpunit",
+					}
 				end,
 				root_files = { "composer.json" },
 			})
@@ -32,9 +36,9 @@ require("neotest").setup({
 				local container_results = "/var/www/html/storage/logs/phpunit-junit.xml"
 
 				local command = vim.tbl_flatten({
-					"ddev",
-					"exec",
-					"vendor/bin/phpunit",
+					"vendor/bin/sail",
+					-- "exec",
+					"test",
 					adjusted_path ~= "" and adjusted_path or nil,
 					"--log-junit=" .. container_results,
 					position.type == "test" and { "--filter", position.name } or nil,

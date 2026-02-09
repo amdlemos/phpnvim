@@ -78,9 +78,6 @@ keymap("n", "<leader>lw", "<cmd>FzfLua lsp_workspace_symbols<cr>", vim.tbl_exten
 keymap("n", "<leader>lD", "<cmd>FzfLua diagnostics_document<cr>", vim.tbl_extend("force", s, { desc = "Document Diagnostics (FZF)" }))
 keymap("n", "<leader>lW", "<cmd>FzfLua diagnostics_workspace<cr>", vim.tbl_extend("force", s, { desc = "Workspace Diagnostics (FZF)" }))
 
--- Code Actions - Foco especial (funciona mesmo sem FZF, usa popup nativo)
-keymap("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Actions", silent = true })
-
 -- Outras funcionalidades úteis
 keymap("n", "<leader>fc", "<cmd>FzfLua commands<cr>", vim.tbl_extend("force", s, { desc = "Commands (FZF)" }))
 keymap("n", "<leader>fk", "<cmd>FzfLua keymaps<cr>", vim.tbl_extend("force", s, { desc = "Keymaps (FZF)" }))
@@ -90,8 +87,3 @@ keymap("n", "<leader>f/", "<cmd>FzfLua search_history<cr>", vim.tbl_extend("forc
 
 -- Help
 keymap("n", "<leader>fh", "<cmd>FzfLua help_tags<cr>", vim.tbl_extend("force", s, { desc = "Help Tags (FZF)" }))
-
--- Keymaps alternativos para LSP mais rápidos
-keymap("n", "gd", "<cmd>FzfLua lsp_definitions<cr>", vim.tbl_extend("force", s, { desc = "Go to Definition (FZF)" }))
-keymap("n", "gr", "<cmd>FzfLua lsp_references<cr>", vim.tbl_extend("force", s, { desc = "References (FZF)" }))
-keymap("n", "gi", "<cmd>FzfLua lsp_implementations<cr>", vim.tbl_extend("force", s, { desc = "Go to Implementation (FZF)" }))

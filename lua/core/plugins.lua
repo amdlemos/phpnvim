@@ -30,13 +30,11 @@ vim.pack.add({
 
 	-- File Explorer
 	{ src = "https://github.com/nvim-neo-tree/neo-tree.nvim" },
-	{ src = "https://github.com/nvim-tree/nvim-tree.lua" },
 	{ src = "https://github.com/hedyhli/outline.nvim" },
 	{ src = "https://github.com/folke/edgy.nvim" },
 
-	-- FZF (busca rápida e performática)
+	-- FZF
 	{ src = "https://github.com/ibhagwan/fzf-lua" },
-	-- { src = "https://github.com/junegunn/fzf.vim" },
 
 	-- Git
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
@@ -61,7 +59,6 @@ vim.pack.add({
 	{ src = "https://github.com/nvimtools/none-ls.nvim" },
 
 	-- Completion
-	{ src = "https://github.com/hrsh7th/nvim-cmp" },
 	{ src = "https://github.com/rafamadriz/friendly-snippets" },
 	{ src = "https://github.com/onsails/lspkind.nvim" },
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
@@ -75,15 +72,6 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-neotest/neotest" },
 	{ src = "https://github.com/olimorris/neotest-phpunit" },
 
-	-- Laravel
-	-- { src = "https://github.com/adibhanna/laravel.nvim" },
-
 	-- Markdown
 	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
-
-	-- AI/Code Companion
-	-- { src = "https://github.com/olimorris/codecompanion.nvim", version = vim.version.range("^18.0.0") },
-	-- { src = "https://github.com/yetone/avante.nvim" },
-	-- { src = "https://github.com/github/copilot.vim" },
-	-- { src = "https://github.com/hakonharnes/img-clip.nvim" },
 }, { load = true })

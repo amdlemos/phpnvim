@@ -18,8 +18,3 @@ keymap("t", "<C-j>", "<C-\\><C-n><C-w>j", { desc = "Navegar para janela abaixo d
 keymap("t", "<C-k>", "<C-\\><C-n><C-w>k", { desc = "Navegar para janela acima do terminal", silent = true })
 keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Navegar para janela direita do terminal", silent = true })
 
--- Keymaps de teste (vim-test)
-keymap("n", "<leader>tt", ":TestNearest<CR>", { desc = "Executar teste mais próximo", silent = true })
-keymap("n", "<leader>tf", ":TestFile<CR>", { desc = "Executar testes do arquivo atual", silent = true })
-keymap("n", "<leader>tl", ":TestLast<CR>", { desc = "Repetir último teste", silent = true })
-keymap("n", "<leader>tv", ":TestVisit<CR>", { desc = "Ir para arquivo de teste", silent = true })
