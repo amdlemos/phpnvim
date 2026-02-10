@@ -30,6 +30,8 @@ opt.cursorline = true
 opt.wrap = false
 opt.scrolloff = 8
 opt.hlsearch = false
+opt.updatetime = 200
+opt.lazyredraw = true
 
 -- List chars
 opt.listchars = "tab:  ,multispace:|   ,eol:󰌑"
@@ -49,7 +51,7 @@ opt.autoread = true
 opt.fileformats = { "unix", "dos" }
 
 -- Clipboard
-opt.clipboard = "unnamedplus"
+-- opt.clipboard = "unnamedplus" -- Desativado por performance (causa lag ao digitar no Linux)
 
 -- Completar
 opt.completeopt = { "menuone", "popup", "noinsert" }

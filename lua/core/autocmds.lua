@@ -15,7 +15,7 @@ autocmd("TextYankPost", {
 })
 
 -- Auto-reload quando arquivo muda externamente
-autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+autocmd({ "FocusGained", "BufEnter" }, {
 	command = "checktime",
 })
 

@@ -16,7 +16,6 @@ require("onedark").setup({
 		strings = "none",
 		variables = "none",
 	},
-	lualine = { transparent = true },
 	diagnostics = { darker = true, undercurl = true, background = false },
 })
 

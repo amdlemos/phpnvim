@@ -8,8 +8,38 @@ vim.g.mapleader = " "
 keymap("n", "<space>", "<Nop>")
 
 -- Gerenciamento de buffers
-keymap("n", "<leader>bd", ":Bdelete<CR>", { desc = "Fechar buffer atual", silent = true })
-keymap("n", "<leader>bD", ":Bdelete!<CR>", { desc = "Forçar fechar buffer atual", silent = true })
+keymap("n", "<leader>bd", function()
+	require("mini.bufremove").delete(0, false)
+end, { desc = "Fechar buffer atual", silent = true })
+keymap("n", "<leader>bD", function()
+	require("mini.bufremove").delete(0, true)
+end, { desc = "Forçar fechar buffer atual", silent = true })
+
+-- File Explorer (MiniFiles)
+keymap("n", "<leader>e", function()
+	if not require("mini.files").close() then
+		require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+	end
+end, { desc = "Abrir explorador de arquivos (arquivo atual)", silent = true })
+
+keymap("n", "<leader>E", function()
+	if not require("mini.files").close() then
+		require("mini.files").open(vim.loop.cwd(), true)
+	end
+end, { desc = "Abrir explorador de arquivos (root)", silent = true })
+
+-- Git (Diffview & Conflict)
+keymap("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Git: Ver Diff (projeto)" })
+keymap("n", "<leader>gc", "<cmd>DiffviewClose<cr>", { desc = "Git: Fechar Diff" })
+keymap("n", "<leader>gh", "<cmd>DiffviewFileHistory %<cr>", { desc = "Git: Histórico do arquivo atual" })
+keymap("n", "<leader>gH", "<cmd>DiffviewFileHistory<cr>", { desc = "Git: Histórico do projeto" })
+
+-- Git: Gerenciamento de Hunks e Commit (MiniDiff & MiniGit)
+keymap("n", "<leader>gs", "<cmd>lua MiniDiff.apply()<cr>", { desc = "Git: Stage/Aplicar hunk" })
+keymap("n", "<leader>gr", "<cmd>lua MiniDiff.reset()<cr>", { desc = "Git: Reset/Descartar hunk" })
+keymap("n", "<leader>gg", "<cmd>lua MiniGit.show_at_cursor()<cr>", { desc = "Git: Info de git no cursor" })
+keymap("n", "<leader>gm", ":Git commit<cr>", { desc = "Git: Commit (MiniGit)" })
+keymap("n", "<leader>gp", ":Git push<cr>", { desc = "Git: Push (MiniGit)" })
 
 -- Navegação no terminal
 keymap("t", "<Esc>", "<C-\\><C-n>", { desc = "Sair do modo insert do terminal", silent = true })

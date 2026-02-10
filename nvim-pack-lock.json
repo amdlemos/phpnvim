@@ -20,6 +20,10 @@
       "rev": "6d8e34f",
       "src": "https://github.com/RicardoRamirezR/blade-nav.nvim"
     },
+    "blink-cmp-copilot": {
+      "rev": "439cff78780c033aa23cf061d7315314b347e3c1",
+      "src": "https://github.com/giuxtaposition/blink-cmp-copilot"
+    },
     "blink.cmp": {
       "rev": "b19413d",
       "src": "https://github.com/saghen/blink.cmp",
@@ -42,9 +46,17 @@
       "rev": "ffe26e8",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "copilot.lua": {
+      "rev": "3faffefbd6ddeb52578535ec6b730e0b72d7fd1a",
+      "src": "https://github.com/zbirenbaum/copilot.lua"
+    },
     "copilot.vim": {
       "rev": "a12fd5672110c8aa7e3c8419e28c96943ca179be",
       "src": "https://github.com/github/copilot.vim"
+    },
+    "diffview.nvim": {
+      "rev": "4516612fe98ff56ae0415a259ff6361a89419b0a",
+      "src": "https://github.com/sindrets/diffview.nvim"
     },
     "dressing.nvim": {
       "rev": "2d7c2db2507fa3c4956142ee607431ddb2828639",
@@ -69,6 +81,10 @@
     "fzf.vim": {
       "rev": "ddc14a6a5471147e2a38e6b32a7268282f669b0a",
       "src": "https://github.com/junegunn/fzf.vim"
+    },
+    "git-conflict.nvim": {
+      "rev": "a1badcd070d176172940eb55d9d59029dad1c5a6",
+      "src": "https://github.com/akinsho/git-conflict.nvim"
     },
     "gitsigns.nvim": {
       "rev": "abf82a65f185bd54adc0679f74b7d6e1ada690c9",
@@ -113,6 +129,10 @@
     "mini.indentscope": {
       "rev": "0308f949f31769e509696af5d5f91cebb2159c69",
       "src": "https://github.com/nvim-mini/mini.indentscope"
+    },
+    "mini.nvim": {
+      "rev": "8c40d95931cbe6138391af9180e59439ed2e69df",
+      "src": "https://github.com/echasnovski/mini.nvim"
     },
     "mini.pairs": {
       "rev": "472ec50",

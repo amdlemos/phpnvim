@@ -30,33 +30,17 @@ local enabled_servers = {
 -- Carregar e configurar cada servidor
 for _, server_name in ipairs(enabled_servers) do
 	local ok, server_config = pcall(require, "lsp.servers." .. server_name)
+	local config = {
+		capabilities = capabilities,
+		on_attach = on_attach,
+	}
+
 	if ok and server_config then
-		local config = {
-			capabilities = capabilities,
-		}
-
-		-- Se o servidor tem on_attach próprio, usar ele, senão usar o padrão
-		if server_config.on_attach then
-			config.on_attach = server_config.on_attach
-			-- Remover on_attach do server_config antes de mesclar
-			local server_config_copy = vim.deepcopy(server_config)
-			server_config_copy.on_attach = nil
-			config = vim.tbl_deep_extend("force", config, server_config_copy)
-		else
-			config.on_attach = on_attach
-			config = vim.tbl_deep_extend("force", config, server_config)
-		end
-
-		-- Configurar o servidor usando vim.lsp.config (API nativa)
-		vim.lsp.config(server_name, config)
-	else
-		-- Se não há arquivo específico, usar configuração padrão
-		vim.lsp.config(server_name, {
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
+		config = vim.tbl_deep_extend("force", config, server_config)
 	end
-end
 
--- Habilitar servidores
-vim.lsp.enable(enabled_servers)
+	-- Configurar e habilitar o servidor usando a API nativa do Neovim 0.11+
+	-- Isso substitui o antigo lspconfig[server].setup()
+	vim.lsp.config(server_name, config)
+	vim.lsp.enable(server_name)
+end

@@ -6,7 +6,6 @@ vim.pack.add({
 	-- Dependências comuns
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
-	{ src = "https://github.com/MunifTanjim/nui.nvim" },
 	{ src = "https://github.com/nvim-neotest/nvim-nio" },
 	{ src = "https://github.com/folke/lazydev.nvim" },
 
@@ -16,28 +15,22 @@ vim.pack.add({
 	-- Treesitter
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/RicardoRamirezR/blade-nav.nvim" },
-	{ src = "https://github.com/antoinemadec/FixCursorHold.nvim" },
 
 	-- UI
-	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
-	{ src = "https://github.com/akinsho/bufferline.nvim" },
 	{ src = "https://github.com/navarasu/onedark.nvim" },
 	{ src = "https://github.com/AstroNvim/astrotheme" },
 	{ src = "https://github.com/folke/which-key.nvim" },
-	{ src = "https://github.com/folke/snacks.nvim" },
-	{ src = "https://github.com/nvim-mini/mini.icons", branch = "stable" },
-	{ src = "https://github.com/nvim-mini/mini.diff", branch = "stable" },
+	{ src = "https://github.com/echasnovski/mini.nvim" },
 
-	-- File Explorer
-	{ src = "https://github.com/nvim-neo-tree/neo-tree.nvim" },
+	-- File Explorer (Via mini.files)
 	{ src = "https://github.com/hedyhli/outline.nvim" },
-	{ src = "https://github.com/folke/edgy.nvim" },
 
 	-- FZF
 	{ src = "https://github.com/ibhagwan/fzf-lua" },
 
 	-- Git
-	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
+	{ src = "https://github.com/sindrets/diffview.nvim" },
+	{ src = "https://github.com/akinsho/git-conflict.nvim" },
 
 	-- Terminal
 	{ src = "https://github.com/akinsho/toggleterm.nvim" },
@@ -45,8 +38,7 @@ vim.pack.add({
 	-- Tmux
 	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
 
-	-- Buffer management
-	{ src = "https://github.com/famiu/bufdelete.nvim" },
+	-- Buffer management (agora via mini.bufremove)
 
 	-- Diagnostics
 	{ src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim" },
@@ -59,7 +51,8 @@ vim.pack.add({
 	{ src = "https://github.com/rafamadriz/friendly-snippets" },
 	{ src = "https://github.com/onsails/lspkind.nvim" },
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
-	{ src = "https://github.com/nvim-mini/mini.pick" },
+	{ src = "https://github.com/zbirenbaum/copilot.lua" },
+	{ src = "https://github.com/giuxtaposition/blink-cmp-copilot" },
 
 	-- DAP
 	{ src = "https://github.com/mfussenegger/nvim-dap" },

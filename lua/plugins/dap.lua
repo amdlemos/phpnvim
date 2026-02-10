@@ -6,6 +6,14 @@ if not dap_ok then
 	return
 end
 
+-- Ícones para DAP
+vim.fn.sign_define("DapBreakpoint", { text = " ", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+vim.fn.sign_define(
+	"DapStopped",
+	{ text = " ", texthl = "DapStopped", linehl = "DebugStopped", numhl = "DebugStopped" }
+)
+vim.fn.sign_define("DapBreakpointRejected", { text = " ", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+
 -- Configuração do adaptador PHP
 dap.adapters.php = {
 	type = "executable",
