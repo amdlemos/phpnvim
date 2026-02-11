@@ -42,6 +42,10 @@
       "src": "https://github.com/olimorris/codecompanion.nvim",
       "version": "18.0.0 - 19.0.0"
     },
+    "codediff.nvim": {
+      "rev": "8dc25e4aae6c2570d764ca3877f617d36fb5a73d",
+      "src": "https://github.com/esmuellert/codediff.nvim"
+    },
     "conform.nvim": {
       "rev": "ffe26e8",
       "src": "https://github.com/stevearc/conform.nvim"
@@ -209,6 +213,10 @@
     "onedark.nvim": {
       "rev": "213c23a",
       "src": "https://github.com/navarasu/onedark.nvim"
+    },
+    "opencode.nvim": {
+      "rev": "e876696dc93c1962eaeff8ca5114c23c20485d09",
+      "src": "https://github.com/nickjvandyke/opencode.nvim"
     },
     "outline.nvim": {
       "rev": "1967ef50036b0b1eac4977aeede55915a741afe0",

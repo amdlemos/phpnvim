@@ -21,12 +21,16 @@ vim.pack.add({
 	{ src = "https://github.com/AstroNvim/astrotheme" },
 	{ src = "https://github.com/folke/which-key.nvim" },
 	{ src = "https://github.com/echasnovski/mini.nvim" },
+	{ src = "https://github.com/folke/snacks.nvim" },
 
 	-- File Explorer (Via mini.files)
 	{ src = "https://github.com/hedyhli/outline.nvim" },
 
-	-- FZF
+	-- FZF (apenas para live_grep + LSP)
 	{ src = "https://github.com/ibhagwan/fzf-lua" },
+
+	-- OpenCode AI Assistant
+	{ src = "https://github.com/nickjvandyke/opencode.nvim" },
 
 	-- Git
 	{ src = "https://github.com/sindrets/diffview.nvim" },

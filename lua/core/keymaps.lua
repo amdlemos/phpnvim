@@ -38,6 +38,8 @@ keymap("n", "<leader>gH", "<cmd>DiffviewFileHistory<cr>", { desc = "Git: Histór
 keymap("n", "<leader>gs", "<cmd>lua MiniDiff.apply()<cr>", { desc = "Git: Stage/Aplicar hunk" })
 keymap("n", "<leader>gr", "<cmd>lua MiniDiff.reset()<cr>", { desc = "Git: Reset/Descartar hunk" })
 keymap("n", "<leader>gg", "<cmd>lua MiniGit.show_at_cursor()<cr>", { desc = "Git: Info de git no cursor" })
+keymap("n", "<leader>gb", ":Git branch<cr>", { desc = "Git: Branches (MiniGit)" })
+keymap("n", "<leader>gc", ":Git log<cr>", { desc = "Git: Commits (MiniGit)" })
 keymap("n", "<leader>gm", ":Git commit<cr>", { desc = "Git: Commit (MiniGit)" })
 keymap("n", "<leader>gp", ":Git push<cr>", { desc = "Git: Push (MiniGit)" })
 
