@@ -7,6 +7,18 @@ local keymap = vim.keymap.set
 vim.g.mapleader = " "
 keymap("n", "<space>", "<Nop>")
 
+-- Clipboard: Copiar/Colar com registro do sistema (+)
+-- Copiar seleção para clipboard do sistema
+keymap({ "n", "x" }, "<leader>cy", '"+y', { desc = "Copiar para clipboard do sistema", silent = true })
+-- Copiar linha inteira para clipboard
+keymap("n", "<leader>cyy", '"+yy', { desc = "Copiar linha para clipboard do sistema", silent = true })
+-- Copiar buffer inteiro para clipboard
+keymap("n", "<leader>cya", 'gg"+yG', { desc = "Copiar tudo para clipboard do sistema", silent = true })
+-- Colar do clipboard do sistema
+keymap({ "n", "x" }, "<leader>cp", '"+p', { desc = "Colar do clipboard do sistema", silent = true })
+-- Colar antes (insert before)
+keymap({ "n", "x" }, "<leader>cP", '"+P', { desc = "Colar antes do clipboard do sistema", silent = true })
+
 -- Gerenciamento de buffers
 keymap("n", "<leader>bd", function()
 	require("mini.bufremove").delete(0, false)
@@ -50,18 +62,4 @@ keymap("t", "<C-j>", "<C-\\><C-n><C-w>j", { desc = "Navegar para janela abaixo d
 keymap("t", "<C-k>", "<C-\\><C-n><C-w>k", { desc = "Navegar para janela acima do terminal", silent = true })
 keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Navegar para janela direita do terminal", silent = true })
 
--- Mini.Pick - Buffers (com delay para carregamento seguro)
-local function setup_pick_keymaps()
-	pcall(function()
-		local pick = require("mini.pick")
-		if not pick or not pick.builtin or not pick.builtin.buffers then
-			return
-		end
-		local opts = { silent = true, desc = "" }
-		keymap("n", "<leader>fb", pick.builtin.buffers, vim.tbl_extend("force", opts, { desc = "Buffers" }))
-	end)
-end
-
--- Esperar até que tudo esteja pronto (opencode pode estar interferindo)
-vim.defer_fn(setup_pick_keymaps, 500)
 

@@ -46,13 +46,13 @@ end, vim.tbl_extend("force", s, { desc = "Toggle OpenCode" }))
 -- Operator mode - adicionar contexto à query
 -- go + motion = adicionar range ao opencode
 keymap("n", "go", function()
-	return opencode.operator("@this ")
-end, vim.tbl_extend("force", s, { desc = "Add range to OpenCode", expr = true }))
+	opencode.operator("@this ")
+end, vim.tbl_extend("force", s, { desc = "Add range to OpenCode" }))
 
 -- goo = adicionar linha inteira
 keymap("n", "goo", function()
-	return opencode.operator("@this ") .. "_"
-end, vim.tbl_extend("force", s, { desc = "Add line to OpenCode", expr = true }))
+	opencode.operator("@this " .. "_")
+end, vim.tbl_extend("force", s, { desc = "Add line to OpenCode" }))
 
 -- Scroll commands
 keymap("n", "<S-C-u>", function()
