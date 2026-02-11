@@ -50,3 +50,18 @@ keymap("t", "<C-j>", "<C-\\><C-n><C-w>j", { desc = "Navegar para janela abaixo d
 keymap("t", "<C-k>", "<C-\\><C-n><C-w>k", { desc = "Navegar para janela acima do terminal", silent = true })
 keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Navegar para janela direita do terminal", silent = true })
 
+-- Mini.Pick - Buffers (com delay para carregamento seguro)
+local function setup_pick_keymaps()
+	pcall(function()
+		local pick = require("mini.pick")
+		if not pick or not pick.builtin or not pick.builtin.buffers then
+			return
+		end
+		local opts = { silent = true, desc = "" }
+		keymap("n", "<leader>fb", pick.builtin.buffers, vim.tbl_extend("force", opts, { desc = "Buffers" }))
+	end)
+end
+
+-- Esperar até que tudo esteja pronto (opencode pode estar interferindo)
+vim.defer_fn(setup_pick_keymaps, 500)
+
