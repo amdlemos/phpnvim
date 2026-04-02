@@ -11,7 +11,7 @@ require("conform").setup({
 		html = { "prettier" },
 		javascript = { "prettier" },
 		typescript = { "biome" },
-		vue = { "prettier" },
+		-- vue = { "prettier" },
 		yaml = { "prettier" },
 		blade = { "blade_formatter" },
 		php = { "php_cs_fixer" },

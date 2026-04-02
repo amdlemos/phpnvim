@@ -8,11 +8,11 @@ return function(client, bufnr)
 	local opts = { buffer = bufnr, silent = true }
 
 	-- Navegação
-	keymap("n", "gd", vim.lsp.buf.definition, vim.tbl_extend("force", opts, { desc = "Ir para definição" }))
-	keymap("n", "gD", vim.lsp.buf.declaration, vim.tbl_extend("force", opts, { desc = "Ir para declaração" }))
-	keymap("n", "gi", vim.lsp.buf.implementation, vim.tbl_extend("force", opts, { desc = "Ir para implementação" }))
-	keymap("n", "gr", vim.lsp.buf.references, vim.tbl_extend("force", opts, { desc = "Mostrar referências" }))
-	keymap("n", "gt", vim.lsp.buf.type_definition, vim.tbl_extend("force", opts, { desc = "Ir para definição de tipo" }))
+	-- keymap("n", "gd", vim.lsp.buf.definition, vim.tbl_extend("force", opts, { desc = "Ir para definição" }))
+	-- keymap("n", "gD", vim.lsp.buf.declaration, vim.tbl_extend("force", opts, { desc = "Ir para declaração" }))
+	-- keymap("n", "gi", vim.lsp.buf.implementation, vim.tbl_extend("force", opts, { desc = "Ir para implementação" }))
+	-- keymap("n", "gr", vim.lsp.buf.references, vim.tbl_extend("force", opts, { desc = "Mostrar referências" }))
+	-- keymap("n", "gt", vim.lsp.buf.type_definition, vim.tbl_extend("force", opts, { desc = "Ir para definição de tipo" }))
 
 	-- Informações
 	keymap("n", "K", vim.lsp.buf.hover, vim.tbl_extend("force", opts, { desc = "Mostrar documentação" }))

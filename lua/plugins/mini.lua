@@ -3,22 +3,22 @@
 
 require("mini.icons").setup()
 require("mini.icons").mock_nvim_web_devicons()
-require("mini.git").setup()
+-- require("mini.git").setup()
 require("mini.diff").setup()
 require("mini.fuzzy").setup()
 require("mini.pick").setup()
 require("mini.bufremove").setup()
 require("mini.ai").setup()
-require("mini.files").setup({
-	windows = {
-		preview = true,
-		width_focus = 30,
-		width_preview = 80,
-	},
-	options = {
-		use_as_default_explorer = true,
-	},
-})
+-- require("mini.files").setup({
+-- 	windows = {
+-- 		preview = true,
+-- 		width_focus = 30,
+-- 		width_preview = 80,
+-- 	},
+-- 	options = {
+-- 		use_as_default_explorer = true,
+-- 	},
+-- })
 require("mini.indentscope").setup({
 	symbol = "│",
 	draw = {

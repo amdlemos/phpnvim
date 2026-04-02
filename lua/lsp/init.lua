@@ -15,7 +15,7 @@ local on_attach = require("lsp.on_attach")
 local enabled_servers = {
 	"intelephense",
 	-- "phpactor",
-	"vtsls",
+	-- "vtsls",
 	"html",
 	"cssls",
 	"jsonls",
@@ -24,7 +24,7 @@ local enabled_servers = {
 	"yamlls",
 	"dartls",
 	"tailwindcss",
-	"vue_ls",
+	-- "vue_ls",
 }
 
 -- Carregar e configurar cada servidor

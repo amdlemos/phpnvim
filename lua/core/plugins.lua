@@ -23,7 +23,9 @@ vim.pack.add({
 	{ src = "https://github.com/echasnovski/mini.nvim" },
 	{ src = "https://github.com/folke/snacks.nvim" },
 
-	-- File Explorer (Via mini.files)
+	-- File Explorer (Neo-tree)
+	{ src = "https://github.com/nvim-neo-tree/neo-tree.nvim" },
+	{ src = "https://github.com/MunifTanjim/nui.nvim" },
 	{ src = "https://github.com/hedyhli/outline.nvim" },
 
 	-- FZF (apenas para live_grep + LSP)

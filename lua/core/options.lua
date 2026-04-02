@@ -51,7 +51,7 @@ opt.autoread = true
 opt.fileformats = { "unix", "dos" }
 
 -- Clipboard
--- opt.clipboard = "unnamedplus" -- Desativado por performance (causa lag ao digitar no Linux)
+opt.clipboard = "unnamedplus"
 
 -- Completar
 opt.completeopt = { "menuone", "popup", "noinsert" }
@@ -65,3 +65,7 @@ vim.g.netrw_liststyle = 1
 vim.g.netrw_sort_by = "size"
 vim.g.loaded_perl_provider = 0
 vim.g.php_parent_error = 0
+
+-- Desativar plugins do mini.nvim monolítico que não queremos
+vim.g.minigit_disable = true
+vim.g.minifiles_disable = true -- Já que você está usando o neo-tree

@@ -19,26 +19,6 @@ autocmd({ "FocusGained", "BufEnter" }, {
 	command = "checktime",
 })
 
--- Netrw keymaps
-autocmd("FileType", {
-	pattern = "netrw",
-	callback = function()
-		vim.keymap.set("n", "<C-c>", "<cmd>bd<CR>", { buffer = true, silent = true })
-		vim.keymap.set("n", "<Tab>", "mf", { buffer = true, remap = true, silent = true })
-		vim.keymap.set("n", "<S-Tab>", "mF", { buffer = true, remap = true, silent = true })
-		vim.keymap.set("n", "%", function()
-			local dir = vim.b.netrw_curdir or vim.fn.expand("%:p:h")
-			vim.ui.input({ prompt = "Enter filename: " }, function(input)
-				if input and input ~= "" then
-					local filepath = dir .. "/" .. input
-					vim.cmd("!touch " .. vim.fn.shellescape(filepath))
-					vim.api.nvim_feedkeys("<C-l>", "n", false)
-				end
-			end)
-		end, { buffer = true, silent = true })
-	end,
-})
-
 -- Markdown
 autocmd("FileType", {
 	pattern = "markdown",
@@ -58,3 +38,7 @@ autocmd("FileType", {
 		vim.opt_local.colorcolumn = "80"
 	end,
 })
+
+vim.api.nvim_create_user_command('PackUpdate', function()
+  vim.pack.update()
+end, {})

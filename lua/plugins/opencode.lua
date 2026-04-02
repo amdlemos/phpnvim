@@ -15,7 +15,7 @@ require("snacks").setup({
 -- Configuração do opencode
 vim.g.opencode_opts = {
 	-- Provider: usar terminal nativo do Neovim
-	provider = {
+	server = {
 		enabled = "terminal",
 		terminal = {
 			-- Configurações do terminal
