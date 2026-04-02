@@ -1,6 +1,6 @@
 -- FZF-Lua Configuration (Minimalista)
--- Apenas: live_grep (real-time fuzzy grep) + LSP references
--- Tudo mais fica com mini.pick
+-- Apenas: live_grep (real-time fuzzy grep) + grep sob cursor
+-- LSP navigation fica com Trouble (gd/gr/gi/gt)
 
 local fzf = require("fzf-lua")
 local keymap = vim.keymap.set
@@ -49,14 +49,4 @@ keymap("n", "<leader>fg", "<cmd>FzfLua live_grep<cr>", vim.tbl_extend("force", s
 keymap("n", "<leader>fw", "<cmd>FzfLua grep_cword<cr>", vim.tbl_extend("force", s, { desc = "Grep Word" }))
 keymap("n", "<leader>fW", "<cmd>FzfLua grep_cWORD<cr>", vim.tbl_extend("force", s, { desc = "Grep WORD" }))
 
--- LSP - Referências (variáveis, classes, etc)
-keymap("n", "<leader>lr", "<cmd>FzfLua lsp_references<cr>", vim.tbl_extend("force", s, { desc = "Referências (LSP)" }))
 
--- LSP - Workspace Symbols (busca global de símbolos)
-keymap("n", "<leader>lw", "<cmd>FzfLua lsp_workspace_symbols<cr>", vim.tbl_extend("force", s, { desc = "Workspace Symbols" }))
-
--- LSP - Type Definition
-keymap("n", "<leader>lt", "<cmd>FzfLua lsp_type_definitions<cr>", vim.tbl_extend("force", s, { desc = "Type Definition" }))
-
--- LSP - Implementação
-keymap("n", "<leader>li", "<cmd>FzfLua lsp_implementations<cr>", vim.tbl_extend("force", s, { desc = "Implementação" }))

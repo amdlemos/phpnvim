@@ -7,12 +7,12 @@ return function(client, bufnr)
 	-- Buffer local mappings
 	local opts = { buffer = bufnr, silent = true }
 
-	-- Navegação
-	-- keymap("n", "gd", vim.lsp.buf.definition, vim.tbl_extend("force", opts, { desc = "Ir para definição" }))
-	-- keymap("n", "gD", vim.lsp.buf.declaration, vim.tbl_extend("force", opts, { desc = "Ir para declaração" }))
-	-- keymap("n", "gi", vim.lsp.buf.implementation, vim.tbl_extend("force", opts, { desc = "Ir para implementação" }))
-	-- keymap("n", "gr", vim.lsp.buf.references, vim.tbl_extend("force", opts, { desc = "Mostrar referências" }))
-	-- keymap("n", "gt", vim.lsp.buf.type_definition, vim.tbl_extend("force", opts, { desc = "Ir para definição de tipo" }))
+	-- Navegação (via Trouble)
+	keymap("n", "gd", "<cmd>Trouble lsp_definitions toggle<cr>", vim.tbl_extend("force", opts, { desc = "Ir para definição" }))
+	keymap("n", "gD", "<cmd>Trouble lsp_declarations toggle<cr>", vim.tbl_extend("force", opts, { desc = "Ir para declaração" }))
+	keymap("n", "gi", "<cmd>Trouble lsp_implementations toggle<cr>", vim.tbl_extend("force", opts, { desc = "Ir para implementação" }))
+	keymap("n", "gr", "<cmd>Trouble lsp_references toggle<cr>", vim.tbl_extend("force", opts, { desc = "Mostrar referências" }))
+	keymap("n", "gt", "<cmd>Trouble lsp_type_definitions toggle<cr>", vim.tbl_extend("force", opts, { desc = "Ir para definição de tipo" }))
 
 	-- Informações
 	keymap("n", "K", vim.lsp.buf.hover, vim.tbl_extend("force", opts, { desc = "Mostrar documentação" }))
