@@ -39,6 +39,10 @@ require("trouble").setup({
 		render = 100,
 		follow = 200,
 	},
+	keys = {
+		l = "fold_open",
+		h = "fold_close",
+	},
 })
 
 vim.keymap.set("n", "<leader>xX", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Diagnostics (Trouble)" })
@@ -51,6 +55,23 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>xs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
 vim.keymap.set("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List (Trouble)" })
 vim.keymap.set("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
+
+-- Redirecionar quickfix/loclist nativos para o Trouble
+vim.api.nvim_create_autocmd("QuickFixCmdPost", {
+	pattern = "[^l]*",
+	callback = function()
+		vim.cmd("Trouble qflist open")
+	end,
+	desc = "Abrir quickfix no Trouble",
+})
+
+vim.api.nvim_create_autocmd("QuickFixCmdPost", {
+	pattern = "l*",
+	callback = function()
+		vim.cmd("Trouble loclist open")
+	end,
+	desc = "Abrir loclist no Trouble",
+})
 vim.keymap.set(
 	"n",
 	"<leader>xr",
