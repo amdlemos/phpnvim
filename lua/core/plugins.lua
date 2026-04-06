@@ -35,6 +35,7 @@ vim.pack.add({
 	{ src = "https://github.com/nickjvandyke/opencode.nvim" },
 
 	-- Git
+	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
 	{ src = "https://github.com/sindrets/diffview.nvim" },
 	{ src = "https://github.com/akinsho/git-conflict.nvim" },
 
