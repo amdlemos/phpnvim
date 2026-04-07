@@ -35,8 +35,11 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
 
-	-- OpenCode AI Assistant
-	{ src = "https://github.com/nickjvandyke/opencode.nvim" },
+	-- OpenCode AI Assistant (substituído pelo CodeCompanion)
+	-- { src = "https://github.com/nickjvandyke/opencode.nvim" },
+
+	-- CodeCompanion - AI Assistant (usa GitHub Copilot como adapter padrão)
+	{ src = "https://github.com/olimorris/codecompanion.nvim" },
 
 	-- Git
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" },

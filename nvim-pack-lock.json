@@ -39,8 +39,7 @@
     },
     "codecompanion.nvim": {
       "rev": "558518f8d78a44198cd428f6bf8bf48bfa38d76d",
-      "src": "https://github.com/olimorris/codecompanion.nvim",
-      "version": "18.0.0 - 19.0.0"
+      "src": "https://github.com/olimorris/codecompanion.nvim"
     },
     "codediff.nvim": {
       "rev": "93cd80c56f71af4671388c568a37d4c84c3ddefa",

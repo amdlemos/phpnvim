@@ -1,5 +1,8 @@
--- OpenCode.nvim Configuration
+-- OpenCode.nvim Configuration (DESATIVADO - substituído pelo CodeCompanion)
 -- AI Assistant integration with Neovim
+-- Para reativar, descomente o código abaixo e comente o codecompanion.lua
+
+--[[ -- Configuração original do OpenCode (comentada)
 
 local opencode = require("opencode")
 local keymap = vim.keymap.set
@@ -104,3 +107,5 @@ keymap({ "n", "x" }, "<leader>opd", prompt("document"), vim.tbl_extend("force", 
 
 -- Fixar diagnostics
 keymap({ "n", "x" }, "<leader>opf", prompt("fix"), vim.tbl_extend("force", s, { desc = "Fix diagnostics" }))
+
+--]]

@@ -81,6 +81,9 @@ require("blink.cmp").setup({
 			"buffer",
 			"copilot",
 		},
+		per_filetype = {
+			codecompanion = { "codecompanion" },
+		},
 		providers = {
 			copilot = {
 				name = "copilot",
