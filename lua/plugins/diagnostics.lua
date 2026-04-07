@@ -45,36 +45,4 @@ require("trouble").setup({
 	},
 })
 
-vim.keymap.set("n", "<leader>xX", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Diagnostics (Trouble)" })
-vim.keymap.set(
-	"n",
-	"<leader>xx",
-	"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-	{ desc = "Buffer Diagnostics (Trouble)" }
-)
-vim.keymap.set("n", "<leader>xs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
-vim.keymap.set("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List (Trouble)" })
-vim.keymap.set("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
-
--- Redirecionar quickfix/loclist nativos para o Trouble
-vim.api.nvim_create_autocmd("QuickFixCmdPost", {
-	pattern = "[^l]*",
-	callback = function()
-		vim.cmd("Trouble qflist open")
-	end,
-	desc = "Abrir quickfix no Trouble",
-})
-
-vim.api.nvim_create_autocmd("QuickFixCmdPost", {
-	pattern = "l*",
-	callback = function()
-		vim.cmd("Trouble loclist open")
-	end,
-	desc = "Abrir loclist no Trouble",
-})
-vim.keymap.set(
-	"n",
-	"<leader>xr",
-	"<cmd>Trouble symbols pinned=true win.relative=win win.position=right<cr>",
-	{ desc = "Show document symbols (Trouble)" }
-)
+vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Diagnósticos do buffer (Trouble)" })

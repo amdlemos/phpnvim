@@ -24,26 +24,5 @@ end
 
 load_plugins()
 
--- Setup mini.pick keymaps com delay após todos os plugins
-vim.defer_fn(function()
-	local ok, pick = pcall(require, "mini.pick")
-	if not ok or not pick or not pick.builtin then
-		return
-	end
-
-	local keymap = vim.keymap.set
-	local opts = { silent = true, desc = "" }
-
-	keymap("n", "<leader>ff", pick.builtin.files, vim.tbl_extend("force", opts, { desc = "Arquivos (projeto)" }))
-	keymap("n", "<leader>fa", function()
-		pick.builtin.files({ source = { cwd = vim.fn.expand("~") } })
-	end, vim.tbl_extend("force", opts, { desc = "Todos os arquivos" }))
-	keymap("n", "<leader>fb", pick.builtin.buffers, vim.tbl_extend("force", opts, { desc = "Buffers" }))
-	keymap("n", "<leader>fg", pick.builtin.grep, vim.tbl_extend("force", opts, { desc = "Grep" }))
-	keymap("n", "<leader>gf", function()
-		pick.builtin.files({ source = { cwd_type = "git_root" } })
-	end, vim.tbl_extend("force", opts, { desc = "Git Files" }))
-end, 500)
-
 -- LSP: Configuração do Language Server Protocol
 require("lsp")

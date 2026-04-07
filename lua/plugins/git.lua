@@ -60,8 +60,8 @@ require("gitsigns").setup({
 		end, "Blame da linha")
 		map("n", "<leader>gB", gs.toggle_current_line_blame, "Toggle blame inline")
 
-		-- Diff
-		map("n", "<leader>gd", gs.diffthis, "Diff do arquivo")
+		-- Diff (gitsigns: diff do arquivo vs index; <leader>gd = DiffviewOpen do projeto)
+		map("n", "<leader>gi", gs.diffthis, "Diff do arquivo (index)")
 	end,
 })
 

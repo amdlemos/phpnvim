@@ -12,9 +12,11 @@ vim.pack.add({
 	-- LSP
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 
-	-- Treesitter
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+	-- Blade
 	{ src = "https://github.com/RicardoRamirezR/blade-nav.nvim" },
+
+	-- Treesitter (gerenciador de parsers - substitui nvim-treesitter)
+	{ src = "https://github.com/romus204/tree-sitter-manager.nvim" },
 
 	-- UI
 	{ src = "https://github.com/navarasu/onedark.nvim" },
@@ -28,8 +30,10 @@ vim.pack.add({
 	{ src = "https://github.com/MunifTanjim/nui.nvim" },
 	{ src = "https://github.com/hedyhli/outline.nvim" },
 
-	-- FZF (apenas para live_grep + LSP)
-	{ src = "https://github.com/ibhagwan/fzf-lua" },
+	-- Telescope
+	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
+	{ src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
+	{ src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
 
 	-- OpenCode AI Assistant
 	{ src = "https://github.com/nickjvandyke/opencode.nvim" },

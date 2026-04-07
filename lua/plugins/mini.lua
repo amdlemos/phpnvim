@@ -4,9 +4,6 @@
 require("mini.icons").setup()
 require("mini.icons").mock_nvim_web_devicons()
 -- require("mini.git").setup()
-require("mini.diff").setup()
-require("mini.fuzzy").setup()
-require("mini.pick").setup()
 require("mini.bufremove").setup()
 require("mini.ai").setup()
 -- require("mini.files").setup({
