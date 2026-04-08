@@ -25,6 +25,11 @@ require("codecompanion").setup({
 		chat = {
 			-- Renderizar markdown no chat buffer
 			render_headers = true,
+			window = {
+				layout = "vertical",
+				position = "right",
+				width = 0.33,
+			},
 		},
 	},
 

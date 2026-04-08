@@ -58,6 +58,8 @@ opt.completeopt = { "menuone", "popup", "noinsert" }
 
 -- Comandos
 opt.inccommand = "nosplit"
+opt.splitright = true
+opt.splitbelow = true
 
 -- Variáveis globais
 vim.g.copilot_no_tab_map = true
