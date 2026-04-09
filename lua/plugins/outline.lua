@@ -1,6 +1,10 @@
 -- Outline Configuration
 
-require("outline").setup({})
+require("outline").setup({
+	outline_window = {
+		position = "left",
+	},
+})
 
 require("toggleterm").setup({
 	open_mapping = "<leader>to",

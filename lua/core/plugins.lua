@@ -15,8 +15,8 @@ vim.pack.add({
 	-- Blade
 	{ src = "https://github.com/RicardoRamirezR/blade-nav.nvim" },
 
-	-- Treesitter (gerenciador de parsers - substitui nvim-treesitter)
-	{ src = "https://github.com/romus204/tree-sitter-manager.nvim" },
+	-- Treesitter
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 
 	-- UI
 	{ src = "https://github.com/navarasu/onedark.nvim" },

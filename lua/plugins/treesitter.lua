@@ -1,7 +1,10 @@
--- Treesitter Manager Configuration
--- Substitui nvim-treesitter (arquivado) para instalar/gerenciar parsers
+-- Treesitter Configuration
 -- Requer: tree-sitter CLI, gcc/clang, git
 
-require("tree-sitter-manager").setup()
-
-vim.keymap.set("n", "<leader>ts", "<cmd>TSManager<cr>", { desc = "Gerenciar parsers Treesitter" })
+require("nvim-treesitter.configs").setup({
+	sync_install = false,
+	auto_install = true,
+	highlight = {
+		enable = true,
+	},
+})
