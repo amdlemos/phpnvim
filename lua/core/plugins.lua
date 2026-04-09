@@ -23,7 +23,7 @@ vim.pack.add({
 	{ src = "https://github.com/AstroNvim/astrotheme" },
 	{ src = "https://github.com/folke/which-key.nvim" },
 	{ src = "https://github.com/echasnovski/mini.nvim" },
-	{ src = "https://github.com/folke/snacks.nvim" },
+	-- { src = "https://github.com/folke/snacks.nvim" },
 
 	-- File Explorer (Neo-tree)
 	{ src = "https://github.com/nvim-neo-tree/neo-tree.nvim" },
@@ -57,6 +57,8 @@ vim.pack.add({
 	-- Diagnostics
 	{ src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim" },
 	{ src = "https://github.com/folke/trouble.nvim" },
+	-- Code Actions
+	{ src = "https://github.com/rachartier/tiny-code-action.nvim" },
 
 	-- Formatting
 	{ src = "https://github.com/stevearc/conform.nvim" },
@@ -67,6 +69,7 @@ vim.pack.add({
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
 	{ src = "https://github.com/zbirenbaum/copilot.lua" },
 	{ src = "https://github.com/giuxtaposition/blink-cmp-copilot" },
+	{ src = "https://github.com/folke/sidekick.nvim" },
 
 	-- DAP
 	{ src = "https://github.com/mfussenegger/nvim-dap" },

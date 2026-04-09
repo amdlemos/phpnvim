@@ -1,7 +1,9 @@
 -- CodeCompanion.nvim Configuration
 -- AI Assistant com suporte a GitHub Copilot (adapter padrão)
 -- Docs: https://codecompanion.olimorris.dev
-
+if true then
+    return {};
+end
 require("codecompanion").setup({
 	-- Interactions: define qual adapter usar para cada tipo de interação
 	interactions = {

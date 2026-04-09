@@ -230,6 +230,10 @@
       "rev": "e3c18ddd27a853f85a6f513a864cf4f2982b9f26",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
+    "sidekick.nvim": {
+      "rev": "17447a05f9385e5f8372b61530f6f9329cb82421",
+      "src": "https://github.com/folke/sidekick.nvim"
+    },
     "snacks.nvim": {
       "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
       "src": "https://github.com/folke/snacks.nvim"
@@ -249,6 +253,10 @@
     "telescope.nvim": {
       "rev": "e6cdb4dc528c5dc4ca8da86e83ef4e3c84b0729c",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
+    },
+    "tiny-code-action.nvim": {
+      "rev": "47ec77edf11db531b01d415688b87b1c63bc0aca",
+      "src": "https://github.com/rachartier/tiny-code-action.nvim"
     },
     "tiny-inline-diagnostic.nvim": {
       "rev": "ba133b3e932416e4b9507095731a6d7276878fe8",
