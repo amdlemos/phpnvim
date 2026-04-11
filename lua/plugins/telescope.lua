@@ -11,6 +11,7 @@ telescope.setup({
 		prompt_prefix = "  ",
 		selection_caret = " ",
 		sorting_strategy = "ascending",
+		path_display = {"tail"},
 		layout_config = {
 			horizontal = {
 				prompt_position = "top",
@@ -54,8 +55,16 @@ map("n", "<leader>fb", builtin.buffers, { desc = "Buffers" })
 map("n", "<leader>fr", builtin.oldfiles, { desc = "Arquivos recentes" })
 
 -- Grep / busca
-map("n", "<leader>/", builtin.live_grep, { desc = "Live Grep" })
-map("n", "<leader>fg", builtin.live_grep, { desc = "Live Grep" })
+map("n", "<leader>/", function()
+	builtin.live_grep({
+		additional_args = { "--glob", "!*.json", "--glob", "!*.csv" },
+	})
+end, { desc = "Live Grep" })
+map("n", "<leader>fg", function()
+	builtin.live_grep({
+		additional_args = { "--glob", "!*.json", "--glob", "!*.csv" },
+	})
+end, { desc = "Live Grep" })
 map("n", "<leader>fw", builtin.grep_string, { desc = "Grep word sob cursor" })
 
 -- Git

@@ -3,6 +3,7 @@
 require("outline").setup({
 	outline_window = {
 		position = "left",
+        width = 15,
 	},
 })
 
