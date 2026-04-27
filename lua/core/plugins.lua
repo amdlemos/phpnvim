@@ -78,6 +78,7 @@ vim.pack.add({
 	-- Testing
 	{ src = "https://github.com/nvim-neotest/neotest" },
 	{ src = "https://github.com/olimorris/neotest-phpunit" },
+	{ src = "https://github.com/V13Axel/neotest-pest" },
 
 	-- Markdown
 	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },

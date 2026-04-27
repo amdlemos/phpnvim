@@ -5,6 +5,7 @@
 return {
 	on_attach = function(client, bufnr)
 		client.server_capabilities.semanticTokensProvider = nil
+		client.server_capabilities.documentFormattingProvider = false
 	end,
 	filetypes = {
 		"javascript",
