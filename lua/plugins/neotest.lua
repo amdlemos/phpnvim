@@ -55,6 +55,8 @@ local function build_phpunit_adapter()
 			return runner_cfg.phpunit_cmd
 		end,
 		root_files = { "composer.json", ".ddev", ".neotest.lua" },
+		-- Não ativar em projetos Pest (têm tests/Pest.php)
+		root_ignore_files = { "tests/Pest.php" },
 	})
 
 	local original_results = adapter.results
@@ -130,7 +132,8 @@ local function build_pest_adapter()
 			return runner_cfg.pest_cmd
 		end,
 		sail_enabled = false,
-		root_files = { "tests/Pest.php", "composer.json" },
+		-- Ativa somente em projetos que têm tests/Pest.php (padrão do Pest)
+		root_files = { "tests/Pest.php" },
 	})
 end
 
