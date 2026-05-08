@@ -125,9 +125,7 @@ end
 
 local function build_pest_adapter()
 	local runner_cfg = get_runner_config()
-	-- Desabilita a detecção automática de Sail do neotest-pest para usar
-	-- nosso próprio pest_cmd que já considera Sail, DDEV ou local
-	return require("neotest-pest")({
+	local adapter = require("neotest-pest")({
 		pest_cmd = function()
 			return runner_cfg.pest_cmd
 		end,
@@ -135,6 +133,50 @@ local function build_pest_adapter()
 		-- Ativa somente em projetos que têm tests/Pest.php (padrão do Pest)
 		root_files = { "tests/Pest.php" },
 	})
+
+	-- Corrige mismatch de IDs: neotest-pest remove o prefixo "it " dos nomes
+	-- no XML, mas o treesitter captura o nome literal do arquivo (ex: "it shows...").
+	-- Quando o nome no código começa com "it ", o ID do resultado fica sem o prefixo
+	-- e não bate com o position.id do treesitter → teste aparece como falho.
+	-- Fix: para cada resultado sem match, tenta também o ID com "it " adicionado.
+	local original_results = adapter.results
+	adapter.results = function(spec, result, tree)
+		local outcomes = original_results(spec, result, tree)
+
+		-- Coleta todos os position IDs conhecidos pela árvore
+		local known_ids = {}
+		if tree then
+			for _, node in tree:iter_nodes() do
+				local data = node:data()
+				if data and data.id then
+					known_ids[data.id] = true
+				end
+			end
+		end
+
+		-- Para cada resultado cujo ID não existe na árvore, tenta variantes com "it "
+		local fixed = {}
+		for id, outcome in pairs(outcomes) do
+			if known_ids[id] then
+				fixed[id] = outcome
+			else
+				-- Tenta inserir "it " após o separador "::"
+				local alt_id = id:gsub("::(.)", function(first_char)
+					return "::it " .. first_char
+				end)
+				if known_ids[alt_id] then
+					fixed[alt_id] = outcome
+				else
+					-- Mantém o ID original se nenhuma variante casar
+					fixed[id] = outcome
+				end
+			end
+		end
+
+		return fixed
+	end
+
+	return adapter
 end
 
 require("neotest").setup({

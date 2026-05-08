@@ -24,17 +24,17 @@ dap.adapters.php = {
 	},
 }
 
-dap.configurations.php = {
-	{
-		type = "php",
-		request = "launch",
-		name = "Listen for Xdebug",
-		port = 9003,
-		pathMappings = {
-			["/var/www/html/web"] = "/home/amdlemos/github/sistema-vexor",
-		},
-	},
-}
+-- dap.configurations.php = {
+-- 	{
+-- 		type = "php",
+-- 		request = "launch",
+-- 		name = "Listen for Xdebug",
+-- 		port = 9003,
+-- 		pathMappings = {
+-- 			["/var/www/html/web"] = "/home/amdlemos/github/sistema-vexor",
+-- 		},
+-- 	},
+-- }
 
 -- Configuração do adaptador Dart
 dap.adapters.dart = {
