@@ -11,7 +11,7 @@ telescope.setup({
 		prompt_prefix = "  ",
 		selection_caret = " ",
 		sorting_strategy = "ascending",
-		path_display = {"tail"},
+		path_display = {"filename_first"},
 		layout_config = {
 			horizontal = {
 				prompt_position = "top",

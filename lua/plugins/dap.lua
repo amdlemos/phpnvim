@@ -94,6 +94,7 @@ do
 				{ "<leader>do", desc = "DAP Step Over" },
 				{ "<leader>di", desc = "DAP Step Into" },
 				{ "<leader>dk", desc = "DAP Hover" },
+				{ "<leader>dt", desc = "DAP Toggle Panel" },
 			})
 		end
 	end
@@ -115,6 +116,36 @@ end, vim.tbl_extend("force", s, { desc = "DAP Step Into" }))
 keymap("n", "<leader>dk", function()
 	require("dap.ui.widgets").hover()
 end, vim.tbl_extend("force", s, { desc = "DAP Hover" }))
+
+-- Toggle dap-ui panel (leader dt)
+keymap("n", "<leader>dt", function()
+	if not dapui_ok then
+ 		return
+ 	end
+
+	-- Prefer dapui.toggle if available
+	if dapui.toggle then
+		dapui.toggle()
+		return
+	end
+
+	-- Fallback: detect any open dapui buffer by name and open/close accordingly
+	local open = false
+	for _, win in ipairs(vim.api.nvim_list_wins()) do
+		local buf = vim.api.nvim_win_get_buf(win)
+		local name = vim.api.nvim_buf_get_name(buf)
+		if name:match("dapui_") then
+			open = true
+			break
+		end
+	end
+
+	if open then
+		dapui.close()
+	else
+		dapui.open()
+	end
+end, vim.tbl_extend("force", s, { desc = "DAP Toggle Panel" }))
 
 -- Fechar floats do DAP com 'q'
 vim.api.nvim_create_autocmd("FileType", {
