@@ -7,9 +7,9 @@ require("conform").setup({
 	},
 	formatters_by_ft = {
 		lua = { "stylua" },
-		json = { "prettier" },
+		json = { "biome" },
 		html = { "prettier" },
-		javascript = { "prettier" },
+		javascript = { "biome" },
 		typescript = { "biome" },
 		-- vue = { "prettier" },
 		yaml = { "prettier" },
@@ -21,6 +21,18 @@ require("conform").setup({
 			command = "blade-formatter",
 			args = { "--stdin" },
 			stdin = true,
+		},
+		pint = {
+			-- Only enable pint when a pint.json is present at the project root.
+			condition = function(self, ctx)
+				local root = ctx.root or vim.fn.getcwd()
+				if not root or root == "" then
+					return false
+				end
+				local pint_path = root .. "/pint.json"
+				local stat = vim.loop.fs_stat(pint_path)
+				return stat ~= nil
+			end,
 		},
 	},
 })

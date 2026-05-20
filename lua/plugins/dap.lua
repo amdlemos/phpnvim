@@ -60,7 +60,7 @@ if dapui_ok then
 			{
 				elements = {
 					{ id = "watches", size = 0.5 },
-					{ id = "repl", size = 0.5 },
+					-- { id = "repl", size = 0.5 },
 					{ id = "breakpoints", size = 0.5 },
 				},
 				position = "right",
@@ -120,8 +120,8 @@ end, vim.tbl_extend("force", s, { desc = "DAP Hover" }))
 -- Toggle dap-ui panel (leader dt)
 keymap("n", "<leader>dt", function()
 	if not dapui_ok then
- 		return
- 	end
+		return
+	end
 
 	-- Prefer dapui.toggle if available
 	if dapui.toggle then
