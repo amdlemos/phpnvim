@@ -30,8 +30,8 @@ vim.keymap.set("n", "<leader>de", "<cmd>TinyInlineDiag enable<cr>", { desc = "En
 vim.keymap.set("n", "<leader>dd", "<cmd>TinyInlineDiag disable<cr>", { desc = "Disable diagnostics" })
 
 require("trouble").setup({
-	auto_preview = false,
-	max_items = 10,
+	auto_preview = true,  -- Ativar preview automático ao navegar
+	max_items = nil,  -- Sem limite de itens
 	throttle = {
 		refresh = 200,
 		update = 100,
@@ -41,6 +41,52 @@ require("trouble").setup({
 	keys = {
 		l = "fold_open",
 		h = "fold_close",
+	},
+	-- Configurações para exibir references em uma janela dock
+	modes = {
+		lsp_references = {
+			mode = "lsp_references",
+			preview = {
+				type = "main",  -- Usa a janela principal para preview
+			},
+			-- Agrupar por arquivo (filename)
+			group = function(item)
+				return item.filename
+			end,
+			-- Ordenar por arquivo e depois por posição (linha/col)
+			sort = { { field = "filename" }, { field = "pos" } },
+		},
+		-- Modo de referências com filtro por nome de arquivo
+		lsp_references_filter = {
+			mode = "lsp_references",
+			preview = {
+				type = "main",
+			},
+			group = function(item)
+				return item.filename
+			end,
+			sort = { { field = "filename" }, { field = "pos" } },
+			filter = function(items)
+				local pattern = vim.fn.input("Filtrar por arquivo (padrão): ")
+				if pattern == "" then
+					return items
+				end
+				return vim.tbl_filter(function(item)
+					return item.filename:find(pattern, 1, true) ~= nil
+				end, items)
+			end,
+		},
+	},
+	win = {
+		type = "split",
+		position = "bottom",
+		height = 15,
+		relative = "editor",  -- Relativo ao editor, não à janela
+		wo = {
+			number = false,
+			relativenumber = false,
+			winfixheight = true,  -- Fixa a altura para não quebrar ao trocar janelas
+		},
 	},
 })
 

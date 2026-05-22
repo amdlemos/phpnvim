@@ -11,16 +11,13 @@ return function(client, bufnr)
 	keymap("n", "gd", vim.lsp.buf.definition, vim.tbl_extend("force", opts, { desc = "Ir para definição" }))
 	keymap("n", "gD", vim.lsp.buf.declaration, vim.tbl_extend("force", opts, { desc = "Ir para declaração" }))
 	keymap("n", "gi", vim.lsp.buf.implementation, vim.tbl_extend("force", opts, { desc = "Ir para implementação" }))
-	keymap("n", "gr", vim.lsp.buf.references, vim.tbl_extend("force", opts, { desc = "Mostrar referências" }))
+	keymap("n", "gr", function()
+		require("trouble").open("lsp_references")
+	end, vim.tbl_extend("force", opts, { desc = "Mostrar referências (Trouble)" }))
+	keymap("n", "gR", function()
+		require("trouble").open("lsp_references_filter")
+	end, vim.tbl_extend("force", opts, { desc = "Mostrar referências com filtro por arquivo (Trouble)" }))
 	keymap("n", "gt", vim.lsp.buf.type_definition, vim.tbl_extend("force", opts, { desc = "Ir para definição de tipo" }))
-
-	-- Referências com preview via Telescope
-	keymap("n", "<leader>gr", function()
-		require("telescope.builtin").lsp_references({
-			show_line = false,
-			include_declaration = false,
-		})
-	end, vim.tbl_extend("force", opts, { desc = "Referências (Telescope)" }))
 
 	-- Informações
 	keymap("n", "K", vim.lsp.buf.hover, vim.tbl_extend("force", opts, { desc = "Mostrar documentação" }))

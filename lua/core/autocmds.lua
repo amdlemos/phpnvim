@@ -20,25 +20,25 @@ autocmd({ "FocusGained", "BufEnter" }, {
 })
 
 -- Markdown
-autocmd("FileType", {
-	pattern = "markdown",
-	callback = function()
-		vim.opt_local.textwidth = 120
-		vim.opt_local.formatoptions:append("t")
-		vim.opt_local.colorcolumn = "120"
-	end,
-})
+-- autocmd("FileType", {
+-- 	pattern = "markdown",
+-- 	callback = function()
+-- 		vim.opt_local.textwidth = 120
+-- 		vim.opt_local.formatoptions:append("t")
+-- 		vim.opt_local.colorcolumn = "120"
+-- 	end,
+-- })
 
 -- PHP
-autocmd("FileType", {
-	pattern = "php",
-	callback = function()
-		vim.opt_local.textwidth = 80
-		vim.opt_local.formatoptions:append("t")
-		vim.opt_local.colorcolumn = "80"
-	end,
-})
+-- autocmd("FileType", {
+-- 	pattern = "php",
+-- 	callback = function()
+-- 		vim.opt_local.textwidth = 80
+-- 		vim.opt_local.formatoptions:append("t")
+-- 		vim.opt_local.colorcolumn = "80"
+-- 	end,
+-- })
 
-vim.api.nvim_create_user_command('PackUpdate', function()
-  vim.pack.update()
+vim.api.nvim_create_user_command("PackUpdate", function()
+	vim.pack.update()
 end, {})
