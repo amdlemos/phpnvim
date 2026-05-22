@@ -8,7 +8,45 @@ return function(client, bufnr)
 	local opts = { buffer = bufnr, silent = true }
 
 	-- Navegação (nativo LSP)
-	keymap("n", "gd", vim.lsp.buf.definition, vim.tbl_extend("force", opts, { desc = "Ir para definição" }))
+	keymap("n", "gd", function()
+		vim.lsp.buf.definition({
+			on_list = function(result)
+				local function jump(item)
+					vim.cmd.edit(item.filename)
+					vim.api.nvim_win_set_cursor(0, { item.lnum, item.col - 1 })
+				end
+
+				if #result.items == 1 then
+					jump(result.items[1])
+					return
+				end
+
+				-- Múltiplos resultados: selecionar em float via fzf-lua
+				vim.cmd.packadd("fzf-lua")
+				local fzf = require("fzf-lua")
+				local entries = {}
+				for i, item in ipairs(result.items) do
+					local short = vim.fn.fnamemodify(item.filename or "", ":~:.")
+					entries[i] = string.format("%s|%d col %d| %s", short, item.lnum, item.col, item.text or "")
+				end
+				fzf.fzf_exec(entries, {
+					prompt = "Ir para definição> ",
+					winopts = { height = 0.4, width = 0.7 },
+					actions = {
+						["default"] = function(selected)
+							if not selected or #selected == 0 then return end
+							for i, entry in ipairs(entries) do
+								if entry == selected[1] then
+									jump(result.items[i])
+									break
+								end
+							end
+						end,
+					},
+				})
+			end,
+		})
+	end, vim.tbl_extend("force", opts, { desc = "Ir para definição" }))
 	keymap("n", "gD", vim.lsp.buf.declaration, vim.tbl_extend("force", opts, { desc = "Ir para declaração" }))
 	keymap("n", "gi", vim.lsp.buf.implementation, vim.tbl_extend("force", opts, { desc = "Ir para implementação" }))
 	keymap("n", "gr", function()
