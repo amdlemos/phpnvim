@@ -121,3 +121,4 @@ require("trouble").setup({
 })
 
 vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Diagnósticos do buffer (Trouble)" })
+vim.keymap.set("n", "<leader>xr", "<cmd>Trouble lsp_references toggle<cr>", { desc = "Referências (Trouble)" })
