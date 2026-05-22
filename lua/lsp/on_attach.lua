@@ -14,9 +14,6 @@ return function(client, bufnr)
 	keymap("n", "gr", function()
 		require("trouble").open("lsp_references")
 	end, vim.tbl_extend("force", opts, { desc = "Mostrar referências (Trouble)" }))
-	keymap("n", "gR", function()
-		require("trouble").open("lsp_references_filter")
-	end, vim.tbl_extend("force", opts, { desc = "Mostrar referências com filtro por arquivo (Trouble)" }))
 	keymap("n", "gt", vim.lsp.buf.type_definition, vim.tbl_extend("force", opts, { desc = "Ir para definição de tipo" }))
 
 	-- Informações
