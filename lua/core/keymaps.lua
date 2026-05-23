@@ -25,6 +25,7 @@ keymap("n", "<leader>ge", "<cmd>Neotree git_status toggle<cr>", { desc = "Status
 
 -- Git (Diffview & Conflict)
 keymap("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Git: Ver Diff (projeto)" })
+keymap("n", "<leader>gD", "<cmd>DiffviewOpen develop...HEAD<cr>", { desc = "Git: Diff develop...HEAD" })
 keymap("n", "<leader>gc", "<cmd>DiffviewClose<cr>", { desc = "Git: Fechar Diff" })
 keymap("n", "<leader>gh", "<cmd>DiffviewFileHistory %<cr>", { desc = "Git: Histórico do arquivo atual" })
 keymap("n", "<leader>gH", "<cmd>DiffviewFileHistory<cr>", { desc = "Git: Histórico do projeto" })
