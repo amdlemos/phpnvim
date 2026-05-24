@@ -76,6 +76,15 @@ if dapui_ok then
 	dap.listeners.before.disconnect["dapui_config"] = function()
 		dapui.close()
 	end
+
+	-- Sincronizar breakpoints quando deletados no dapui
+	-- Listener para quando o breakpoint é removido no UI
+	dapui.elements.breakpoints.on_element_delete = function(breakpoint)
+		if breakpoint and breakpoint.file then
+			-- Remover breakpoint do DAP
+			dap.clear_breakpoints({ file = breakpoint.file, line = breakpoint.line })
+		end
+	end
 end
 
 -- Keymaps
@@ -104,6 +113,10 @@ end
 keymap("n", "<leader>db", function()
 	dap.toggle_breakpoint()
 end, vim.tbl_extend("force", s, { desc = "DAP Toggle Breakpoint" }))
+keymap("n", "<leader>dB", function()
+	dap.clear_breakpoints()
+	print("Todos os breakpoints removidos")
+end, vim.tbl_extend("force", s, { desc = "DAP Clear All Breakpoints" }))
 keymap("n", "<leader>dc", function()
 	dap.continue()
 end, vim.tbl_extend("force", s, { desc = "DAP Continue" }))
@@ -152,5 +165,27 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "dap-float", "dapui_watches", "dapui_scopes", "dapui_hover" },
 	callback = function()
 		vim.keymap.set("n", "q", "<cmd>close!<CR>", { buffer = true, silent = true })
+	end,
+})
+
+-- Remover breakpoint no dapui e sincronizar com DAP
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "dapui_breakpoints",
+	callback = function()
+		vim.keymap.set("n", "d", function()
+			-- Pegar a linha atual (primeira coluna é o arquivo)
+			local line = vim.api.nvim_get_current_line()
+			-- Tentar extrair arquivo:linha do breakpoint
+			local file, lnum = line:match("([^:]+):(%d+)")
+			if file and lnum then
+				lnum = tonumber(lnum)
+				-- Remover todos os breakpoints desse arquivo/linha
+				dap.set_breakpoint(nil, nil, nil, { file = file, line = lnum })
+			end
+			-- Recarregar o dapui
+			if dapui_ok and dapui.open then
+				dapui.open()
+			end
+		end, { buffer = true, silent = true, desc = "Deletar breakpoint" })
 	end,
 })
