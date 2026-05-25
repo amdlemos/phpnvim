@@ -120,5 +120,24 @@ require("trouble").setup({
 	},
 })
 
-vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Diagnósticos do buffer (Trouble)" })
-vim.keymap.set("n", "<leader>xr", "<cmd>Trouble lsp_references toggle<cr>", { desc = "Referências (Trouble)" })
+local function trouble_switch(mode, opts)
+	local trouble = require("trouble")
+	local View = require("trouble.view")
+
+	-- Fechar views de outros modos antes de abrir o novo
+	for view, _ in pairs(View._views) do
+		if view.win:valid() and view.opts.mode ~= mode then
+			view:close()
+		end
+	end
+
+	trouble.toggle(vim.tbl_extend("force", { mode = mode }, opts or {}))
+end
+
+vim.keymap.set("n", "<leader>xx", function()
+	trouble_switch("diagnostics", { filter = { buf = 0 } })
+end, { desc = "Diagnósticos do buffer (Trouble)" })
+
+vim.keymap.set("n", "<leader>xr", function()
+	trouble_switch("lsp_references")
+end, { desc = "Referências (Trouble)" })
