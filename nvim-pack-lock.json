@@ -270,6 +270,10 @@
       "rev": "9a88eae817ef395952e08650b3283726786fb5fb",
       "src": "https://github.com/akinsho/toggleterm.nvim"
     },
+    "tokyonight.nvim": {
+      "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
+      "src": "https://github.com/folke/tokyonight.nvim"
+    },
     "tree-sitter-manager.nvim": {
       "rev": "25481b4e51e87f6dfd87efe258cf3188b069d781",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim"

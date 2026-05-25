@@ -19,5 +19,16 @@ require("onedark").setup({
 	diagnostics = { darker = true, undercurl = true, background = false },
 })
 
+require("tokyonight").setup({
+	style = "night",
+	transparent = true,
+	terminal_colors = false,
+	styles = {
+		comments = { italic = true },
+		keywords = { bold = false },
+	},
+})
+
 vim.keymap.set("n", "<leader>tc", '<CMD>lua require("onedark").toggle()<CR>')
+vim.keymap.set("n", "<leader>tt", "<cmd>colorscheme opencode<cr>", { desc = "OpenCode theme" })
 vim.cmd([[colorscheme astrodark]])
