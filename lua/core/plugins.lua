@@ -24,36 +24,31 @@ vim.pack.add({
 	{ src = "https://github.com/folke/tokyonight.nvim" },
 	{ src = "https://github.com/folke/which-key.nvim" },
 	{ src = "https://github.com/echasnovski/mini.nvim" },
-	-- { src = "https://github.com/folke/snacks.nvim" },
 
 	-- File Explorer (Neo-tree)
 	{ src = "https://github.com/nvim-neo-tree/neo-tree.nvim" },
 	{ src = "https://github.com/MunifTanjim/nui.nvim" },
-	{ src = "https://github.com/hedyhli/outline.nvim" },
 
 	-- Telescope
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
 
+	-- IA
+	{ src = "https://github.com/folke/sidekick.nvim" },
 	-- OpenCode AI Assistant (substituído pelo CodeCompanion)
 	-- { src = "https://github.com/nickjvandyke/opencode.nvim" },
 
 	-- CodeCompanion - AI Assistant (usa GitHub Copilot como adapter padrão)
-	{ src = "https://github.com/olimorris/codecompanion.nvim" },
+	-- { src = "https://github.com/olimorris/codecompanion.nvim" },
 
 	-- Git
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
 	{ src = "https://github.com/sindrets/diffview.nvim" },
-	{ src = "https://github.com/akinsho/git-conflict.nvim" },
-
-	-- Terminal
-	{ src = "https://github.com/akinsho/toggleterm.nvim" },
+	-- { src = "https://github.com/akinsho/git-conflict.nvim" },
 
 	-- Tmux
 	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
-
-	-- Buffer management (agora via mini.bufremove)
 
 	-- Diagnostics
 	{ src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim" },
@@ -70,7 +65,6 @@ vim.pack.add({
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
 	{ src = "https://github.com/zbirenbaum/copilot.lua" },
 	{ src = "https://github.com/giuxtaposition/blink-cmp-copilot" },
-	{ src = "https://github.com/folke/sidekick.nvim" },
 
 	-- DAP
 	{ src = "https://github.com/mfussenegger/nvim-dap" },
