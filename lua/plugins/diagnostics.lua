@@ -1,5 +1,3 @@
--- Diagnostics Configuration
-
 vim.diagnostic.config({
 	virtual_text = false,
 	signs = {
@@ -12,7 +10,6 @@ vim.diagnostic.config({
 	severity_sort = true,
 })
 
--- Definir ícones na sign column
 local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = "󰋽 " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
@@ -30,8 +27,8 @@ vim.keymap.set("n", "<leader>de", "<cmd>TinyInlineDiag enable<cr>", { desc = "En
 vim.keymap.set("n", "<leader>dd", "<cmd>TinyInlineDiag disable<cr>", { desc = "Disable diagnostics" })
 
 require("trouble").setup({
-	auto_preview = true, -- Ativar preview automático ao navegar
-	max_items = nil, -- Sem limite de itens
+	auto_preview = true,
+	max_items = nil,
 	throttle = {
 		refresh = 200,
 		update = 100,
@@ -42,7 +39,6 @@ require("trouble").setup({
 		l = "fold_open",
 		h = "fold_close",
 	},
-	-- Filtro customizado por filename (populado dinamicamente)
 	filters = {
 		filename_filter = function(item, value, _)
 			if type(value) ~= "table" or vim.tbl_isempty(value) then
@@ -51,23 +47,18 @@ require("trouble").setup({
 			return value[item.filename] == true
 		end,
 	},
-	-- Configurações para exibir references em uma janela dock
 	modes = {
 		lsp_references = {
 			mode = "lsp_references",
 			preview = {
-				type = "main", -- Usa a janela principal para preview
+				type = "main",
 			},
-			-- Agrupar por arquivo (filename)
 			group = function(item)
 				return item.filename
 			end,
-			-- Ordenar por arquivo e depois por posição (linha/col)
 			sort = { { field = "filename" }, { field = "pos" } },
 			keys = {
-				-- Filtrar por nome de arquivo com / usando fzf-lua (multiselect)
 				["/"] = function(view)
-					-- Coletar filenames únicos dos itens atuais (sem filtro aplicado)
 					local seen = {}
 					local filenames = {}
 					for _, section in ipairs(view.sections or {}) do
@@ -82,7 +73,6 @@ require("trouble").setup({
 						return
 					end
 
-					-- Abrir fzf-lua com os arquivos únicos para seleção
 					vim.cmd.packadd("fzf-lua")
 					require("fzf-lua").fzf_exec(filenames, {
 						prompt = "Filtrar referências por arquivo> ",
@@ -90,7 +80,6 @@ require("trouble").setup({
 						actions = {
 							["default"] = function(selected)
 								if not selected or #selected == 0 then
-									-- Sem seleção: remover filtro
 									view:filter({ filename_filter = {} }, { id = "filename_filter", del = true })
 									return
 								end
@@ -109,24 +98,22 @@ require("trouble").setup({
 			},
 		},
 
-		-- Modo symbols customizado: mostra apenas ícone e nome do símbolo (sem assinatura/pos)
 		symbols = {
 			desc = "document symbols",
 			mode = "lsp_document_symbols",
 			focus = false,
 			format = "{kind_icon} {symbol.name}",
-			win = { position = "right" },
 		},
 	},
 	win = {
 		type = "split",
 		position = "bottom",
 		height = 15,
-		relative = "editor", -- Relativo ao editor, não à janela
+		relative = "editor",
 		wo = {
 			number = false,
 			relativenumber = false,
-			winfixheight = true, -- Fixa a altura para não quebrar ao trocar janelas
+			winfixheight = true,
 		},
 	},
 })
@@ -135,23 +122,9 @@ local function trouble_switch(mode, opts)
 	local trouble = require("trouble")
 	local View = require("trouble.view")
 
-	-- Fechar apenas views de outros modos que estejam na mesma posição de janela
-	local default_position = "bottom"
-	local desired_position
-	if opts and opts.win and opts.win.position then
-		desired_position = opts.win.position
-	elseif mode == "diagnostics" or mode == "lsp_references" then
-		desired_position = default_position
-	else
-		desired_position = nil
-	end
-
 	for view, _ in pairs(View._views) do
 		if view.win:valid() and view.opts.mode ~= mode then
-			local view_pos = (view.opts and view.opts.win and view.opts.win.position) or default_position
-			if desired_position and view_pos == desired_position then
-				view:close()
-			end
+			view:close()
 		end
 	end
 
@@ -166,20 +139,6 @@ vim.keymap.set("n", "<leader>xr", function()
 	trouble_switch("lsp_references")
 end, { desc = "Referências (Trouble)" })
 
--- Abrir símbolos do documento através do Trouble posicionando a janela à esquerda
--- Usa o modo customizado "symbols" para aplicar o formato reduzido
 vim.keymap.set("n", "<leader>so", function()
-	trouble_switch("symbols", {
-		win = {
-			type = "split",
-			position = "left",
-			width = 40,
-			relative = "editor",
-			wo = {
-				number = false,
-				relativenumber = false,
-				winfixwidth = true,
-			},
-		},
-	})
+	trouble_switch("symbols")
 end, { desc = "Símbolos do documento (Trouble - lateral esquerda)" })
