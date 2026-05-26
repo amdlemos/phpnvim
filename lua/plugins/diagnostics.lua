@@ -113,18 +113,29 @@ require("trouble").setup({
 		wo = {
 			number = false,
 			relativenumber = false,
-			winfixheight = true,
 		},
 	},
 })
 
+local function getEdgyPosition(mode)
+	if mode == "symbols" then
+		return "left"
+	else
+		return "bottom"
+	end
+end
+
 local function trouble_switch(mode, opts)
 	local trouble = require("trouble")
 	local View = require("trouble.view")
+	local desiredPosition = getEdgyPosition(mode)
 
 	for view, _ in pairs(View._views) do
 		if view.win:valid() and view.opts.mode ~= mode then
-			view:close()
+			local viewPosition = getEdgyPosition(view.opts.mode)
+			if viewPosition == desiredPosition then
+				view:close()
+			end
 		end
 	end
 

@@ -60,7 +60,6 @@ if dapui_ok then
 			{
 				elements = {
 					{ id = "watches", size = 0.5 },
-					-- { id = "repl", size = 0.5 },
 					{ id = "breakpoints", size = 0.5 },
 				},
 				position = "right",
@@ -69,21 +68,8 @@ if dapui_ok then
 		},
 	})
 
-	-- Open/close dapui automatically when DAP starts/closes
-	dap.listeners.after.event_initialized["dapui_config"] = function()
-		dapui.open()
-	end
 	dap.listeners.before.disconnect["dapui_config"] = function()
 		dapui.close()
-	end
-
-	-- Sincronizar breakpoints quando deletados no dapui
-	-- Listener para quando o breakpoint é removido no UI
-	dapui.elements.breakpoints.on_element_delete = function(breakpoint)
-		if breakpoint and breakpoint.file then
-			-- Remover breakpoint do DAP
-			dap.clear_breakpoints({ file = breakpoint.file, line = breakpoint.line })
-		end
 	end
 end
 
@@ -130,34 +116,11 @@ keymap("n", "<leader>dk", function()
 	require("dap.ui.widgets").hover()
 end, vim.tbl_extend("force", s, { desc = "DAP Hover" }))
 
--- Toggle dap-ui panel (leader dt)
 keymap("n", "<leader>dt", function()
 	if not dapui_ok then
 		return
 	end
-
-	-- Prefer dapui.toggle if available
-	if dapui.toggle then
-		dapui.toggle()
-		return
-	end
-
-	-- Fallback: detect any open dapui buffer by name and open/close accordingly
-	local open = false
-	for _, win in ipairs(vim.api.nvim_list_wins()) do
-		local buf = vim.api.nvim_win_get_buf(win)
-		local name = vim.api.nvim_buf_get_name(buf)
-		if name:match("dapui_") then
-			open = true
-			break
-		end
-	end
-
-	if open then
-		dapui.close()
-	else
-		dapui.open()
-	end
+	dapui.toggle()
 end, vim.tbl_extend("force", s, { desc = "DAP Toggle Panel" }))
 
 -- Fechar floats do DAP com 'q'
