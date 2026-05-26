@@ -17,6 +17,12 @@ require("edgy").setup({
 	},
 	left = {
 		{
+			title = "DB UI",
+			ft = "dbui",
+			size = { width = 40 },
+			open = "DBUIToggle",
+		},
+		{
 			title = "Símbolos",
 			ft = "trouble",
 			filter = function(_, win)
@@ -27,16 +33,23 @@ require("edgy").setup({
 				require("trouble").open({ mode = "symbols", focus = false })
 			end,
 		},
+		{
+			title = "Neotest",
+			ft = "neotest-summary",
+			size = { width = 40 },
+			-- open = "DBUIToggle",
+		},
 	},
 	right = {
 		-- {
 		-- 	title = "Neo-tree",
 		-- 	ft = "neo-tree",
+		-- 	filter = function(buf)
+		-- 		return vim.b[buf].neo_tree_source == "filesystem"
+		-- 	end,
 		-- 	size = { width = 30 },
 		-- 	open = "Neotree filesystem",
 		-- },
-
-		-- Neo-tree filesystem always takes half the screen height
 		{
 			title = "Neo-Tree",
 			ft = "neo-tree",
@@ -45,6 +58,24 @@ require("edgy").setup({
 			end,
 			size = { height = 0.5 },
 		},
+		-- {
+		-- 	title = "Buffers",
+		-- 	ft = "neo-tree",
+		-- 	filter = function(buf)
+		-- 		return vim.b[buf].neo_tree_source == "buffers"
+		-- 	end,
+		-- 	size = { width = 30 },
+		-- 	open = "Neotree buffers",
+		-- },
+		-- {
+		-- 	title = "Git",
+		-- 	ft = "neo-tree",
+		-- 	filter = function(buf)
+		-- 		return vim.b[buf].neo_tree_source == "git_status"
+		-- 	end,
+		-- 	size = { width = 30 },
+		-- 	open = "Neotree git_status",
+		-- },
 
 		-- {
 		-- 	title = "Neo-Tree Buffers",
@@ -58,9 +89,17 @@ require("edgy").setup({
 		-- },
 
 		{
+			title = "Repl",
+			ft = "dap-repl",
+			size = { width = 30 },
+			open = function()
+				require("dapui").open()
+			end,
+		},
+		{
 			title = "Watches",
 			ft = "dapui_watches",
-			size = { width = 40 },
+			size = { width = 30 },
 			open = function()
 				require("dapui").open()
 			end,
@@ -68,13 +107,18 @@ require("edgy").setup({
 		{
 			title = "Breakpoints",
 			ft = "dapui_breakpoints",
-			size = { width = 40 },
+			size = { width = 30 },
 			open = function()
 				require("dapui").open()
 			end,
 		},
 	},
 	bottom = {
+		{
+			title = "DB Output",
+			ft = "dbout",
+			size = { height = 15 },
+		},
 		{
 			title = "Diagnósticos",
 			ft = "trouble",

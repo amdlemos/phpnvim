@@ -83,6 +83,8 @@ require("blink.cmp").setup({
 		},
 		per_filetype = {
 			codecompanion = { "codecompanion" },
+			sql = { "dadbod", "lsp", "buffer", "snippets" },
+			mysql = { "dadbod", "lsp", "buffer", "snippets" },
 		},
 		providers = {
 			copilot = {
@@ -95,6 +97,11 @@ require("blink.cmp").setup({
 				name = "LazyDev",
 				module = "lazydev.integrations.blink",
 				score_offset = 100,
+			},
+			dadbod = {
+				name = "dadbod",
+				module = "vim_dadbod_completion.blink",
+				score_offset = 85,
 			},
 			-- laravel = {
 			-- 	name = "laravel",
