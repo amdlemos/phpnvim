@@ -53,6 +53,7 @@ vim.pack.add({
 	-- Diagnostics
 	{ src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim" },
 	{ src = "https://github.com/folke/trouble.nvim" },
+	{ src = "https://github.com/folke/edgy.nvim" },
 	-- Code Actions
 	{ src = "https://github.com/rachartier/tiny-code-action.nvim" },
 

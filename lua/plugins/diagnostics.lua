@@ -30,8 +30,8 @@ vim.keymap.set("n", "<leader>de", "<cmd>TinyInlineDiag enable<cr>", { desc = "En
 vim.keymap.set("n", "<leader>dd", "<cmd>TinyInlineDiag disable<cr>", { desc = "Disable diagnostics" })
 
 require("trouble").setup({
-	auto_preview = true,  -- Ativar preview automático ao navegar
-	max_items = nil,  -- Sem limite de itens
+	auto_preview = true, -- Ativar preview automático ao navegar
+	max_items = nil, -- Sem limite de itens
 	throttle = {
 		refresh = 200,
 		update = 100,
@@ -56,7 +56,7 @@ require("trouble").setup({
 		lsp_references = {
 			mode = "lsp_references",
 			preview = {
-				type = "main",  -- Usa a janela principal para preview
+				type = "main", -- Usa a janela principal para preview
 			},
 			-- Agrupar por arquivo (filename)
 			group = function(item)
@@ -78,7 +78,9 @@ require("trouble").setup({
 							end
 						end
 					end
-					if #filenames == 0 then return end
+					if #filenames == 0 then
+						return
+					end
 
 					-- Abrir fzf-lua com os arquivos únicos para seleção
 					vim.cmd.packadd("fzf-lua")
@@ -106,16 +108,25 @@ require("trouble").setup({
 				end,
 			},
 		},
+
+		-- Modo symbols customizado: mostra apenas ícone e nome do símbolo (sem assinatura/pos)
+		symbols = {
+			desc = "document symbols",
+			mode = "lsp_document_symbols",
+			focus = false,
+			format = "{kind_icon} {symbol.name}",
+			win = { position = "right" },
+		},
 	},
 	win = {
 		type = "split",
 		position = "bottom",
 		height = 15,
-		relative = "editor",  -- Relativo ao editor, não à janela
+		relative = "editor", -- Relativo ao editor, não à janela
 		wo = {
 			number = false,
 			relativenumber = false,
-			winfixheight = true,  -- Fixa a altura para não quebrar ao trocar janelas
+			winfixheight = true, -- Fixa a altura para não quebrar ao trocar janelas
 		},
 	},
 })
@@ -124,10 +135,23 @@ local function trouble_switch(mode, opts)
 	local trouble = require("trouble")
 	local View = require("trouble.view")
 
-	-- Fechar views de outros modos antes de abrir o novo
+	-- Fechar apenas views de outros modos que estejam na mesma posição de janela
+	local default_position = "bottom"
+	local desired_position
+	if opts and opts.win and opts.win.position then
+		desired_position = opts.win.position
+	elseif mode == "diagnostics" or mode == "lsp_references" then
+		desired_position = default_position
+	else
+		desired_position = nil
+	end
+
 	for view, _ in pairs(View._views) do
 		if view.win:valid() and view.opts.mode ~= mode then
-			view:close()
+			local view_pos = (view.opts and view.opts.win and view.opts.win.position) or default_position
+			if desired_position and view_pos == desired_position then
+				view:close()
+			end
 		end
 	end
 
@@ -141,3 +165,21 @@ end, { desc = "Diagnósticos do buffer (Trouble)" })
 vim.keymap.set("n", "<leader>xr", function()
 	trouble_switch("lsp_references")
 end, { desc = "Referências (Trouble)" })
+
+-- Abrir símbolos do documento através do Trouble posicionando a janela à esquerda
+-- Usa o modo customizado "symbols" para aplicar o formato reduzido
+vim.keymap.set("n", "<leader>so", function()
+	trouble_switch("symbols", {
+		win = {
+			type = "split",
+			position = "left",
+			width = 40,
+			relative = "editor",
+			wo = {
+				number = false,
+				relativenumber = false,
+				winfixwidth = true,
+			},
+		},
+	})
+end, { desc = "Símbolos do documento (Trouble - lateral esquerda)" })
