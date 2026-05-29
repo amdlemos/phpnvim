@@ -5,14 +5,39 @@
 
 -- Linguagens para ativar highlight automaticamente
 local languages = {
-	"bash", "blade", "css", "dart", "diff", "dockerfile",
-	"git_config", "gitcommit", "gitignore",
-	"html", "http", "javascript", "jsdoc", "json", "jsonc",
-	"lua", "luadoc", "markdown", "markdown_inline",
-	"php", "php_only", "phpdoc",
-	"python", "regex", "rust",
-	"scss", "sql", "toml", "tsx", "typescript",
-	"vim", "vimdoc", "xml", "yaml",
+	"bash",
+	"blade",
+	"css",
+	"dart",
+	"diff",
+	"dockerfile",
+	"git_config",
+	"gitcommit",
+	"gitignore",
+	"html",
+	"http",
+	"javascript",
+	"jsdoc",
+	"json",
+	"lua",
+	"luadoc",
+	"markdown",
+	"markdown_inline",
+	"php",
+	"php_only",
+	"phpdoc",
+	"python",
+	"regex",
+	"rust",
+	"scss",
+	"sql",
+	"toml",
+	"tsx",
+	"typescript",
+	"vim",
+	"vimdoc",
+	"xml",
+	"yaml",
 }
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -31,7 +56,9 @@ vim.api.nvim_create_autocmd("FileType", {
 local ensure_installed = languages
 local function install_missing()
 	local ok, install = pcall(require, "nvim-treesitter.install")
-	if not ok then return end
+	if not ok then
+		return
+	end
 	for _, lang in ipairs(ensure_installed) do
 		local parser_path = vim.fn.stdpath("data") .. "/site/parser/" .. lang
 		local ext = vim.fn.has("win32") == 1 and ".dll" or ".so"
