@@ -9,7 +9,8 @@ local map = vim.keymap.set
 telescope.setup({
 	defaults = {
 		prompt_prefix = "  ",
-		selection_caret = " ",
+		selection_caret = "→ ",
+		entry_prefix = "  ",
 		sorting_strategy = "ascending",
 		path_display = {"filename_first"},
 		layout_config = {
