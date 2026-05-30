@@ -56,7 +56,7 @@ require("edgy").setup({
 			filter = function(buf)
 				return vim.b[buf].neo_tree_source == "filesystem"
 			end,
-			size = { height = 0.5, width = 40 },
+			size = { height = 0.5, width = 30 },
 		},
 		-- {
 		-- 	title = "Buffers",
@@ -91,7 +91,7 @@ require("edgy").setup({
 		{
 			title = "Repl",
 			ft = "dap-repl",
-			size = { width = 40 },
+			size = { width = 30 },
 			open = function()
 				require("dapui").open()
 			end,
@@ -99,7 +99,7 @@ require("edgy").setup({
 		{
 			title = "Watches",
 			ft = "dapui_watches",
-			size = { width = 40 },
+			size = { width = 30 },
 			open = function()
 				require("dapui").open()
 			end,
@@ -107,7 +107,7 @@ require("edgy").setup({
 		{
 			title = "Breakpoints",
 			ft = "dapui_breakpoints",
-			size = { width = 40 },
+			size = { width = 30 },
 			open = function()
 				require("dapui").open()
 			end,

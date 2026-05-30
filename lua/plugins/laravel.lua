@@ -1,0 +1,74 @@
+local laravel = require("laravel")
+
+laravel.setup({
+	eloquent_generate_doc_blocks = true,
+	extensions = {
+		completion = {
+			enabled = true,
+		},
+	},
+	environments = {
+		default = "sail",
+		ask_on_boot = false,
+	},
+	features = {
+		pickers = {
+			provider = "fzf-lua",
+		},
+	},
+})
+
+vim.g.Laravel = laravel
+
+local function map(lhs, fn, desc)
+	vim.keymap.set("n", lhs, fn, { desc = desc })
+end
+
+map("<leader>ll", function()
+	Laravel.pickers.laravel()
+end, "Laravel: Open Laravel Picker")
+map("<leader>la", function()
+	Laravel.pickers.artisan()
+end, "Laravel: Open Artisan Picker")
+map("<leader>le", function()
+	Laravel.commands.run("env:configure")
+end, "Laravel: Configure Environment")
+map("<leader>lr", function()
+	Laravel.pickers.routes()
+end, "Laravel: Open Routes Picker")
+map("<leader>lm", function()
+	Laravel.pickers.make()
+end, "Laravel: Open Make Picker")
+map("<leader>lc", function()
+	Laravel.pickers.commands()
+end, "Laravel: Open Commands Picker")
+map("<leader>lo", function()
+	Laravel.pickers.resources()
+end, "Laravel: Open Resources Picker")
+map("<leader>lt", function()
+	Laravel.commands.run("actions")
+end, "Laravel: Open Actions Picker")
+map("<leader>lu", function()
+	Laravel.commands.run("hub")
+end, "Laravel Artisan hub")
+map("<leader>lh", function()
+	Laravel.run("artisan docs")
+end, "Laravel: Open Documentation")
+map("<c-g>", function()
+	Laravel.commands.run("view:finder")
+end, "Laravel: Open View Finder")
+map("<leader>lp", function()
+	Laravel.commands.run("command_center")
+end, "Laravel: Open Command Center")
+
+map("gf", function()
+	local ok, res = pcall(function()
+		if Laravel.app("gf").cursorOnResource() then
+			return "<cmd>lua Laravel.commands.run('gf')<cr>"
+		end
+	end)
+	if not ok or not res then
+		return "gf"
+	end
+	return res
+end, "Laravel: Go to resource", { expr = true, noremap = true })

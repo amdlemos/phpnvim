@@ -12,7 +12,7 @@ return {
 		client.server_capabilities.completionProvider = false
 		client.server_capabilities.hoverProvider = false
 		client.server_capabilities.definitionProvider = false
-		client.server_capabilities.referencesProvider = false
+		client.server_capabilities.referencesProvider = true
 		client.server_capabilities.typeDefinitionProvider = false
 		-- client.server_capabilities.diagnosticProvider = false
 		-- client.server_capabilities.implementationProvider = false
