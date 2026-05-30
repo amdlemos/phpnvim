@@ -14,6 +14,7 @@ local on_attach = require("lsp.on_attach")
 -- Lista de servidores habilitados
 local enabled_servers = {
 	"intelephense",
+	"phpactor",
 	"copilot_language_server",
 	-- "phpactor",
 	"vtsls",

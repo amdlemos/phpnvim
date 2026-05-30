@@ -60,6 +60,9 @@ vim.pack.add({
 	-- Formatting
 	{ src = "https://github.com/stevearc/conform.nvim" },
 
+	-- Linting and Diagnostics (none-ls)
+	{ src = "https://github.com/nvimtools/none-ls.nvim" },
+
 	-- Completion
 	{ src = "https://github.com/rafamadriz/friendly-snippets" },
 	{ src = "https://github.com/onsails/lspkind.nvim" },

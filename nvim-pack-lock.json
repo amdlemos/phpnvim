@@ -189,6 +189,10 @@
       "rev": "d03f10bf562cef57bd9f80f82c54269ff4816a15",
       "src": "https://github.com/nvim-mini/mini.tabline"
     },
+    "minuet-ai.nvim": {
+      "rev": "d29dec4c36be2b41aa10e70938b7b09a03f0bdba",
+      "src": "https://github.com/milanglacier/minuet-ai.nvim"
+    },
     "molokai.nvim": {
       "rev": "720bacc534fa3b1566d75612986737088a4fb132",
       "src": "https://github.com/UtkarshVerma/molokai.nvim"
