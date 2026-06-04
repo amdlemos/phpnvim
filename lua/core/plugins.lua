@@ -32,6 +32,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-neo-tree/neo-tree.nvim" },
 
 	-- Telescope
+	{ src = "https://github.com/ibhagwan/fzf-lua" },
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },

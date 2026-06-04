@@ -13,7 +13,7 @@ opt.winborder = "rounded"
 -- Indentação
 opt.autoindent = true
 opt.smartindent = true
-opt.cindent = true
+opt.cindent = false
 opt.expandtab = true
 opt.tabstop = 4
 opt.softtabstop = 4

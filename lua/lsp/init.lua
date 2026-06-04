@@ -14,7 +14,8 @@ local on_attach = require("lsp.on_attach")
 -- Lista de servidores habilitados
 local enabled_servers = {
 	"intelephense",
-	"phpactor",
+	-- "phpactor",
+	-- "phpantom",
 	"copilot_language_server",
 	-- "phpactor",
 	"vtsls",
@@ -46,3 +47,10 @@ for _, server_name in ipairs(enabled_servers) do
 	vim.lsp.config(server_name, config)
 	vim.lsp.enable(server_name)
 end
+
+-- vim.lsp.config["phpantom"] = {
+-- 	cmd = { "phpantom_lsp" },
+-- 	filetypes = { "php" },
+-- 	root_markers = { "composer.json", ".git" },
+-- }
+-- vim.lsp.enable("phpantom")
