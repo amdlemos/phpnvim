@@ -4,8 +4,7 @@
 return {
 	settings = {
 		intelephense = {
-			format = { enable = true },
-			phpdoc = { addPackage = false },
+			format = { enable = false },
 			files = {
 				maxSize = 2000000,
 			},
