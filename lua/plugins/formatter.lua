@@ -13,13 +13,13 @@ require("conform").setup({
 		typescript = { "biome" },
 		-- vue = { "prettier" },
 		yaml = { "prettier" },
-		blade = { "blade_formatter" },
+		-- blade = { "blade_formatter", "pint" },
 		-- php = { "pint" },
 	},
 	formatters = {
 		blade_formatter = {
 			command = "blade-formatter",
-			args = { "--stdin" },
+			args = { "--stdin", "--no-php-syntax-check", "false", "--wrap-attributes", "preserve" },
 			stdin = true,
 		},
 		pint = {
