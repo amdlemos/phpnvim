@@ -25,7 +25,7 @@ telescope.setup({
 			i = {
 				["<C-j>"] = actions.move_selection_next,
 				["<C-k>"] = actions.move_selection_previous,
-				["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+                ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
 				["<Esc>"] = actions.close,
 			},
 		},
