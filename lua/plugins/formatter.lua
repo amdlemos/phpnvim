@@ -14,7 +14,7 @@ require("conform").setup({
 		-- vue = { "prettier" },
 		yaml = { "prettier" },
 		-- blade = { "blade_formatter", "pint" },
-		-- php = { "pint" },
+		php = { "pint" },
 	},
 	formatters = {
 		blade_formatter = {
