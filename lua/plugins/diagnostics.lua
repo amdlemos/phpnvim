@@ -26,7 +26,7 @@ require("tiny-inline-diagnostic").setup({
 vim.keymap.set("n", "<leader>de", "<cmd>TinyInlineDiag enable<cr>", { desc = "Enable diagnostics" })
 vim.keymap.set("n", "<leader>dd", "<cmd>TinyInlineDiag disable<cr>", { desc = "Disable diagnostics" })
 
-require("trouble").setup({
+	require("trouble").setup({
 	auto_preview = true,
 	max_items = nil,
 	throttle = {
@@ -47,17 +47,17 @@ require("trouble").setup({
 			return value[item.filename] == true
 		end,
 	},
-	modes = {
-		lsp_references = {
-			mode = "lsp_references",
-			preview = {
-				type = "main",
-			},
-			group = function(item)
-				return item.filename
-			end,
-			sort = { { field = "filename" }, { field = "pos" } },
-			keys = {
+		modes = {
+			lsp_references = {
+				mode = "lsp_references",
+				preview = {
+					type = "main",
+				},
+				group = function(item)
+					return item.filename
+				end,
+				sort = { { field = "filename" }, { field = "pos" } },
+				keys = {
 				["/"] = function(view)
 					local seen = {}
 					local filenames = {}
@@ -94,6 +94,16 @@ require("trouble").setup({
 							end,
 						},
 					})
+				end,
+			},
+
+			-- Quickfix mode: avoid grouping so each file is shown only once
+			quickfix = {
+				mode = "quickfix",
+				preview = { type = "main" },
+				group = function()
+					-- return false to disable grouping/parent nodes so each file appears only once
+					return false
 				end,
 			},
 		},

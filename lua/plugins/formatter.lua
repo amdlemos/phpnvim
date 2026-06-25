@@ -7,7 +7,7 @@ require("conform").setup({
 	},
 	formatters_by_ft = {
 		lua = { "stylua" },
-		json = { "biome" },
+		json = { "biome", "prettier" },
 		html = { "prettier" },
 		javascript = { "biome" },
 		typescript = { "biome" },

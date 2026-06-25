@@ -28,13 +28,40 @@ telescope.setup({
                 ["<C-q>"] = function(prompt_bufnr)
                     actions.send_to_qflist(prompt_bufnr)
                     local ok, trouble = pcall(require, "trouble")
-                    if ok and trouble and type(trouble.open) == "function" then
-                        vim.defer_fn(function()
+                    vim.defer_fn(function()
+                        -- Deduplicate quickfix by filename: keep first occurrence per file
+                        local qfl = vim.fn.getqflist()
+                        local seen = {}
+                        local items = {}
+                        for _, it in ipairs(qfl) do
+                            local fname = it.filename or (it.bufnr and vim.fn.bufname(it.bufnr)) or nil
+                            if fname and fname ~= "" and not seen[fname] then
+                                seen[fname] = true
+                                local bufnr = vim.fn.bufnr(fname, true)
+                                if bufnr == -1 or bufnr == 0 then
+                                    bufnr = vim.fn.bufadd(fname)
+                                    vim.fn.bufload(bufnr)
+                                end
+                                local l = it.lnum or 1
+                                local c = it.col or 1
+                                table.insert(items, {
+                                    bufnr = bufnr,
+                                    lnum = l,
+                                    col = c,
+                                    text = vim.fn.fnamemodify(fname, ':t') .. " [" .. l .. "," .. c .. "]",
+                                })
+                            end
+                        end
+                        if #items > 0 then
+                            vim.fn.setqflist({}, 'r', { items = items })
+                        end
+
+                        if ok and trouble and type(trouble.open) == "function" then
                             pcall(trouble.open, { mode = "quickfix" })
-                        end, 80)
-                    else
-                        actions.open_qflist(prompt_bufnr)
-                    end
+                        else
+                            actions.open_qflist(prompt_bufnr)
+                        end
+                    end, 80)
                 end,
 				["<Esc>"] = actions.close,
 			},

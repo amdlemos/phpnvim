@@ -34,7 +34,9 @@ return function(client, bufnr)
 					winopts = { height = 0.4, width = 0.7 },
 					actions = {
 						["default"] = function(selected)
-							if not selected or #selected == 0 then return end
+							if not selected or #selected == 0 then
+								return
+							end
 							for i, entry in ipairs(entries) do
 								if entry == selected[1] then
 									jump(result.items[i])
@@ -52,11 +54,16 @@ return function(client, bufnr)
 	keymap("n", "gr", function()
 		require("trouble").open("lsp_references")
 	end, vim.tbl_extend("force", opts, { desc = "Mostrar referências (Trouble)" }))
-	keymap("n", "gt", vim.lsp.buf.type_definition, vim.tbl_extend("force", opts, { desc = "Ir para definição de tipo" }))
+	keymap(
+		"n",
+		"gt",
+		vim.lsp.buf.type_definition,
+		vim.tbl_extend("force", opts, { desc = "Ir para definição de tipo" })
+	)
 
 	-- Informações
 	keymap("n", "K", vim.lsp.buf.hover, vim.tbl_extend("force", opts, { desc = "Mostrar documentação" }))
-	keymap("n", "<C-k>", vim.lsp.buf.signature_help, vim.tbl_extend("force", opts, { desc = "Mostrar assinatura" }))
+	-- keymap("n", "<C-k>", vim.lsp.buf.signature_help, vim.tbl_extend("force", opts, { desc = "Mostrar assinatura" }))
 
 	-- Code actions e refactoring
 	-- keymap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code Actions" }))
@@ -68,8 +75,18 @@ return function(client, bufnr)
 	end, vim.tbl_extend("force", opts, { desc = "Formatar código" }))
 
 	-- Workspace
-	keymap("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, vim.tbl_extend("force", opts, { desc = "Adicionar pasta ao workspace" }))
-	keymap("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, vim.tbl_extend("force", opts, { desc = "Remover pasta do workspace" }))
+	keymap(
+		"n",
+		"<leader>wa",
+		vim.lsp.buf.add_workspace_folder,
+		vim.tbl_extend("force", opts, { desc = "Adicionar pasta ao workspace" })
+	)
+	keymap(
+		"n",
+		"<leader>wr",
+		vim.lsp.buf.remove_workspace_folder,
+		vim.tbl_extend("force", opts, { desc = "Remover pasta do workspace" })
+	)
 	keymap("n", "<leader>wl", function()
 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	end, vim.tbl_extend("force", opts, { desc = "Listar pastas do workspace" }))
