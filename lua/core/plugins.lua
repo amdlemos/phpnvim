@@ -86,6 +86,9 @@ vim.pack.add({
 	-- Markdown
 	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
 
+	-- REST Client
+	{ src = "https://github.com/mistweaverco/kulala.nvim" },
+
 	-- Database
 	{ src = "https://github.com/tpope/vim-dadbod" },
 	{ src = "https://github.com/kristijanhusak/vim-dadbod-ui" },
