@@ -1,5 +1,8 @@
 require("kulala").setup({
-	max_response_size = 65768,
+	ui = {
+		-- tamanho máximo da resposta exibida, em bytes (padrão: 32768)
+		max_response_size = 10 * 1024 * 1024,
+	},
 })
 vim.keymap.set("n", "<leader>rr", function()
 	require("kulala").run()
