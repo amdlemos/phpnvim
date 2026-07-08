@@ -46,4 +46,8 @@ keymap("t", "<C-j>", "<C-\\><C-n><C-w>j", { desc = "Navegar para janela abaixo d
 keymap("t", "<C-k>", "<C-\\><C-n><C-w>k", { desc = "Navegar para janela acima do terminal", silent = true })
 keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Navegar para janela direita do terminal", silent = true })
 
+-- Navegação entre tabs
+keymap("n", "]t", "<cmd>tabnext<cr>", { desc = "Próxima tab", silent = true })
+keymap("n", "[t", "<cmd>tabprevious<cr>", { desc = "Tab anterior", silent = true })
+
 
