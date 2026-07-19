@@ -17,11 +17,8 @@ keymap("n", "<leader>bD", function()
 	require("mini.bufremove").delete(0, true)
 end, { desc = "Forçar fechar buffer atual", silent = true })
 
--- File Explorer (Neo-tree)
-keymap("n", "<leader>e", "<cmd>Neotree toggle reveal<cr>", { desc = "Abrir explorador de arquivos (arquivo atual)", silent = true })
+-- File Explorer (Neo-tree): keymaps <leader>e/be/ge definidos em plugins/neotree.lua
 keymap("n", "<leader>E", "<cmd>Neotree toggle<cr>", { desc = "Abrir explorador de arquivos (root)", silent = true })
-keymap("n", "<leader>be", "<cmd>Neotree buffers toggle<cr>", { desc = "Explorador de buffers (Neo-tree)", silent = true })
-keymap("n", "<leader>ge", "<cmd>Neotree git_status toggle<cr>", { desc = "Status do Git (Neo-tree)", silent = true })
 
 -- Git (Diffview & Conflict)
 keymap("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Git: Ver Diff (projeto)" })
@@ -39,12 +36,8 @@ keymap("n", "<leader>gH", "<cmd>DiffviewFileHistory<cr>", { desc = "Git: Histór
 -- keymap("n", "<leader>gm", ":Git commit<cr>", { desc = "Git: Commit (MiniGit)" })
 -- keymap("n", "<leader>gp", ":Git push<cr>", { desc = "Git: Push (MiniGit)" })
 
--- Navegação no terminal
+-- Navegação no terminal: <C-h/j/k/l> em modo t definidos em plugins/tmux.lua (TmuxNavigate)
 keymap("t", "<Esc>", "<C-\\><C-n>", { desc = "Sair do modo insert do terminal", silent = true })
-keymap("t", "<C-h>", "<C-\\><C-n><C-w>h", { desc = "Navegar para janela esquerda do terminal", silent = true })
-keymap("t", "<C-j>", "<C-\\><C-n><C-w>j", { desc = "Navegar para janela abaixo do terminal", silent = true })
-keymap("t", "<C-k>", "<C-\\><C-n><C-w>k", { desc = "Navegar para janela acima do terminal", silent = true })
-keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Navegar para janela direita do terminal", silent = true })
 
 -- Navegação entre tabs
 keymap("n", "]t", "<cmd>tabnext<cr>", { desc = "Próxima tab", silent = true })
