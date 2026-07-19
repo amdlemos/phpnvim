@@ -1,6 +1,12 @@
 require("edgy").setup({
 	animate = { enabled = false },
 	exit_when_last = false,
+	-- Largura única por borda: nenhuma view da esquerda define width própria,
+	-- então a coluna nunca muda de tamanho ao alternar views
+	options = {
+		left = { size = 30 },
+		right = { size = 30 },
+	},
 	keys = {
 		["<C-Left>"] = function(win)
 			win:resize("width", -10)
@@ -16,58 +22,39 @@ require("edgy").setup({
 		end,
 	},
 	left = {
-
-		-- {
-		-- 	title = "Neo-tree",
-		-- 	ft = "neo-tree",
-		-- 	filter = function(buf)
-		-- 		return vim.b[buf].neo_tree_source == "filesystem"
-		-- 	end,
-		-- 	size = { width = 30 },
-		-- 	open = "Neotree filesystem",
-		-- },
 		{
 			title = "Neo-Tree",
 			ft = "neo-tree",
 			filter = function(buf)
 				return vim.b[buf].neo_tree_source == "filesystem"
 			end,
-			size = { height = 0.5, width = 30 },
+			size = { height = 0.5 },
+			-- winbar fica com o source_selector do neo-tree, não com o título do edgy
+			wo = { winbar = false },
 		},
-		-- {
-		-- 	title = "Buffers",
-		-- 	ft = "neo-tree",
-		-- 	filter = function(buf)
-		-- 		return vim.b[buf].neo_tree_source == "buffers"
-		-- 	end,
-		-- 	size = { width = 30 },
-		-- 	open = "Neotree buffers",
-		-- },
-		-- {
-		-- 	title = "Git",
-		-- 	ft = "neo-tree",
-		-- 	filter = function(buf)
-		-- 		return vim.b[buf].neo_tree_source == "git_status"
-		-- 	end,
-		-- 	size = { width = 30 },
-		-- 	open = "Neotree git_status",
-		-- },
-
-		-- {
-		-- 	title = "Neo-Tree Buffers",
-		-- 	ft = "neo-tree",
-		-- 	filter = function(buf)
-		-- 		return vim.b[buf].neo_tree_source == "buffers"
-		-- 	end,
-		-- 	pinned = true,
-		-- 	collapsed = true, -- show window as closed/collapsed on start
-		-- 	open = "Neotree position=top buffers",
-		-- },
-
+		{
+			title = "Buffers",
+			ft = "neo-tree",
+			filter = function(buf)
+				return vim.b[buf].neo_tree_source == "buffers"
+			end,
+			size = { height = 0.25 },
+			open = "Neotree buffers",
+			wo = { winbar = false },
+		},
+		{
+			title = "Git",
+			ft = "neo-tree",
+			filter = function(buf)
+				return vim.b[buf].neo_tree_source == "git_status"
+			end,
+			size = { height = 0.25 },
+			open = "Neotree git_status",
+			wo = { winbar = false },
+		},
 		{
 			title = "DB UI",
 			ft = "dbui",
-			size = { width = 40 },
 			open = "DBUIToggle",
 		},
 		{
@@ -76,7 +63,6 @@ require("edgy").setup({
 			filter = function(_, win)
 				return vim.w[win].trouble and vim.w[win].trouble.mode == "symbols"
 			end,
-			size = { width = 40 },
 			open = function()
 				require("trouble").open({ mode = "symbols", focus = false })
 			end,
@@ -84,15 +70,12 @@ require("edgy").setup({
 		{
 			title = "Neotest",
 			ft = "neotest-summary",
-			size = { width = 40 },
-			-- open = "DBUIToggle",
 		},
 	},
 	right = {
 		{
 			title = "Repl",
 			ft = "dap-repl",
-			size = { width = 30 },
 			open = function()
 				require("dapui").open()
 			end,
@@ -100,7 +83,6 @@ require("edgy").setup({
 		{
 			title = "Watches",
 			ft = "dapui_watches",
-			size = { width = 30 },
 			open = function()
 				require("dapui").open()
 			end,
@@ -108,7 +90,6 @@ require("edgy").setup({
 		{
 			title = "Breakpoints",
 			ft = "dapui_breakpoints",
-			size = { width = 30 },
 			open = function()
 				require("dapui").open()
 			end,
