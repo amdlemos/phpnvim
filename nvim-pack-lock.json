@@ -1,9 +1,5 @@
 {
   "plugins": {
-    "arborist.nvim": {
-      "rev": "fdeef56c2840c6772b9f68c5774ed87e9340ec7d",
-      "src": "https://github.com/arborist-ts/arborist.nvim"
-    },
     "astrotheme": {
       "rev": "95c046b763266a4873bdf0cbf6a1824c929dec3a",
       "src": "https://github.com/AstroNvim/astrotheme"

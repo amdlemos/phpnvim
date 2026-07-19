@@ -18,9 +18,8 @@ vim.pack.add({
 	-- Blade
 	{ src = "https://github.com/RicardoRamirezR/blade-nav.nvim" },
 
-	-- Treesitter
-	-- { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
-	{ src = "https://github.com/arborist-ts/arborist.nvim" },
+	-- Treesitter (branch main, requer Neovim 0.11+ e tree-sitter CLI)
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 
 	-- UI
 	{ src = "https://github.com/navarasu/onedark.nvim" },
