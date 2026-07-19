@@ -23,7 +23,7 @@ local enabled_servers = {
 	"cssls",
 	"jsonls",
 	"emmet_language_server",
-	"eslint",
+	-- "eslint",
 	"yamlls",
 	"dartls",
 	"tailwindcss",
