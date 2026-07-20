@@ -7,6 +7,10 @@ require("edgy").setup({
 		left = { size = 30 },
 		right = { size = 30 },
 	},
+	-- Mantém o background consistente mesmo quando a janela ganha foco
+	wo = {
+		winhighlight = "Normal:Normal,NormalNC:Normal",
+	},
 	keys = {
 		["<C-Left>"] = function(win)
 			win:resize("width", -10)
