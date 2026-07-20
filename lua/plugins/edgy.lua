@@ -25,27 +25,7 @@ require("edgy").setup({
 			win:resize("height", -5)
 		end,
 	},
-	left = {
-		{
-			title = "DB UI",
-			ft = "dbui",
-			open = "DBUIToggle",
-		},
-		{
-			title = "Símbolos",
-			ft = "trouble",
-			filter = function(_, win)
-				return vim.w[win].trouble and vim.w[win].trouble.mode == "symbols"
-			end,
-			open = function()
-				require("trouble").open({ mode = "symbols", focus = false })
-			end,
-		},
-		{
-			title = "Neotest",
-			ft = "neotest-summary",
-		},
-	},
+	left = {},
 	right = {
 		{
 			title = "Neo-Tree",
@@ -77,20 +57,13 @@ require("edgy").setup({
 			open = "Neotree git_status",
 			wo = { winbar = false },
 		},
-		{
-			title = "Repl",
-			ft = "dap-repl",
-			open = function()
-				require("dapui").open()
-			end,
-		},
-		{
-			title = "Watches",
-			ft = "dapui_watches",
-			open = function()
-				require("dapui").open()
-			end,
-		},
+		-- {
+		-- 	title = "Repl",
+		-- 	ft = "dap-repl",
+		-- 	open = function()
+		-- 		require("dapui").open()
+		-- 	end,
+		-- },
 		{
 			title = "Breakpoints",
 			ft = "dapui_breakpoints",
@@ -98,8 +71,34 @@ require("edgy").setup({
 				require("dapui").open()
 			end,
 		},
+		{
+			title = "DB UI",
+			ft = "dbui",
+			open = "DBUIToggle",
+		},
+		{
+			title = "Símbolos",
+			ft = "trouble",
+			filter = function(_, win)
+				return vim.w[win].trouble and vim.w[win].trouble.mode == "symbols"
+			end,
+			open = function()
+				require("trouble").open({ mode = "symbols", focus = false })
+			end,
+		},
+		{
+			title = "Neotest",
+			ft = "neotest-summary",
+		},
 	},
 	bottom = {
+		{
+			title = "Watches",
+			ft = "dapui_watches",
+			open = function()
+				require("dapui").open()
+			end,
+		},
 		{
 			title = "DB Output",
 			ft = "dbout",

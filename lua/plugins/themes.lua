@@ -40,4 +40,4 @@ require("gruvbox").setup({
 vim.keymap.set("n", "<leader>tc", '<CMD>lua require("onedark").toggle()<CR>')
 vim.keymap.set("n", "<leader>tt", "<cmd>colorscheme opencode<cr>", { desc = "OpenCode theme" })
 vim.keymap.set("n", "<leader>tg", "<cmd>colorscheme gruvbox<cr>", { desc = "Gruvbox theme" })
-vim.cmd([[colorscheme astrodark]])
+vim.cmd([[colorscheme onedark]])
