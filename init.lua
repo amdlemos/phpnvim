@@ -17,12 +17,15 @@ local function load_plugins()
 	for file in vim.fs.dir(plugins_dir) do
 		if file:match("%.lua$") then
 			local plugin_name = file:gsub("%.lua$", "")
-			pcall(require, "plugins." .. plugin_name)
+			if plugin_name ~= "themes" then
+				pcall(require, "plugins." .. plugin_name)
+			end
 		end
 	end
 end
 
 load_plugins()
+require("plugins.themes")
 
 -- LSP: Configuração do Language Server Protocol
 require("lsp")
