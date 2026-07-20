@@ -4,6 +4,9 @@
 --   NES: Next Edit Suggestions via GitHub Copilot
 --   CLI: Interface para ferramentas de AI CLI (opencode, copilot, claude, etc.)
 
+-- if true then
+-- 	return {}
+-- end
 require("sidekick").setup({
 	-- NES: Next Edit Suggestions
 	nes = {
@@ -11,7 +14,7 @@ require("sidekick").setup({
 		debounce = 100,
 		diff = {
 			inline = "words", -- "words" | "chars" | false
-			show = "always",  -- "always" | "cursor"
+			show = "always", -- "always" | "cursor"
 		},
 		signs = true,
 		jumplist = true,
@@ -26,9 +29,9 @@ require("sidekick").setup({
 				width = 75,
 				height = 20,
 			},
-            keys = {
-                escape = { "<Esc>", "<c-[>", mode = "t" },
-            },
+			keys = {
+				escape = { "<Esc>", "<c-[>", mode = "t" },
+			},
 		},
 		picker = "telescope",
 	},
@@ -53,11 +56,21 @@ map({ "n", "x" }, "<Tab>", function()
 end, { desc = "Sidekick: NES jump/apply", expr = true, silent = true })
 
 -- Opencode: toggle painel via tmux split
-map("n", "<leader>st", "<cmd>Sidekick cli toggle tool=opencode<cr>", { desc = "Sidekick: Toggle opencode", silent = true })
+map(
+	"n",
+	"<leader>st",
+	"<cmd>Sidekick cli toggle tool=opencode<cr>",
+	{ desc = "Sidekick: Toggle opencode", silent = true }
+)
 
 -- Copilot CLI: toggle painel via tmux split
 -- Requer: npm install -g @githubnext/copilot-cli
-map("n", "<leader>sk", "<cmd>Sidekick cli toggle tool=copilot<cr>", { desc = "Sidekick: Toggle copilot CLI", silent = true })
+map(
+	"n",
+	"<leader>sk",
+	"<cmd>Sidekick cli toggle tool=copilot<cr>",
+	{ desc = "Sidekick: Toggle copilot CLI", silent = true }
+)
 
 -- CLI: selecionar qual tool abrir via Telescope
 map("n", "<leader>ss", "<cmd>Sidekick cli select<cr>", { desc = "Sidekick: Select AI tool", silent = true })
