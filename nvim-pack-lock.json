@@ -21,6 +21,10 @@
       "rev": "1454f14a8d855a578ceeba77c62538fa1459a67c",
       "src": "https://github.com/Saghen/blink.compat"
     },
+    "catppuccin": {
+      "rev": "058e83dc009e4dd62f30807054de9cc849699e27",
+      "src": "https://github.com/catppuccin/nvim"
+    },
     "conform.nvim": {
       "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
       "src": "https://github.com/stevearc/conform.nvim"

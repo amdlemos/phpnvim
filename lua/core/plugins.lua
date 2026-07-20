@@ -23,6 +23,7 @@ vim.pack.add({
 
 	-- UI
 	{ src = "https://github.com/navarasu/onedark.nvim" },
+	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 	{ src = "https://github.com/AstroNvim/astrotheme" },
 	{ src = "https://github.com/folke/tokyonight.nvim" },
 	{ src = "https://github.com/morhetz/gruvbox" },

@@ -1,6 +1,10 @@
 -- Themes Configuration
 
 require("astrotheme").setup({})
+require("catppuccin").setup({
+	flavour = "mocha",
+	transparent_background = true,
+})
 require("onedark").setup({
 	style = "deep",
 	transparent = true,
