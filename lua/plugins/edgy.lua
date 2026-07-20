@@ -23,6 +23,27 @@ require("edgy").setup({
 	},
 	left = {
 		{
+			title = "DB UI",
+			ft = "dbui",
+			open = "DBUIToggle",
+		},
+		{
+			title = "Símbolos",
+			ft = "trouble",
+			filter = function(_, win)
+				return vim.w[win].trouble and vim.w[win].trouble.mode == "symbols"
+			end,
+			open = function()
+				require("trouble").open({ mode = "symbols", focus = false })
+			end,
+		},
+		{
+			title = "Neotest",
+			ft = "neotest-summary",
+		},
+	},
+	right = {
+		{
 			title = "Neo-Tree",
 			ft = "neo-tree",
 			filter = function(buf)
@@ -52,27 +73,6 @@ require("edgy").setup({
 			open = "Neotree git_status",
 			wo = { winbar = false },
 		},
-		{
-			title = "DB UI",
-			ft = "dbui",
-			open = "DBUIToggle",
-		},
-		{
-			title = "Símbolos",
-			ft = "trouble",
-			filter = function(_, win)
-				return vim.w[win].trouble and vim.w[win].trouble.mode == "symbols"
-			end,
-			open = function()
-				require("trouble").open({ mode = "symbols", focus = false })
-			end,
-		},
-		{
-			title = "Neotest",
-			ft = "neotest-summary",
-		},
-	},
-	right = {
 		{
 			title = "Repl",
 			ft = "dap-repl",

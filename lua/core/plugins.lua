@@ -25,6 +25,7 @@ vim.pack.add({
 	{ src = "https://github.com/navarasu/onedark.nvim" },
 	{ src = "https://github.com/AstroNvim/astrotheme" },
 	{ src = "https://github.com/folke/tokyonight.nvim" },
+	{ src = "https://github.com/morhetz/gruvbox" },
 	{ src = "https://github.com/folke/which-key.nvim" },
 	{ src = "https://github.com/echasnovski/mini.nvim" },
 

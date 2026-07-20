@@ -29,6 +29,10 @@ require("tokyonight").setup({
 	},
 })
 
+vim.g.gruvbox_contrast_dark = "medium"
+vim.g.gruvbox_transparent_bg = 1
+
 vim.keymap.set("n", "<leader>tc", '<CMD>lua require("onedark").toggle()<CR>')
 vim.keymap.set("n", "<leader>tt", "<cmd>colorscheme opencode<cr>", { desc = "OpenCode theme" })
+vim.keymap.set("n", "<leader>tg", "<cmd>colorscheme gruvbox<cr>", { desc = "Gruvbox theme" })
 vim.cmd([[colorscheme astrodark]])

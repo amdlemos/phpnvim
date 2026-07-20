@@ -64,6 +64,6 @@ require("neo-tree").setup({
 })
 
 vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neo-tree" })
-vim.keymap.set("n", "<leader>o", "<cmd>Neotree focus<cr>", { desc = "Focar Neo-tree" })
+-- vim.keymap.set("n", "<leader>o", "<cmd>Neotree focus<cr>", { desc = "Focar Neo-tree" })
 vim.keymap.set("n", "<leader>ge", "<cmd>Neotree git_status<cr>", { desc = "Neo-tree Git Status" })
 vim.keymap.set("n", "<leader>be", "<cmd>Neotree buffers<cr>", { desc = "Neo-tree Buffers" })
