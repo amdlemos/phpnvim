@@ -15,6 +15,9 @@ vim.pack.add({
 	{ src = "https://github.com/adalessa/laravel.nvim" },
 	{ src = "https://github.com/Saghen/blink.compat" },
 
+	{ src = "https://github.com/lewis6991/async.nvim" },
+	{ src = "https://github.com/theprimeagen/refactoring.nvim" },
+
 	-- Blade
 	{ src = "https://github.com/RicardoRamirezR/blade-nav.nvim" },
 
@@ -53,18 +56,25 @@ vim.pack.add({
 	{ src = "https://github.com/sindrets/diffview.nvim" },
 	-- { src = "https://github.com/akinsho/git-conflict.nvim" },
 
+	-- GitHub: PRs e Issues dentro do Neovim (requer `gh auth login`)
+	{ src = "https://github.com/emrearmagan/atlas.nvim" },
+
 	-- Tmux
 	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
 
 	-- Diagnostics
 	{ src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim" },
 	{ src = "https://github.com/folke/trouble.nvim" },
+	{ src = "https://github.com/hedyhli/outline.nvim" },
 	{ src = "https://github.com/folke/edgy.nvim" },
 	-- Code Actions
 	{ src = "https://github.com/rachartier/tiny-code-action.nvim" },
 
 	-- Formatting
 	{ src = "https://github.com/stevearc/conform.nvim" },
+
+	-- Linting
+	{ src = "https://github.com/mfussenegger/nvim-lint" },
 
 	-- Completion
 	{ src = "https://github.com/rafamadriz/friendly-snippets" },
@@ -89,6 +99,7 @@ vim.pack.add({
 	{ src = "https://github.com/mistweaverco/kulala.nvim" },
 
 	-- Database
+	{ src = "https://github.com/eduardofuncao/squix.nvim" },
 	{ src = "https://github.com/tpope/vim-dadbod" },
 	{ src = "https://github.com/kristijanhusak/vim-dadbod-ui" },
 	{ src = "https://github.com/kristijanhusak/vim-dadbod-completion" },

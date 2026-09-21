@@ -27,6 +27,12 @@ keymap("n", "<leader>gc", "<cmd>DiffviewClose<cr>", { desc = "Git: Fechar Diff" 
 keymap("n", "<leader>gh", "<cmd>DiffviewFileHistory %<cr>", { desc = "Git: Histórico do arquivo atual" })
 keymap("n", "<leader>gH", "<cmd>DiffviewFileHistory<cr>", { desc = "Git: Histórico do projeto" })
 
+-- Git: Diff do trabalho local contra a branch atual (HEAD)
+-- AtlasDiff só aceita revisões que resolvem para commit, então índice e working tree usam Diffview.
+keymap("n", "<leader>gS", "<cmd>DiffviewOpen --cached<cr>", { desc = "Git: Diff staged vs HEAD" })
+keymap("n", "<leader>gu", "<cmd>DiffviewOpen<cr>", { desc = "Git: Diff unstaged (working tree vs índice)" })
+keymap("n", "<leader>gw", "<cmd>DiffviewOpen HEAD<cr>", { desc = "Git: Diff staged + unstaged vs HEAD" })
+
 -- Git: Gerenciamento de Hunks e Commit (MiniDiff & MiniGit)
 -- keymap("n", "<leader>gs", "<cmd>lua MiniDiff.apply()<cr>", { desc = "Git: Stage/Aplicar hunk" })
 -- keymap("n", "<leader>gr", "<cmd>lua MiniDiff.reset()<cr>", { desc = "Git: Reset/Descartar hunk" })
@@ -42,5 +48,3 @@ keymap("t", "<Esc>", "<C-\\><C-n>", { desc = "Sair do modo insert do terminal", 
 -- Navegação entre tabs
 keymap("n", "]t", "<cmd>tabnext<cr>", { desc = "Próxima tab", silent = true })
 keymap("n", "[t", "<cmd>tabprevious<cr>", { desc = "Tab anterior", silent = true })
-
-

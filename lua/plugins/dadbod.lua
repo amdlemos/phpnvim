@@ -3,6 +3,7 @@ vim.g.db_ui_save_location = vim.fn.stdpath("data") .. "/db_ui"
 
 vim.g.dbs = {
 	{ name = "runy-v1", url = "mysql://db:db@127.0.0.1:3306/db" },
+	{ name = "runy-v1-test", url = "mysql://db:db@127.0.0.1:3306/testing" },
 	{ name = "runy-v2", url = "mysql://root:password@127.0.0.1:3307/laravel" },
 	{
 		name = "certificados-join",

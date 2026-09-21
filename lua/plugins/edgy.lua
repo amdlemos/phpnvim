@@ -1,7 +1,7 @@
 require("edgy").setup({
 	animate = { enabled = false },
 	exit_when_last = false,
-	-- Largura única por borda: nenhuma view da esquerda define width própria,
+	-- Largura única por borda: nenhuma view da direita define width própria,
 	-- então a coluna nunca muda de tamanho ao alternar views
 	options = {
 		left = { size = 30 },
@@ -25,8 +25,8 @@ require("edgy").setup({
 			win:resize("height", -5)
 		end,
 	},
-	left = {},
-	right = {
+	right = {},
+	left = {
 		{
 			title = "Neo-Tree",
 			ft = "neo-tree",
@@ -78,20 +78,15 @@ require("edgy").setup({
 		},
 		{
 			title = "Símbolos",
-			ft = "trouble",
-			filter = function(_, win)
-				return vim.w[win].trouble and vim.w[win].trouble.mode == "symbols"
-			end,
+			ft = "Outline",
 			open = function()
-				require("trouble").open({ mode = "symbols", focus = false })
+				require("outline").open()
 			end,
 		},
 		{
 			title = "Neotest",
 			ft = "neotest-summary",
 		},
-	},
-	bottom = {
 		{
 			title = "Watches",
 			ft = "dapui_watches",
@@ -99,6 +94,8 @@ require("edgy").setup({
 				require("dapui").open()
 			end,
 		},
+	},
+	bottom = {
 		{
 			title = "DB Output",
 			ft = "dbout",

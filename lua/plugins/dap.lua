@@ -60,7 +60,7 @@ if dapui_ok then
 			{
 				elements = {
 					{ id = "watches", size = 0.5 },
-					{ id = "repl", size = 0.5 },
+					-- { id = "repl", size = 0.5 },
 					{ id = "breakpoints", size = 0.5 },
 				},
 				position = "right",

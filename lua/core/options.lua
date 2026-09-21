@@ -7,7 +7,7 @@ local opt = vim.opt
 opt.guicursor = "i:block"
 opt.termguicolors = true
 opt.cmdheight = 0
-opt.laststatus = 0
+opt.laststatus = 3 -- Statusline global única (mini.statusline)
 opt.winborder = "rounded"
 
 -- Indentação

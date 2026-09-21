@@ -45,6 +45,17 @@ require("sidekick").setup({
 	},
 })
 
+local function use_editor_background()
+	vim.api.nvim_set_hl(0, "SidekickChat", { link = "Normal" })
+end
+
+use_editor_background()
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	group = vim.api.nvim_create_augroup("SidekickEditorBackground", { clear = true }),
+	callback = use_editor_background,
+})
+
 -- Keymaps
 local map = vim.keymap.set
 

@@ -3,9 +3,7 @@ vim.diagnostic.config({
 	signs = {
 		severity = { min = vim.diagnostic.severity.WARN },
 	},
-	underline = {
-		severity = { min = vim.diagnostic.severity.WARN },
-	},
+	underline = false,
 	update_in_insert = false,
 	severity_sort = true,
 })
@@ -107,13 +105,6 @@ vim.keymap.set("n", "<leader>dd", "<cmd>TinyInlineDiag disable<cr>", { desc = "D
 				end,
 			},
 		},
-
-		symbols = {
-			desc = "document symbols",
-			mode = "lsp_document_symbols",
-			focus = false,
-			format = "{kind_icon} {symbol.name}",
-		},
 	},
 	win = {
 		type = "split",
@@ -127,25 +118,13 @@ vim.keymap.set("n", "<leader>dd", "<cmd>TinyInlineDiag disable<cr>", { desc = "D
 	},
 })
 
-local function getEdgyPosition(mode)
-	if mode == "symbols" then
-		return "left"
-	else
-		return "bottom"
-	end
-end
-
 local function trouble_switch(mode, opts)
 	local trouble = require("trouble")
 	local View = require("trouble.view")
-	local desiredPosition = getEdgyPosition(mode)
 
 	for view, _ in pairs(View._views) do
 		if view.win:valid() and view.opts.mode ~= mode then
-			local viewPosition = getEdgyPosition(view.opts.mode)
-			if viewPosition == desiredPosition then
-				view:close()
-			end
+			view:close()
 		end
 	end
 
@@ -159,7 +138,3 @@ end, { desc = "Diagnósticos do buffer (Trouble)" })
 vim.keymap.set("n", "<leader>xr", function()
 	trouble_switch("lsp_references")
 end, { desc = "Referências (Trouble)" })
-
-vim.keymap.set("n", "<leader>so", function()
-	trouble_switch("symbols")
-end, { desc = "Símbolos do documento (Trouble - lateral esquerda)" })
